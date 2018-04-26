@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:300|Lato|Montserrat:400);
+
+// SET UP COLORS:
+$dark: #323232;
+$dark-light: #565656;
+
+$light-border: #979797;
+$light-text: #C3C3C3;
+$background: #EFEFEF;
+$light-background: #F5F5F5;
+$white: white;
+
+$focus: #3B8FFF;
+
+
+// SET UP FONTS:
+
+$title-font: 'Oswald', sans-serif;
+$body-font: 'Lato', sans-serif;
+$nav-item-font: 'Montserrat', sans-serif;
+
+body {
+    background-color:$background;
+}
