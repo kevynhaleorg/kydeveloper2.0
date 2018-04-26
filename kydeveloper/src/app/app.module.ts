@@ -13,23 +13,29 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { KyDeveloperRoutingModule } from './app-routing.module';
+import { AboutModule } from './modules/about.module';
+import { BlogModule } from './modules/blog.module';
+import { ContactModule } from './modules/contact.module';
+import { HomeModule } from './modules/home.module';
+import { PortfolioModule } from './modules/portfolio.module';
+import { BiographyComponent } from './pages/about/biography/biography.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SidebarSocialmediaComponent,
-    PortfolioComponent,
-    BlogComponent,
-    AboutComponent,
-    HomeComponent,
-    ContactComponent
+    SidebarSocialmediaComponent
   ],
   imports: [
     BrowserModule,
     StoreModule,
-    KyDeveloperRoutingModule
+    KyDeveloperRoutingModule,
+    AboutModule,
+    BlogModule,
+    ContactModule,
+    HomeModule,
+    PortfolioModule
   ],
   providers: [
     ACTION_PROVIDERS,

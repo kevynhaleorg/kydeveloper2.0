@@ -1,3 +1,36 @@
-<p>
-  about works!
-</p>
+<div class="profile-image">
+  <img src="assets/images/profile.png">
+</div>
+<div class="intro">
+    I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless of billable hours so you can spend your time on what really matters. 
+</div>
+<div class="transition">
+  See My...
+</div>
+
+<div class="button-row">
+  <ul>
+    <li class="gutter"></li>
+    <li class="button">
+      <a routerLink="/about/biography" routerLinkActive="selected"><span>Biography</span></a>
+    </li>
+    <li class="gutter"></li>
+    <li class="button">
+      <a routerLink="/about/readinglist" routerLinkActive="selected"><span>Reading List</span></a>
+    </li>
+    <li class="gutter"></li>
+    <li class="button">
+      <a routerLink="/about/resume" routerLinkActive="selected"><span>Resume</span></a>
+    </li>
+    <li class="gutter"></li>
+    <li class="button">
+      <a routerLink="/about/contact" routerLinkActive="selected"><span>Contact</span></a>
+    </li>
+    <li class="gutter"></li>
+  </ul>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+

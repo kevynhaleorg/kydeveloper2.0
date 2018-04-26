@@ -2,12 +2,13 @@
 
 ul {
     position:fixed;
-    top:125px;
+    top:150px;
     left:0px;
     list-style:none;
     margin:0px;
     margin-left:20px;
     padding:0px;
+    z-index:5;
 
     li {
         margin-bottom: 10px;

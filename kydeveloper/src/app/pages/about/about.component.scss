@@ -1,0 +1,92 @@
+@import '../../../styles.scss';
+
+$margin-bottom: 35px;
+
+
+.profile-image {
+    padding-top:40px;
+    width:100%;
+    text-align:center;
+}
+
+.intro {
+    /* I am a fullstack web: */
+    font-family: $body-font;
+    font-size: 28px;
+    color: $dark-light;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 45px;
+    width:70%;
+    margin: 50px auto $margin-bottom;
+}
+
+.transition {
+    font-family: $title-font;
+    color:$dark;
+    font-size:64px;
+    text-align:center;
+    width:100%;
+    margin-bottom: $margin-bottom;
+}
+
+.button-row {
+    width:100%;
+    max-width:1200px;
+    margin: 0px auto $margin-bottom;
+
+    ul {
+        display:flex;
+        flex-direction: row;
+        margin:0px;
+        padding:0px;
+        list-style:none;
+
+        li {
+            text-align:center;
+
+            &.gutter {
+                flex-grow:1;
+            }
+
+            &.button {
+
+                span {
+                    padding: 5px 30px;
+                    border: 1px solid $focus;
+                    box-shadow:inset 0px 0px 0px 2px $white;
+                    border-radius:5px;
+                    /* Reading List: */
+                    font-family: $title-font;
+                    font-size: 24px;
+                    color: $dark-light;
+                    height:50px;
+                    line-height:50px;
+
+                    &:hover {
+                        background-color:$focus;
+                        color:$white;
+                        box-shadow:none;
+                        cursor: pointer;
+                    }
+
+                }
+
+                a.selected span {
+                    background-color:$focus;
+                    color:$white;
+                    box-shadow:none;
+                }
+            }
+        }
+    }
+}
+
+.content {
+    background-color:$light-background;
+    width:calc(100% - 50px);
+    min-height:400px;
+    height: auto;
+    padding:25px;
+    margin-bottom: $margin-bottom;
+}

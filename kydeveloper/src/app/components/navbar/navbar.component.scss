@@ -2,10 +2,6 @@
 
 $nav-height: 75px;
 
-a {
-    text-decoration:none;
-}
-
 nav {
     background-color:$white;
     height:$nav-height;
@@ -13,6 +9,7 @@ nav {
     position:fixed;
     top:0px;
     left:0px;
+    z-index:5;
 }
 
 .container {
