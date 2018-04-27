@@ -4,17 +4,20 @@ import { SidebarSocialmediaComponent } from './components/sidebar-socialmedia/si
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { KyDeveloperRoutingModule } from './app-routing.module';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { MatIconModule, MatCardModule } from '@angular/material'
 
 @NgModule({
   imports: [
     CommonModule,
-    KyDeveloperRoutingModule
+    KyDeveloperRoutingModule,
+    MatIconModule
   ],
   exports: [
     SidebarSocialmediaComponent,
     SocialMediaComponent,
     KyDeveloperRoutingModule,
-    SearchBoxComponent
+    SearchBoxComponent,
+    MatIconModule
   ],
   declarations: [
     SidebarSocialmediaComponent,

@@ -6,4 +6,43 @@
     border-radius: 5px;
     border: 1px solid $light-border;
     box-shadow:inset 0px 0px 0px 3px $white;
+    position:relative;
+
+    .search {
+        color:$dark-light;
+        position: relative;
+        font-size:40px;
+        top: 35%;
+        left:10px;
+        transform: translateY(-50%);
+    }
+
+    .input {
+        height:calc(100% - 10px);
+        position:absolute;
+        top:0px;
+        left:60px;
+        padding:5px;
+        border:none;
+        background-color:transparent;
+        width: calc(100% - 80px);
+        outline: none;
+
+        letter-spacing: .02cm;
+        font-weight:500;
+        font-family: $body-font;
+        font-size: 24px;
+        color: $dark-light;
+
+    }
+}
+
+:host-context(.focused) {
+    .outer {
+        border-color:$focus;
+
+        .search {
+            
+        }
+    }
 }

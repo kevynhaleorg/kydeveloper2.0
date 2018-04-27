@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBoxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private el: ElementRef) {
+
+  }
 
   ngOnInit() {
+  }
+
+  focus() {
+    this.el.nativeElement.classList.add("focused")
+  }
+
+  focusout() {
+    this.el.nativeElement.classList.remove("focused")
   }
 
 }
