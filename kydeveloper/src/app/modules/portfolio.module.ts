@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PortfolioComponent } from '../pages/portfolio/portfolio.component';
 import { SharedModule } from '../shared.module';
 import { ProjectItemComponent } from '../pages/portfolio/project-item/project-item.component';
+import { PortfolioRootComponent } from '../pages/portfolio/portfolio-root/portfolio-root.component';
+import { PortfolioSingleComponent } from '../pages/portfolio/portfolio-single/portfolio-single.component';
 
 @NgModule({
   imports: [
@@ -11,7 +13,9 @@ import { ProjectItemComponent } from '../pages/portfolio/project-item/project-it
   ],
   declarations: [
     PortfolioComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    PortfolioRootComponent,
+    PortfolioSingleComponent
   ]
 })
 export class PortfolioModule { }

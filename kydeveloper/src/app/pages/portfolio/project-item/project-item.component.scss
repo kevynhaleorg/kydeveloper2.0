@@ -1,8 +1,11 @@
 @import '../../../../styles.scss';
 
+a {
+
+}
 
 .item {
-    width:230px;
+    width:240px;
     height:280px;
     background-color:gray;
     border-radius: 5px;
@@ -26,17 +29,17 @@
         position:absolute;
         z-index:2;
         bottom:0px;
-        width:calc(100% - 20px);
+        width:calc(100% - 14px);
         background-color:white;
         text-align:center;
         border-top:1px solid $light-border;
         border-bottom-left-radius:5px;
         border-bottom-right-radius:5px;
         letter-spacing: .05cm;
-        font-family: $title-font;
+        font-family: $nav-item-font;
         font-size: 15px;
-        color:$body-font;
-        padding:10px;
+        color: $dark-light;
+        padding:7px;
 
         &:hover {
             cursor:pointer;

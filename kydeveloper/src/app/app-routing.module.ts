@@ -10,6 +10,8 @@ import { BiographyComponent } from './pages/about/biography/biography.component'
 import { ReadingListComponent } from './pages/about/reading-list/reading-list.component';
 import { ResumeComponent } from './pages/about/resume/resume.component';
 import { AboutContactComponent } from './pages/about/contact/contact.component';
+import { PortfolioRootComponent } from './pages/portfolio/portfolio-root/portfolio-root.component';
+import { PortfolioSingleComponent } from './pages/portfolio/portfolio-single/portfolio-single.component';
 
 const routes: Routes = [
 
@@ -26,7 +28,10 @@ const routes: Routes = [
                 { path: "resume", component: ResumeComponent},
                 { path: "contact", component: AboutContactComponent}
             ] },
-            { path: "portfolio", component: PortfolioComponent },
+            { path: "portfolio", component: PortfolioRootComponent, children: [
+                {path: "", component: PortfolioComponent},
+                {path: ":projectid", component: PortfolioSingleComponent}
+            ] },
             { path: "blog", component: BlogComponent },
             { path: "contact", component: ContactComponent },
         ]

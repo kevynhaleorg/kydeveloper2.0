@@ -25,7 +25,9 @@
   <div class="projects">
     <div class="items">
       <div class="item" *ngFor="let project of posts">
-        <app-project-item [post]="project"></app-project-item>
+          <a routerLink="/portfolio/{{project.id}}">
+            <app-project-item [post]="project"></app-project-item>
+          </a>
       </div>
       <!-- Empty items below to balance out row.. 0 height so they don't cause problems-->
       <div class="item"></div>
