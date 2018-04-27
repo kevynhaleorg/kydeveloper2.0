@@ -6,11 +6,12 @@ import { ResumeComponent } from '../pages/about/resume/resume.component';
 import { AboutContactComponent } from '../pages/about/contact/contact.component';
 import { BiographyComponent } from '../pages/about/biography/biography.component';
 import { KyDeveloperRoutingModule } from '../app-routing.module';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    KyDeveloperRoutingModule
+    SharedModule
   ],
   declarations: [
     AboutComponent,

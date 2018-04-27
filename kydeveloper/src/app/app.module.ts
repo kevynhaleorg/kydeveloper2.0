@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -19,18 +19,19 @@ import { ContactModule } from './modules/contact.module';
 import { HomeModule } from './modules/home.module';
 import { PortfolioModule } from './modules/portfolio.module';
 import { BiographyComponent } from './pages/about/biography/biography.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { SharedModule } from './shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    SidebarSocialmediaComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     StoreModule,
-    KyDeveloperRoutingModule,
+    SharedModule,
     AboutModule,
     BlogModule,
     ContactModule,

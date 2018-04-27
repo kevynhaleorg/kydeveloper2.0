@@ -1,0 +1,80 @@
+@import '../../../styles.scss';
+
+$height: 50px;
+
+.container {
+    max-width:1200px;
+    margin: 50px auto 25px;
+    min-height:200px;
+
+    .row {
+        display:flex;
+        flex-direction: row;
+        width:100%;
+        margin-bottom:40px;
+        height:$height;
+
+        .group {
+            width:50%;
+            height:$height;
+            display:flex;
+            flex-direction:row;
+
+            app-search-box {
+                width:100%;
+            }
+
+            .button {
+                width:50%;
+                border-radius:5px;
+                border: 1px solid $light-border;
+                line-height: 45px;
+                text-align:center;
+                letter-spacing: .05cm;
+                box-shadow:inset 0px 0px 0px 3px $white;
+                font-family: $title-font;
+                font-size: 24px;
+                color: $dark-light;
+
+                &:hover {
+                    border-color:$focus;
+                    cursor:pointer;
+                }
+
+                &.selected {
+                    border:none;
+                    box-shadow: none;
+                    color:white;
+                    background-color:$focus;
+                }
+            }
+        }
+        .gutter {
+            min-width:75px;
+            flex-grow:1;
+        }
+    }
+
+    .projects {
+        width:calc(100% - 20px);
+        min-height:400px;
+        height:auto;
+        background-color:$light-background;
+        border-radius:5px;
+        padding:10px;
+        
+        .items {
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;            
+            
+            .item {
+                flex: auto;
+                width: calc(260px - 30px);
+                padding:15px;
+            }
+
+        }
+
+    }
+}

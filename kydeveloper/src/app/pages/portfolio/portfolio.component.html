@@ -1,3 +1,38 @@
-<p>
-  portfolio works!
-</p>
+<app-sidebar-socialmedia></app-sidebar-socialmedia>
+<div class="container">
+  <div class="row">
+    <div class="group">
+      <app-search-box></app-search-box>
+    </div>
+    <div class="gutter"></div>
+    <div class="group"></div>
+  </div>
+
+  <div class="row">
+      <div class="group">
+        <div class="button selected">All</div>
+        <div class="gutter"></div>
+        <div class="button">Devops</div>
+      </div>
+      <div class="gutter"></div>
+      <div class="group">
+          <div class="button">Web Apps</div>
+          <div class="gutter"></div>
+          <div class="button">Design</div>
+      </div>
+  </div>
+
+  <div class="projects">
+    <div class="items">
+      <div class="item" *ngFor="let project of posts">
+        <app-project-item [post]="project"></app-project-item>
+      </div>
+      <!-- Empty items below to balance out row.. 0 height so they don't cause problems-->
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+
+
+</div>
