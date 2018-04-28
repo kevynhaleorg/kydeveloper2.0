@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -7,11 +7,18 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 export class SearchBoxComponent implements OnInit {
 
+  @ViewChild('search') input: ElementRef;
+
   constructor(private el: ElementRef) {
 
   }
 
   ngOnInit() {
+  }
+
+  @HostListener('click')
+  click() {
+    this.input.nativeElement.focus();
   }
 
   focus() {

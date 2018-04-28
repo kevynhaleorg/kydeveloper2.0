@@ -5,12 +5,32 @@ import { ProjectFilter } from "../../app/models/project-filer.enum";
 import { FilterDirection } from "../../app/models/filter-direction.enum";
 import { PortfolioActions } from "../../actions/portfolio/portfolio.actions";
 
+const post: Post = {
+    id: "123",
+    title: "Asterisk Deploy Automation",
+    authorId: "1",
+    date: null,
+    featuredimage: "assets/images/buildings.png",
+    likes: 5,
+    views: 10,
+    comments: 1,
+    shares:0
+  }
 
-const projects: Post[] = []
+const projects: Post[] = [
+    post,
+    post,
+    post,
+    post,
+    post,
+    post,
+    post
+  ]
+
 
 const searchState: Search = {
     input: null,
-    filterBy: ProjectFilter.All,
+    filterBy: ProjectFilter.ALL,
     filterDirection: FilterDirection.DESC,
     tags: []
 }
@@ -43,6 +63,19 @@ export function portfolioReducer(
 
     switch(action.type) {
 
+        case PortfolioActions.FILTER: {
+            console.log(state)
+            return {
+              ...state,
+              itemState: {
+                  ...state.itemState,
+                  search: {
+                      ...state.itemState.search,
+                      filterBy: action.payload.filterBy
+                  }
+              }
+            }
+          }
         case PortfolioActions.FETCH_REQUEST: {
             return {
                 ...state,

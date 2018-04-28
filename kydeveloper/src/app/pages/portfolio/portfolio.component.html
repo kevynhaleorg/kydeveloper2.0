@@ -10,21 +10,21 @@
 
   <div class="row">
       <div class="group">
-        <div class="button selected">All</div>
+        <div class="button" (click)="filter('all')" [ngClass]="{'selected': (filterBy$ | async) == 'all'}">All</div>
         <div class="gutter"></div>
-        <div class="button">Devops</div>
+        <div class="button" (click)="filter('devops')" [ngClass]="{'selected': (filterBy$ | async) == 'devops'}">Devops</div>
       </div>
       <div class="gutter"></div>
       <div class="group">
-          <div class="button">Web Apps</div>
+          <div class="button" (click)="filter('webapps')" [ngClass]="{'selected': (filterBy$ | async) == 'webapps'}">Web Apps</div>
           <div class="gutter"></div>
-          <div class="button">Design</div>
+          <div class="button" (click)="filter('design')" [ngClass]="{'selected': (filterBy$ | async) == 'design'}">Design</div>
       </div>
   </div>
 
   <div class="projects">
     <div class="items">
-      <div class="item" *ngFor="let project of posts">
+      <div class="item" *ngFor="let project of (projects$ | async)">
           <a routerLink="/portfolio/{{project.id}}">
             <app-project-item [post]="project"></app-project-item>
           </a>

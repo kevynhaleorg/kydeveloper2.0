@@ -4,9 +4,9 @@ import { IPortfolioState, portfolioReducer } from "./portfolio/portfolio.reducer
 
 
 export interface IAppState {
-    portfolioState?: IPortfolioState;
+    'portfolio'?: IPortfolioState;
 }
 
 export const rootReducer = combineReducers<IAppState>({
-    portfolioState: portfolioReducer
+    'portfolio': portfolioReducer
 });

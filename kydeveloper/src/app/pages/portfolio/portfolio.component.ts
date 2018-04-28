@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
+import { select, dispatch } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
+import { PortfolioActions } from '../../../actions/portfolio/portfolio.actions';
 
 @Component({
   selector: 'app-portfolio',
@@ -8,32 +11,18 @@ import { Post } from '../../models/post.model';
 })
 export class PortfolioComponent implements OnInit {
 
-  post: Post = {
-    id: "123",
-    title: "Asterisk Deploy Automation",
-    authorId: "1",
-    date: null,
-    featuredimage: "assets/images/buildings.png",
-    likes: 5,
-    views: 10,
-    comments: 1,
-    shares:0
-  }
+  @select(['portfolio', 'projects']) readonly projects$: Observable<Post[]>
 
-  posts: Post[] = [
-    this.post,
-    this.post,
-    this.post,
-    this.post,
-    this.post,
-    this.post,
-    this.post,
-    this.post
-  ]
+  @select(['portfolio', 'itemState', 'search', 'filterBy']) readonly filterBy$: Observable<string>
 
-  constructor() { }
+  constructor(private _portfolioActions: PortfolioActions) { }
 
   ngOnInit() {
+    this.projects$.subscribe(projects => console.log(projects))
+  }
+
+  filter(key: string) {
+    this._portfolioActions.filter(key)
   }
 
 }
