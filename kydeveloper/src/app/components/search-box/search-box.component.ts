@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, ViewChild, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -8,6 +8,7 @@ import { Component, OnInit, ElementRef, HostListener, ViewChild } from '@angular
 export class SearchBoxComponent implements OnInit {
 
   @ViewChild('search') input: ElementRef;
+  @Output() value: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private el: ElementRef) {
 
@@ -27,6 +28,10 @@ export class SearchBoxComponent implements OnInit {
 
   focusout() {
     this.el.nativeElement.classList.remove("focused")
+  }
+
+  valueInput(value) {
+    this.value.emit(value)
   }
 
 }

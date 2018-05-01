@@ -25,4 +25,8 @@ export class PortfolioComponent implements OnInit {
     this._portfolioActions.filter(key)
   }
 
+  searchBoxInput(value: string) {
+    console.log(value)
+  }
+
 }

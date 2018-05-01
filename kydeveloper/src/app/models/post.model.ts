@@ -8,7 +8,7 @@ export class Post {
     type?: PostType;
     icon?: string;
     tags?: Tag[];
-    date: Date;
+    date: string;
     featuredimage: string; // URL
     summary?: string;
     content?: string; // TODO: is this set as null to start with?

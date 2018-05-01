@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="group">
-      <app-search-box></app-search-box>
+      <app-search-box (value)="searchBoxInput($event)"></app-search-box>
     </div>
     <div class="gutter"></div>
     <div class="group"></div>
