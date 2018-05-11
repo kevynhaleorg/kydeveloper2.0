@@ -16,5 +16,25 @@
     <app-post-icons class="center vertical" [likes]="post.likes" [shares]="post.shares" [comments]="post.comments"></app-post-icons>
   </div>
   <div class="content">
+    <div class="title-row">
+      <div class="title-icon">
+        <img src="{{post.icon}}">
+      </div>
+      <div class="title-value">
+        {{post.title}}
+      </div>
+    </div>
+    <div class="summary">
+      {{post.summary}}
+    </div>
+    <div [innerHtml]="post.content" class="post-content"></div>
+    <div class="end-line-break"></div>
+    <div class="comment new-comment">
+        <div class="container">
+          <div class="circle"><mat-icon class="icon">chat_bubble_outline</mat-icon></div>
+          <div class="text">Write New Comment</div>
+        </div>
+    </div>
   </div>
+  
 </div>
