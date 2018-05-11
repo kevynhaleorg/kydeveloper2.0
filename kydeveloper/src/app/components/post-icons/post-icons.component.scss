@@ -1,0 +1,84 @@
+@import '../../../styles.scss';
+
+
+.container {
+    display:flex;
+    flex-direction:row;
+    width:37px;
+
+    .object {
+        display:flex;
+        flex-direction: column;
+        margin-right:10px;
+        text-align:center;
+
+        .text {
+            font-family:$nav-item-font;
+            color:$light-border;
+            font-size:12px;
+            margin-bottom:2px;
+        }
+        .circle {
+            width: 35px;
+            height: 35px;
+            border: 1px solid $light-border;
+            box-shadow:inset 0px 0px 0px 2px $white;
+            border-radius:50%;
+            color:$focus;
+            
+            
+            .icon {
+                line-height:37px;
+                font-size:18px;
+            }
+
+            &:hover {
+                border: 1px solid $focus;
+                cursor: pointer;
+            }
+            
+        }
+    }
+
+}
+
+:host-context(.horizontal) {
+    .container {
+        flex-direction:row;
+        width:141px;
+
+        .object {
+            margin-right:10px;
+        }
+    }
+}
+
+:host-context(.vertical) {
+    .container {
+        flex-direction:column;
+
+        .object {
+            margin-bottom:8px;
+            margin-right:0px;
+        }
+    }
+}
+
+:host-context(.center) {
+    .container {
+        margin: 0px auto;
+    }
+}
+
+:host-context(.nohover) {
+    .container {
+        .object {
+            .circle {
+                &:hover {
+                    border: 1px solid $light-border;
+                    cursor: initial;
+                }
+            }
+        }
+    }
+}

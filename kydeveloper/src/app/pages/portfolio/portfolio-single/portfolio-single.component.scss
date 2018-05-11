@@ -12,7 +12,7 @@ $margin-bottom: 20px;
         width:270px;
         padding-right:30px;
         border-right:1px solid $light-border;
-        position:fixed;
+       // position:fixed;
         min-height:500px;
 
         .back {
@@ -79,6 +79,10 @@ $margin-bottom: 20px;
             margin-bottom:75px;
         }
 
+    }
+
+    .gutter {
+        width:60px;
     }
 
     .content {

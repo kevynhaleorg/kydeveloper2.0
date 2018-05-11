@@ -5,6 +5,7 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { KyDeveloperRoutingModule } from './app-routing.module';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { MatIconModule, MatCardModule } from '@angular/material'
+import { PostIconsComponent } from './components/post-icons/post-icons.component';
 
 @NgModule({
   imports: [
@@ -17,12 +18,14 @@ import { MatIconModule, MatCardModule } from '@angular/material'
     SocialMediaComponent,
     KyDeveloperRoutingModule,
     SearchBoxComponent,
-    MatIconModule
+    MatIconModule,
+    PostIconsComponent
   ],
   declarations: [
     SidebarSocialmediaComponent,
     SocialMediaComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    PostIconsComponent
   ]
 })
 export class SharedModule { }
