@@ -12,66 +12,33 @@
 
   </div>
 
-  <a routerLink="/blog/1">
+  <a *ngFor="let post of (posts$ | async)" routerLink="/blog/{{post.id}}">
   <div class="post">
     <div class="left">
       <div class="image">
-        <img src="assets/images/post1.png">
+        <img src="{{post.featuredimage}}">
       </div>
       <div class="icons">
-          <app-post-icons class="icons horizontal center nohover" [likes]="200" [shares]="3" [comments]="5"></app-post-icons>
+          <app-post-icons
+            class="icons horizontal center nohover"
+            [likes]="post.likes"
+            [shares]="post.shares"
+            [comments]="post.comments">
+          </app-post-icons>
       </div>
-
     </div>
     <div class="right">
-      <div class="title">
-        Title of Post
-      </div>
-      <div class="date">
-        4/20/2017 11:52 PM
-      </div>
-      <div class="post-summary">
-          I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless. I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless…
-      </div>
+      <div class="title">{{post.title}}</div>
+      <div class="date">{{post.date}}</div>
+      <div class="post-summary">{{post.summary}}</div>
       <div class="tags">
-        <div class="tag">Tag</div>
-        <div class="tag">Tag</div>
-        <div class="tag">Tag</div>
+        <div *ngFor="let tag of post.tags" class="tag">{{tag.name}}</div>
       </div>
     </div>
 
   </div>
 </a>
 
-  <a routerLink="/blog/2">
-  <div class="post">
-      <div class="left">
-        <div class="image">
-          <img src="assets/images/post1.png">
-        </div>
-        <div class="icons">
-            <app-post-icons class="icons horizontal center nohover" [likes]="200" [shares]="3" [comments]="5"></app-post-icons>
-        </div>
-  
-      </div>
-      <div class="right">
-        <div class="title">
-          Title of Post
-        </div>
-        <div class="date">
-          4/20/2017 11:52 PM
-        </div>
-        <div class="post-summary">
-            I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless. I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless…
-        </div>
-        <div class="tags">
-          <div class="tag">Tag</div>
-          <div class="tag">Tag</div>
-          <div class="tag">Tag</div>
-        </div>
-      </div>
-  
-    </div>
-  </a>
+
 
 </div>

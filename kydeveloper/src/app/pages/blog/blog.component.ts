@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-blog',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
+
+  @select(['blog', 'posts']) readonly posts$: Observable<Post[]>
 
   constructor() { }
 
