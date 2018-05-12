@@ -49,6 +49,10 @@
             flex-direction: row;
             margin-bottom:50px;
 
+            app-input {
+                width: 50%;
+            }
+
             .input {
                 width: 50%;
                 border: 1px solid $light-border;

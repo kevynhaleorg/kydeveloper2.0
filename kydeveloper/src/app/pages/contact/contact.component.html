@@ -11,22 +11,34 @@
   </div>
   <div class="form">
     <div class="row">
-      <div class="input">
-
-      </div>
+      <app-input
+			  [type]="inputType.TEXT"
+			  [placeholder]="'First Name'"
+			  [required]="true"
+			  (value)="firstName = $event">
+		  </app-input>
       <div class="gutter"></div>
-      <div class="input">
-        
-      </div>
+      <app-input
+			  [type]="inputType.TEXT"
+			  [placeholder]="'Last Name'"
+			  [required]="true"
+			  (value)="lastName = $event">
+		  </app-input>
     </div>
     <div class="row">
-      <div class="input">
-  
-      </div>
+      <app-input
+			  [type]="inputType.PHONE_NUMBER"
+			  [placeholder]="'Phone Number'"
+			  [required]="false"
+			  (value)="phoneNumber = $event">
+		  </app-input>
       <div class="gutter"></div>
-      <div class="input">
-          
-      </div>
+      <app-input
+			  [type]="inputType.EMAIL"
+			  [placeholder]="'Email'"
+			  [required]="true"
+			  (value)="email = $event">
+		  </app-input>
     </div>
     <textarea>
 

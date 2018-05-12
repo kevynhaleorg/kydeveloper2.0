@@ -1,0 +1,24 @@
+<div class="input" [ngClass]="{'selected': selected, 'error': error}">
+  <input
+    #field
+    type="{{fieldType}}"
+    placeholder="{{placeholder}}"
+    (focus)="inputFocus()"
+    (focusout)="inputFocusOut()"
+    (input)="update($event.target.value)"
+  />
+  <div class="icon red" *ngIf="error">
+    <i class="material-icons center">clear</i>
+  </div>
+  <div class="icon green" *ngIf="successful">
+    <i class="material-icons">done</i>
+  </div>
+</div>
+<div class="messages" [ngClass]="{'error': error}">
+  <ul>
+    <li *ngFor="let error of errors">
+      {{error}}
+    </li>
+  </ul>
+</div>
+  

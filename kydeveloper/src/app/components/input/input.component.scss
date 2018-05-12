@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+
+$border-radius:5px;
+$register: $dark-light;
+$register-text: $dark;
+$info-text:#2d85ca;
+$error:#b23b3b;
+$success: #34a585;
+
+
+
+div.input {
+	border:1px solid $light-border;
+    border-radius:$border-radius;
+    box-shadow:inset 0px 0px 0px 3px $white;
+	display:flex;
+    flex-direction:row;
+    height:calc(100% - 2px);
+    width: calc(100% - 2px);
+    font-family:$body-font;
+
+
+	input {
+		margin: 8px;
+		height:calc(100% - 16px);
+		border:none;
+		outline:none;
+		flex-grow:1;
+		font-size:20px;
+		font-weight:300;
+		color:$register-text;
+        transition:border-bottom-left-radius .2s, border-bottom-left-radius .2s, border-color .2s;
+        background-color:transparent;
+
+        &::placeholder {
+            color: $register-text;
+        }
+	}
+
+	.icon {
+		width:50px;
+		text-align:center;
+
+		&.green {
+			color:$success;
+		}
+		&.red {
+			color: $error;
+		}
+
+		i {
+			line-height: 50px;
+		}
+	}
+
+	&.selected {
+		border:1px solid $success;
+	}
+
+	&.error {
+		border:1px solid $error;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+}
+
+.messages {
+	
+	background-color: #f8f8ec;
+	color:$register-text;
+	font-size:14px;
+	max-height:0px;
+	overflow:hidden;
+	border: 1px solid $error;
+	border-top:0px;
+	border-bottom-left-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+	transition: max-height .2s, visibility .2s;
+	//padding:10px;
+    visibility:hidden;
+    font-family:$body-font;
+
+
+	ul {
+		padding:0px;
+		margin:10px;
+		list-style-type:none;
+	}
+
+	&.error {
+		
+		
+		max-height:300px;
+		visibility:visible;
+	}
+}
+		

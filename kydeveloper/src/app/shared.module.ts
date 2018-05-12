@@ -6,6 +6,8 @@ import { KyDeveloperRoutingModule } from './app-routing.module';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { MatIconModule, MatCardModule } from '@angular/material'
 import { PostIconsComponent } from './components/post-icons/post-icons.component';
+import { InputComponent } from './components/input/input.component';
+import { InputVerificationService } from './services/input/input-verification.service';
 
 @NgModule({
   imports: [
@@ -19,13 +21,16 @@ import { PostIconsComponent } from './components/post-icons/post-icons.component
     KyDeveloperRoutingModule,
     SearchBoxComponent,
     MatIconModule,
-    PostIconsComponent
+    PostIconsComponent,
+    InputComponent
   ],
   declarations: [
     SidebarSocialmediaComponent,
     SocialMediaComponent,
     SearchBoxComponent,
-    PostIconsComponent
-  ]
+    PostIconsComponent,
+    InputComponent
+  ],
+  providers: [InputVerificationService]
 })
 export class SharedModule { }
