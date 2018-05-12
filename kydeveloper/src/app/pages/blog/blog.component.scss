@@ -1,0 +1,151 @@
+@import '../../../styles.scss';
+
+.container {
+    max-width:1200px;
+    margin: 0px auto 25px;
+    min-height:200px;
+
+    .intro {
+        padding: 20px 0px 35px;
+        border-bottom: 1px solid $focus;
+        color: $dark;
+        font-family: $body-font;
+        letter-spacing: .03cm;
+        font-weight:bold;
+        font-size:28px;
+        margin-bottom:50px;
+    }
+
+    .utilities {
+        display:flex;
+        flex-direction:row;
+        width: 100%;
+        height: 50px;
+        margin-bottom:50px;
+
+
+        .filter {
+            border: 1px solid $light-border;
+            border-radius:5px;
+            width: 15%;
+            height:100%;
+            margin-right:30px;
+            box-shadow:inset 0px 0px 0px 3px white;
+            min-width:180px;
+
+        }
+
+        app-search-box {
+            width: 40%;
+            margin-right:30px;
+            min-width:450px;
+        }
+
+        .subscribe {
+            width:15%;
+            border-radius:5px;
+            line-height: 45px;
+            text-align:center;
+            letter-spacing: .05cm;
+            font-family: $body-font;
+            font-weight:bold;
+            font-size: 24px;
+            border:none;
+            box-shadow: none;
+            color:white;
+            background-color:$focus;
+            min-width:180px;
+
+            &:hover {
+                cursor:pointer;
+            }
+
+        }
+    }
+
+    .post {
+        background-color:$light-background;
+        width:calc(100% - 40px);
+        border-bottom:1px solid $focus;
+        min-height:100px;
+        margin-bottom:30px;
+        padding:20px;
+        display:flex;
+        flex-direction:row;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .left {
+            display:flex;
+            flex-direction: column;
+            width: 250px;
+            margin-right:30px;
+
+            .image {
+                width:250px;
+                height: 250px;
+
+                img {
+                    width:100%;
+                    height:100%;
+                }
+
+            }
+            .icons {
+                padding-top:20px;
+            }
+        }
+
+        .right {
+            width: 100%;
+            display:flex;
+            flex-direction:column;
+            color: $dark;
+            
+            div {
+                margin-bottom: 20px;
+                font-family: $body-font;
+                letter-spacing: .03cm;
+                font-family: $body-font;
+            }
+
+
+            .title {
+
+                font-size: 48px;
+                font-weight: bold;
+                
+
+            }
+            .date {
+                font-size:18px;
+
+            }
+            .post-summary {
+                font-size:20px;
+                line-height:40px;
+            }
+            .tags {
+                display: flex;
+                flex-direction:row;
+                margin-bottom:0px;
+
+                .tag {
+                    padding: 5px 25px;
+                    margin-right:20px;
+                    border-radius:5px;
+                    border: 1px solid $light-border;
+                    text-align:center;
+                    letter-spacing: .05cm;
+                    //box-shadow:inset 0px 0px 0px 3px $white;
+                    font-size: 24px;
+                    color: $dark-light;
+                }
+            }
+        }
+    }
+
+
+}

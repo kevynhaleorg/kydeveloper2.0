@@ -1,0 +1,102 @@
+@import '../../../styles.scss';
+
+.container {
+    max-width:calc(1000px - 100px);
+    padding:50px;
+    margin: 25px auto 25px;
+    min-height:200px;
+    background-color:$light-background;
+    text-align:center;
+
+    .image {
+        width: 100%;
+        position:relative;
+        border-bottom: 15px solid #C3C3C3;
+        margin-bottom:20px;
+        
+        img {
+            width:50%;
+            margin: 0 auto;
+            vertical-align: bottom;
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    .title {
+        letter-spacing: .03cm;
+        font-family: $body-font;
+        font-size: 48px;
+        font-weight: bold;
+        color: $dark;
+        margin-bottom:20px;
+    }
+
+    .info {
+        letter-spacing: .03cm;
+        font-family: $body-font;
+        font-size: 24px;
+        line-height: 40px;
+        color: $dark;
+        margin-bottom:30px;
+    }
+
+    .form {
+
+        .row {
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom:50px;
+
+            .input {
+                width: 50%;
+                border: 1px solid $light-border;
+                box-shadow:inset 0px 0px 0px 3px $white;
+                border-radius:5px;
+            }
+
+            .gutter {
+                width: 50px;
+            }
+        }
+
+        textarea {
+            resize: none;
+            outline:none;
+            padding:0px;
+            width:100%;
+            height:200px;
+            background-color: $light-background;
+            border: 1px solid $light-border;
+            box-shadow:inset 0px 0px 0px 3px $white;
+            border-radius:5px;
+            margin-bottom:50px;
+
+        }
+
+        .submit {
+            width:100%;
+            height:50px;
+            border:1px solid $focus;
+            box-shadow:inset 0px 0px 0px 3px $white;
+            text-align:center;
+            line-height:50px;
+            border-radius:5px;
+            letter-spacing: .03cm;
+            font-family: $body-font;
+            font-size: 24px;
+            color: $dark;
+            font-weight:bold;
+
+            &:hover {
+                cursor: pointer;
+                color:white;
+                background-color:$focus;
+                border-color:$focus;
+                box-shadow:none;
+            }
+        }
+    }
+
+}

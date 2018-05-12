@@ -1,4 +1,77 @@
 <app-sidebar-socialmedia></app-sidebar-socialmedia>
-<p>
-  blog works!
-</p>
+<div class="container">
+  <div class="intro">
+      Kevyn’s musings on all things devops, development and design.
+  </div>
+  <div class="utilities">
+    <div class="filter">
+      Filter By
+    </div>
+    <app-search-box (value)="searchBoxInput($event)"></app-search-box>
+    <div class="subscribe">Subscribe</div>
+
+  </div>
+
+  <a routerLink="/blog/1">
+  <div class="post">
+    <div class="left">
+      <div class="image">
+        <img src="assets/images/post1.png">
+      </div>
+      <div class="icons">
+          <app-post-icons class="icons horizontal center nohover" [likes]="200" [shares]="3" [comments]="5"></app-post-icons>
+      </div>
+
+    </div>
+    <div class="right">
+      <div class="title">
+        Title of Post
+      </div>
+      <div class="date">
+        4/20/2017 11:52 PM
+      </div>
+      <div class="post-summary">
+          I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless. I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless…
+      </div>
+      <div class="tags">
+        <div class="tag">Tag</div>
+        <div class="tag">Tag</div>
+        <div class="tag">Tag</div>
+      </div>
+    </div>
+
+  </div>
+</a>
+
+  <a routerLink="/blog/2">
+  <div class="post">
+      <div class="left">
+        <div class="image">
+          <img src="assets/images/post1.png">
+        </div>
+        <div class="icons">
+            <app-post-icons class="icons horizontal center nohover" [likes]="200" [shares]="3" [comments]="5"></app-post-icons>
+        </div>
+  
+      </div>
+      <div class="right">
+        <div class="title">
+          Title of Post
+        </div>
+        <div class="date">
+          4/20/2017 11:52 PM
+        </div>
+        <div class="post-summary">
+            I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless. I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless…
+        </div>
+        <div class="tags">
+          <div class="tag">Tag</div>
+          <div class="tag">Tag</div>
+          <div class="tag">Tag</div>
+        </div>
+      </div>
+  
+    </div>
+  </a>
+
+</div>
