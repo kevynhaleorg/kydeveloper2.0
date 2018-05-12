@@ -19,7 +19,7 @@ const post: Post = {
     id: "123",
     title: "Asterisk Deploy Automation",
     authorId: "1",
-    date: null,
+    date: "Jan. 17, 2018",
     featuredimage: "assets/images/post1.png",
     likes: 5,
     views: 10,

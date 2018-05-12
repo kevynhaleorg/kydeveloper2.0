@@ -1,0 +1,49 @@
+@import '../../../styles.scss';
+
+.container {
+    text-align: center;
+    position:relative;
+    letter-spacing: .03cm;
+    font-family: $body-font;
+    padding-top:30px;
+
+    div {
+        margin: 0px auto;
+        margin-bottom:35px;
+    }
+
+    .title {
+        font-size:40px;
+        font-weight:bold;
+    }
+
+    .summary {
+        font-size:24px;
+        line-height:40px;
+        max-width:1000px;
+    }
+
+
+    .learn-more {
+        width: 250px;
+        height:50px;
+        border:1px solid $focus;
+        box-shadow:inset 0px 0px 0px 3px $white;
+        text-align:center;
+        line-height:50px;
+        border-radius:5px;
+        letter-spacing: .03cm;
+        font-family: $body-font;
+        font-size: 24px;
+        color: $dark;
+        font-weight:bold;
+
+        &:hover {
+            cursor: pointer;
+            color:white;
+            background-color:$focus;
+            border-color:$focus;
+            box-shadow:none;
+        }
+    }
+}
