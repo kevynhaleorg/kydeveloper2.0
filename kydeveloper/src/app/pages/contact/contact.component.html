@@ -40,9 +40,14 @@
 			  (value)="email = $event">
 		  </app-input>
     </div>
-    <textarea>
-
-    </textarea>
+    <div class="row text-area">
+      <app-input
+          [type]="inputType.TEXT_AREA"
+          [placeholder]="'Message'"
+          [required]="true"
+          (value)="message = $event">
+      </app-input>
+    </div>
     <div class="submit">
       Submit
     </div>

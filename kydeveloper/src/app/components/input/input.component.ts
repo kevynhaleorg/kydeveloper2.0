@@ -40,7 +40,6 @@ export class InputComponent {
 
   constructor(
     private vs: InputVerificationService) {
-
     this.valueSubject
       .debounceTime(500)
       .distinctUntilChanged()
@@ -108,7 +107,6 @@ export class InputComponent {
           break;
         
         case this.lit.PHONE_NUMBER:
-          console.log("validating phone numbers")
           this.vs.validatePhoneNumber(this);
           break;
 
@@ -154,5 +152,6 @@ export enum InputType {
   PASSWORD_VERIFY,
   PHONE_NUMBER,
   EMAIL,
-  POSTAL_CODE
+  POSTAL_CODE,
+  TEXT_AREA
 }

@@ -1,4 +1,4 @@
-<div class="input" [ngClass]="{'selected': selected, 'error': error}">
+<div  *ngIf="lit.TEXT_AREA != type" class="input" [ngClass]="{'selected': selected, 'error': error}">
   <input
     #field
     type="{{fieldType}}"
@@ -14,6 +14,14 @@
     <i class="material-icons">done</i>
   </div>
 </div>
+<textarea
+  [ngClass]="{'selected': selected, 'error': error}"
+  *ngIf="lit.TEXT_AREA === type"
+  (focus)="inputFocus()"
+  (focusout)="inputFocusOut()"
+  placeholder="{{placeholder}}"
+  (input)="update($event.target.value)"
+></textarea>
 <div class="messages" [ngClass]="{'error': error}">
   <ul>
     <li *ngFor="let error of errors">

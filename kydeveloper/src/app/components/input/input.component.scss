@@ -7,6 +7,37 @@ $info-text:#2d85ca;
 $error:#b23b3b;
 $success: #34a585;
 
+textarea {
+    border:1px solid $light-border;
+    border-radius:$border-radius;
+    box-shadow:inset 0px 0px 0px 3px $white;
+	display:flex;
+    flex-direction:row;
+    height:calc(100% - 32px);
+    width: calc(100% - 32px);
+    font-family:$body-font;
+    background-color:transparent;
+    resize: none;
+    outline:none;
+    padding: 15px;
+	font-size:20px;
+	font-weight:300;
+	color:$register-text;
+
+    &.selected {
+		border:1px solid $success;
+	}
+
+	&.error {
+		border:1px solid $error;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+    }
+    
+    &::placeholder {
+        color: $register-text;
+    }
+}
 
 
 div.input {

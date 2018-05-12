@@ -51,6 +51,17 @@
 
             app-input {
                 width: 50%;
+
+                
+            }
+
+            &.text-area {
+                
+                height:200px;
+
+                app-input {
+                    width: 100%;
+                }
             }
 
             .input {
