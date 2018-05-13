@@ -15,6 +15,8 @@ import { PortfolioSingleComponent } from './pages/portfolio/portfolio-single/por
 import { BlogSingleComponent } from './pages/blog/blog-single/blog-single.component';
 import { BlogRootComponent } from './pages/blog/blog-root/blog-root.component';
 import { LearnMoreComponent } from './pages/home/learn-more/learn-more.component';
+import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
+import { ContactSentComponent } from './pages/contact/contact-sent/contact-sent.component';
 
 const routes: Routes = [
 
@@ -40,7 +42,10 @@ const routes: Routes = [
                 {path: "", component: BlogComponent},
                 {path: ":blogid", component: BlogSingleComponent}
             ] },
-            { path: "contact", component: ContactComponent },
+            { path: "contact", component: ContactComponent, children: [
+                { path: "", component: ContactFormComponent},
+                { path: "sent", component: ContactSentComponent}
+            ]},
         ]
     }
 ]

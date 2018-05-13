@@ -3,55 +3,6 @@
   <div class="image">
     <img src="assets/images/hiremeimage.png">
   </div>
-  <div class="title">
-    Contact Me
-  </div>
-  <div class="info">
-      Need help building a webapp? Send me a message and I’ll get right back to you with a quote.
-  </div>
-  <div class="form">
-    <div class="row">
-      <app-input
-			  [type]="inputType.TEXT"
-			  [placeholder]="'First Name'"
-			  [required]="true"
-			  (value)="firstName = $event">
-		  </app-input>
-      <div class="gutter"></div>
-      <app-input
-			  [type]="inputType.TEXT"
-			  [placeholder]="'Last Name'"
-			  [required]="true"
-			  (value)="lastName = $event">
-		  </app-input>
-    </div>
-    <div class="row">
-      <app-input
-			  [type]="inputType.PHONE_NUMBER"
-			  [placeholder]="'Phone Number'"
-			  [required]="false"
-			  (value)="phoneNumber = $event">
-		  </app-input>
-      <div class="gutter"></div>
-      <app-input
-			  [type]="inputType.EMAIL"
-			  [placeholder]="'Email'"
-			  [required]="true"
-			  (value)="email = $event">
-		  </app-input>
-    </div>
-    <div class="row text-area">
-      <app-input
-          [type]="inputType.TEXT_AREA"
-          [placeholder]="'Message'"
-          [required]="true"
-          (value)="message = $event">
-      </app-input>
-    </div>
-    <div class="submit">
-      Submit
-    </div>
-
-
-  </div>
+  <router-outlet></router-outlet>
+  
 </div>
