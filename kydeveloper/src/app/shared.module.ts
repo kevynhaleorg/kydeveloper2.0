@@ -8,6 +8,7 @@ import { MatIconModule, MatCardModule } from '@angular/material'
 import { PostIconsComponent } from './components/post-icons/post-icons.component';
 import { InputComponent } from './components/input/input.component';
 import { InputVerificationService } from './services/input/input-verification.service';
+import { ContactService } from './services/contact/contact.service';
 
 @NgModule({
   imports: [
@@ -31,6 +32,6 @@ import { InputVerificationService } from './services/input/input-verification.se
     PostIconsComponent,
     InputComponent
   ],
-  providers: [InputVerificationService]
+  providers: [InputVerificationService, ContactService]
 })
 export class SharedModule { }

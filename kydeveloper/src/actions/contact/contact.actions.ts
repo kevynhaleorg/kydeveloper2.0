@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { dispatch } from "@angular-redux/store";
 import { FluxStandardAction } from "flux-standard-action";
+import { ICommandName } from "selenium-webdriver";
+import { IContactRequest } from "../../app/services/contact/contact.service";
 
 @Injectable()
 export class ContactActions {
@@ -10,12 +12,11 @@ export class ContactActions {
     static CONTACT_SUBMIT_ERROR = "CONTACT_SUBMIT_ERROR"
 
     @dispatch()
-    submit(): FluxStandardAction<{}, {}> {
-        console.log("submit")
+    submit(request: IContactRequest): FluxStandardAction<{}, {}> {
         return {
             type: ContactActions.CONTACT_SUBMIT_REQUEST,
             meta: {},
-            payload: {}
+            payload: request
         }
     }
 

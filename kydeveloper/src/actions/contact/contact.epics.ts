@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { EpicCreator } from "../../store/root.model";
 import { ContactActions } from "./contact.actions";
-import { EpicMiddleware, createEpicMiddleware } from "redux-observable";
+import { EpicMiddleware, createEpicMiddleware, ActionsObservable } from "redux-observable";
 import { map } from "rxjs/operators/map";
 import { Observable } from "rxjs/Observable";
 import { startWith } from "rxjs/operators/startWith";
@@ -10,13 +10,16 @@ import { of } from "rxjs/observable/of";
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 import { mergeMap } from "rxjs/operators/mergeMap";
+import { ContactService, IContactRequest } from "../../app/services/contact/contact.service";
 
 
 
 @Injectable()
 export class ContactEpics implements EpicCreator {
 
-    constructor(private _actions: ContactActions) {}
+    constructor(
+        private _actions: ContactActions,
+        private contactService: ContactService) {}
 
     createEpics(): EpicMiddleware<any, any, any, any>[] {
         return [
@@ -24,14 +27,13 @@ export class ContactEpics implements EpicCreator {
           ]
     }
 
-    submit(action$: any, store: any): Observable<any> {
+    submit(action$: ActionsObservable<any>, store: any): Observable<any> {
         return action$
             .ofType( ContactActions.CONTACT_SUBMIT_REQUEST)
             .pipe(
                 mergeMap(
-                    () => {
-                        // TODO make call to submit over http.
-                        return Observable.of("test").delay(5000)
+                    ({payload}) => {
+                        return this.contactService.submit(payload)
                             .pipe(
                                 map( value => this._actions.submitResponse()),
                                 catchError(error => of(this._actions.submitError(error))),

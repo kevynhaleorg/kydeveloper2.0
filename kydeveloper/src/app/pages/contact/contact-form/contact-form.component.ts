@@ -22,6 +22,12 @@ export class ContactFormComponent implements OnInit {
 
   sentSubscription: Subscription
 
+  firstName:string;
+  lastName:string;
+  email:string;
+  message:string;
+  phoneNumber:string;
+
   constructor(
     private vs: InputVerificationService,
     private router: Router,
@@ -44,8 +50,15 @@ export class ContactFormComponent implements OnInit {
     this.vs.runAllTestsAndVerify(this.fields)
       .then( result => {
         if (!result.includes(false)) {
-          console.log("submit")
-          this._contactActions.submit()
+          this._contactActions.submit(
+            {
+              firstName: this.firstName,
+              lastName: this.lastName,
+              email: this.email,
+              message: this.message,
+              phoneNumber: this.phoneNumber
+            }
+          )
         }
       }); 
   }
