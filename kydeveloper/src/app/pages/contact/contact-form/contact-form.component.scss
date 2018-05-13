@@ -89,5 +89,19 @@
             border-color:$focus;
             box-shadow:none;
         }
+
+        &.loading {
+            cursor: pointer;
+            color:white;
+            background-color:$focus;
+            border-color:$focus;
+            box-shadow:none;
+        }
+
+        span {
+            img {
+                height:50px;
+            }
+        }
     }
 }

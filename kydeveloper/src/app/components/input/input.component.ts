@@ -70,7 +70,6 @@ export class InputComponent {
 
     if (!this.required) {
       this.placeholder += " (Optional)";
-      console.log(this.placeholder)
     }
   }
 
@@ -90,7 +89,6 @@ export class InputComponent {
   }
 
   public runTests() {
-
     if (this.required || this.fieldValue.length > 0) {
       switch(this.type) {   
 

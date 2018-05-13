@@ -43,8 +43,9 @@
           (value)="message = $event">
       </app-input>
     </div>
-    <div class="submit">
-      Submit
+    <div  class="submit" (click)="submit()" [ngClass]="{'loading': (loading$ | async)}">
+      <span *ngIf="!(loading$ | async)">Submit</span>
+      <span *ngIf="(loading$ | async)" ><img src="assets/images/spinner.svg"></span>
     </div>
 
 

@@ -11,7 +11,6 @@ export class InputVerificationService {
 	}
 
 	public required(input: InputComponent): void {
-		console.log(input.fieldValue.length)
 		if (input.fieldValue.length == 0)
 		{
 			input.errorMessage(["Field is required."]);
