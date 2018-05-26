@@ -20,13 +20,13 @@
 
 .post {
 
-    height:125px;
     width:100%;
     display:flex;
     flex-direction:row;
     background-color:$background;
     margin-bottom:35px;
     border-bottom:1px solid transparent;
+    height:auto;
 
     &:hover {
         border-bottom: 1px solid $focus;
@@ -45,32 +45,36 @@
     .post-info {
         margin-left:25px;
         width:100%;
-        max-height:100%;
         display:flex;
         flex-direction:column;
         font-family: $body-font;
         letter-spacing: .03cm;
         font-size:14px;  
         color:$dark;
+        text-align:left;
 
         .row {
-            display:flex;
-            align-items: center;
-            flex: 1 0 auto;
-            align-content: center;    
+            display: table;
 
         }
 
         .post-title {
-            height:60%;
+            min-height:60%;
             font-size:32px;
             font-weight:200;
+            padding-bottom:10px;
+
+            span {
+                display:table-cell;
+                vertical-align:middle;
+            }
         }
 
         .post-date {
             align-items:baseline;
             height:40%;
             font-size:18px;
+            padding-bottom:10px;
         }
 
 
@@ -81,5 +85,30 @@
         display: flex;
         justify-content: center;
         align-items: center; 
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .post {
+        background-color:$light-background;
+        position: relative;
+        left:-10px;
+        width: calc(100% + 10px);
+        padding-right:10px;
+
+        .post-info {
+            margin-left:10px;
+            .post-title {
+                font-size:24px;
+            }
+
+            .post-date {
+                font-size:13px;
+            }
+        }
+
+        .like {
+            display:none;
+        }
     }
 }
