@@ -20,8 +20,36 @@
             vertical-align: bottom;
             position: relative;
             top: 2px;
+
+            
         }
     }
+}
 
+@media only screen and (max-width: 900px) {
+    .container {
+        .image {
+            img {
+                width: 75%;
+            }
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 700px) {
+
+    .container {
+
+        padding:0px;
+        background-color:transparent;
+
+        .image {
+            border-bottom:none;
+            img {
+                width: 100%;
+            }
+        }
+    }
 
 }

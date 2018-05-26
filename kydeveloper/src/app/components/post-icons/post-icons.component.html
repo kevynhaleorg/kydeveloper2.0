@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="object">
+  <div class="object" *ngIf="showLikes">
     <div class="text">{{likes}}</div>
     <div class="circle"><mat-icon class="icon">plus_one</mat-icon></div>
   </div>
-  <div class="object">
+  <div class="object" *ngIf="showShares">
     <div class="text">{{shares}}</div>
     <div class="circle"><mat-icon class="icon">share</mat-icon></div>
   </div>
-  <div class="object">
+  <div class="object" *ngIf="showComments">
     <div class="text">{{comments}}</div>
     <div class="circle"><mat-icon class="icon">chat_bubble_outline</mat-icon></div>
   </div>

@@ -10,6 +10,10 @@
     margin-bottom:20px;
 }
 
+app-social-media.horizontal {
+    display:none;
+}
+
 .info {
     letter-spacing: .03cm;
     font-family: $body-font;
@@ -28,9 +32,36 @@
         margin-bottom:50px;
 
         app-input {
+
             width: 50%;
 
             
+            
+
+            
+        }
+
+        @media only screen and (max-width: 700px) {
+
+            height:auto;
+            flex-wrap:wrap;
+            margin-bottom:0px;
+
+            app-input {
+                height:50px;
+                width:100%;
+                margin-bottom: 50px;
+            }
+
+            &.text-area {
+                height:200px;
+                margin-bottom:50px;
+
+                app-input {
+                    height:100%;
+                }
+            }
+
         }
 
         &.text-area {
@@ -103,5 +134,20 @@
                 height:50px;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    app-social-media.horizontal {
+        // Need to figure out centering
+        //display:inherit;
+    }
+
+    .form {
+        background-color:$light-background;
+        padding:50px 25px;
+        position:relative;
+        left:-25px;
+        width: calc(100%);
     }
 }

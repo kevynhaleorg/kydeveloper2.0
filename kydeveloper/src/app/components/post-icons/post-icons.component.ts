@@ -10,6 +10,10 @@ export class PostIconsComponent implements OnInit {
   @Input() shares: number;
   @Input() comments: number;
 
+  @Input() showLikes: boolean = true;
+  @Input() showShares: boolean = true;
+  @Input() showComments: boolean = true;
+
   constructor() { }
 
   ngOnInit() {

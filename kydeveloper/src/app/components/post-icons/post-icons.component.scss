@@ -82,3 +82,13 @@
         }
     }
 }
+
+:host-context(.gray) {
+    .container {
+        .object {
+            .circle {
+                color:$light-border;
+            }
+        }
+    }
+}
