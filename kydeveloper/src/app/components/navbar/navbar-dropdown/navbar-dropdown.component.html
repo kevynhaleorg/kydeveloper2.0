@@ -1,0 +1,5 @@
+<div class="dropdown" [ngClass]="{'closed': closed}">
+    <a *ngFor="let page of pages" (click)="toggle()" routerLink="{{page.url}}" routerLinkActive="selected">
+      {{page.title}}
+    </a>
+</div>

@@ -22,6 +22,8 @@
   </div>
 </nav>
 
+<app-navbar-dropdown></app-navbar-dropdown>
+
 <nav class="mobile">
     <div class="container">
         <a routerLink="/home" >
@@ -38,9 +40,5 @@
         </div>
     </div>
 </nav>
-<div class="dropdown" [ngClass]="{'closed': closed}">
-  <a *ngFor="let page of pagesDropdown" routerLink="{{page.url}}" routerLinkActive="selected">
-    {{page.title}}
-  </a>
+<app-navbar-dropdown [pages]="pagesDropdown" [closed]="closed" (closedChanged)="toggle()"></app-navbar-dropdown>
 
-</div>

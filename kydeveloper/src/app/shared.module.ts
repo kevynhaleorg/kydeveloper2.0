@@ -9,6 +9,7 @@ import { PostIconsComponent } from './components/post-icons/post-icons.component
 import { InputComponent } from './components/input/input.component';
 import { InputVerificationService } from './services/input/input-verification.service';
 import { ContactService } from './services/contact/contact.service';
+import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/navbar-dropdown.component';
 
 @NgModule({
   imports: [
@@ -23,14 +24,16 @@ import { ContactService } from './services/contact/contact.service';
     SearchBoxComponent,
     MatIconModule,
     PostIconsComponent,
-    InputComponent
+    InputComponent,
+    NavbarDropdownComponent
   ],
   declarations: [
     SidebarSocialmediaComponent,
     SocialMediaComponent,
     SearchBoxComponent,
     PostIconsComponent,
-    InputComponent
+    InputComponent,
+    NavbarDropdownComponent
   ],
   providers: [InputVerificationService, ContactService]
 })
