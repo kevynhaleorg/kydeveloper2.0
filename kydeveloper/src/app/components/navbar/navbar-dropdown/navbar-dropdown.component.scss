@@ -16,10 +16,6 @@ $nav-height-mobile: 50px;
     flex-direction:column;
     padding:0px 0px;
     border-bottom: 5px solid $dark-dark-focus;
-    
-    &.closed {
-        display:none;
-    }
 
     a{
         padding:15px 40px;
@@ -35,6 +31,10 @@ $nav-height-mobile: 50px;
             border-bottom:1px solid $focus;
         }
 
+    }
+
+    &.closed {
+        display:none;
     }
 
 }
