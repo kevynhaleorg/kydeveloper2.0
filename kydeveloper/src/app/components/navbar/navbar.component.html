@@ -1,20 +1,18 @@
-<nav>
+<nav class="wide">
   <div class="container">
       <a routerLink="/home" >
         <div class="title">
           <img src="assets/images/logo.png">
-          KyDeveloper
+          {{title}}
         </div>
       </a>
     <div class="pages">
       <ul>
         <li class="gutter"></li>
-        <a routerLink="/about" routerLinkActive="selected"><li>About</li></a>
-        <li class="gutter"></li>
-        <a routerLink="/portfolio" routerLinkActive="selected"><li>Portfolio</li></a>
-        <li class="gutter"></li>
-        <a routerLink="/blog" routerLinkActive="selected"><li>Blog</li></a>
-        <li class="gutter"></li>
+        <ng-container *ngFor="let page of pages">
+          <a routerLink="{{page.url}}" routerLinkActive="selected"><li>{{page.title}}</li></a>
+          <li class="gutter"></li>
+        </ng-container>
       </ul>
     </div>
     <div class="contact">
@@ -22,5 +20,27 @@
     </div>
 
   </div>
-
 </nav>
+
+<nav class="mobile">
+    <div class="container">
+        <a routerLink="/home" >
+          <div class="title">
+            <img src="assets/images/logo.png">
+            {{title}}
+          </div>
+        </a> 
+
+        <div class="menu-row">
+          <div class="menu" [ngClass]="{'opened': !closed}" (click)="toggle()">
+              <object type="image/svg+xml" data="assets/images/menuicon.svg"></object>
+          </div>
+        </div>
+    </div>
+</nav>
+<div class="dropdown" [ngClass]="{'closed': closed}">
+  <a *ngFor="let page of pages" routerLink="{{page.url}}" routerLinkActive="selected">
+    {{page.title}}
+  </a>
+
+</div>
