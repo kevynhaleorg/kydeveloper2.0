@@ -13,12 +13,17 @@ export class NavbarComponent implements OnInit {
   pages: TNavPage[] = [
     { url: '/about', title: 'About'},
     { url: '/portfolio', title: 'Portfolio'},
-    { url: '/blog', title: 'Blog'},
+    { url: '/blog', title: 'Blog'}
   ]
+
+  pagesDropdown: TNavPage[];
 
   title: string = "KyDeveloper"
 
-  constructor() { }
+  constructor() {
+    this.pagesDropdown = this.pages.slice()
+    this.pagesDropdown.push({ url: '/contact', title: 'Contact'})
+  }
 
   ngOnInit() {
   }
