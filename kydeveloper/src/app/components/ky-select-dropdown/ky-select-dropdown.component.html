@@ -1,0 +1,13 @@
+<div class="filter" (click)="toggle()" [ngClass]="{'open': !closed}">
+  <div class="title">
+    {{selected}}
+  </div>
+  <div class="arrow" [ngClass]="{'down': closed, 'up': !closed}"></div>
+</div>
+<div class="dropdown" [ngClass]="{'closed': closed}">
+  <div class="inside">
+    <div *ngFor="let item of items" class="item" [ngClass]="{'selected': item === selected}" (click)="select(item)">
+      {{item}}
+    </div>
+  </div>
+</div>

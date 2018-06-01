@@ -10,6 +10,7 @@ import { InputComponent } from './components/input/input.component';
 import { InputVerificationService } from './services/input/input-verification.service';
 import { ContactService } from './services/contact/contact.service';
 import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/navbar-dropdown.component';
+import { KySelectDropdownComponent } from './components/ky-select-dropdown/ky-select-dropdown.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/nav
     MatIconModule,
     PostIconsComponent,
     InputComponent,
-    NavbarDropdownComponent
+    NavbarDropdownComponent,
+    KySelectDropdownComponent
   ],
   declarations: [
     SidebarSocialmediaComponent,
@@ -33,7 +35,8 @@ import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/nav
     SearchBoxComponent,
     PostIconsComponent,
     InputComponent,
-    NavbarDropdownComponent
+    NavbarDropdownComponent,
+    KySelectDropdownComponent
   ],
   providers: [InputVerificationService, ContactService]
 })

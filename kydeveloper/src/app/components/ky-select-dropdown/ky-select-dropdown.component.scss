@@ -1,0 +1,110 @@
+@import '../../../styles.scss';
+
+$min-width: 220px;
+$margin-right:30px;
+$arrow-size: 10px;
+$margin-filter:15px;
+
+$tran-time: 0.1s;
+
+.filter {
+    border: 1px solid $light-border;
+    border-radius:5px;
+    height:100%;
+    margin-right:$margin-right;
+    box-shadow:inset 0px 0px 0px 3px white;
+    min-width:$min-width;
+    background-color:$background;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition: all $tran-time;
+
+    &.open {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-color: $dark-light;
+    }
+
+    .title {
+        width:100%;
+        vertical-align:middle;
+        margin-left:$margin-filter;
+        color: $dark-light;
+        font-family: $body-font;
+        letter-spacing: .03cm;
+        font-weight:bold;
+        font-size:24px;
+    }
+
+    .arrow {
+
+        width: 0; 
+        height: 0; 
+        border-left: $arrow-size solid transparent;
+        border-right: $arrow-size solid transparent;
+        margin-right:$margin-filter;
+        margin-left:$margin-filter;
+        
+        &.down {
+            border-top: $arrow-size solid $dark;
+        }
+
+        &.up {
+            border-bottom: $arrow-size solid $dark;
+        }
+    }
+
+    &:hover {
+        cursor:pointer;
+    }
+
+}
+
+.dropdown {
+    height:auto;
+    max-height:175px;
+    min-width:calc($min-width - 15px);
+    margin-right:$margin-right;
+    background-color:#D1D1D1;
+    position:relative;
+    z-index:2;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius:5px;
+    border:1px solid $dark-light;
+    border-top:none;
+    transition: all $tran-time;
+    padding-top:$margin-filter;
+    
+    &.closed {
+        max-height:0px;
+        border:0px;
+        padding-top:0px;
+        overflow:hidden;
+    }
+
+    .inside {
+        height:150px;
+        margin: 0px 10px 10px 10px;
+        overflow-y:scroll;
+
+        .item {
+
+            color:white;
+            padding:5px 0px;
+            font-family:$body-font;
+            border-bottom:1px solid $light-border;
+            font-size:20px;
+            font-weight:bold;
+
+            &.selected {
+                color:#6C8DBA;
+            }
+
+            &:hover {
+                cursor:pointer;
+                color:#6C8DBA;
+            }
+        }
+    }
+}
