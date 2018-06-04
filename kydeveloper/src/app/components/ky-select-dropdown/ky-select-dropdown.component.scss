@@ -34,6 +34,7 @@ $tran-time: 0.1s;
         letter-spacing: .03cm;
         font-weight:bold;
         font-size:24px;
+        text-transform: capitalize;
     }
 
     .arrow {
@@ -94,6 +95,7 @@ $tran-time: 0.1s;
             border-bottom:1px solid $light-border;
             font-size:20px;
             font-weight:bold;
+            text-transform: capitalize;
 
             &.selected {
                 color:#6C8DBA;

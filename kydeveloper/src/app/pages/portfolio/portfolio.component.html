@@ -6,7 +6,7 @@
 <div class="container">
 
   <div class="dropdown">
-      <app-ky-select-dropdown></app-ky-select-dropdown>
+      <app-ky-select-dropdown [items]="dropDownItems"></app-ky-select-dropdown>
   </div>
 
   <div class="row">
@@ -25,7 +25,7 @@
       </div>
       <div class="gutter"></div>
       <div class="group">
-          <div class="button" (click)="filter('webapps')" [ngClass]="{'selected': (filterBy$ | async) == 'webapps'}">Web Apps</div>
+          <div class="button" (click)="filter('web apps')" [ngClass]="{'selected': (filterBy$ | async) == 'web apps'}">Web Apps</div>
           <div class="gutter"></div>
           <div class="button" (click)="filter('design')" [ngClass]="{'selected': (filterBy$ | async) == 'design'}">Design</div>
       </div>

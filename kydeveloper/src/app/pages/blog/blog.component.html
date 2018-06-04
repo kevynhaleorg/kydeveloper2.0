@@ -8,7 +8,7 @@
   </div>
   <div class="utilities">
     <a target="_blank" routerLink="/subscribe"><div class="subscribe top">Subscribe</div></a>
-    <app-ky-select-dropdown></app-ky-select-dropdown>
+    <app-ky-select-dropdown [items]="dropDownItems"></app-ky-select-dropdown>
     <app-search-box (value)="searchBoxInput($event)"></app-search-box>
     <a target="_blank" routerLink="/subscribe"><div class="subscribe bottom">Subscribe</div></a>
 

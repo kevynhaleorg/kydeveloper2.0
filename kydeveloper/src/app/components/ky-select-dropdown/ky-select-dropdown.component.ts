@@ -1,4 +1,6 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-ky-select-dropdown',
@@ -7,15 +9,17 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class KySelectDropdownComponent implements OnInit {
 
-  title:string = "Filter By"
   closed:boolean = true
-  wasInside: boolean;
+  wasInside: boolean
+  _items: string[]
+  _selected: BehaviorSubject<string>
 
-  items: string[] = [
-    "All", "Development", "Design", "Devops"
-  ]
-  selected: string = "All"
-
+  @Input() 
+  set items(items: string[]) {
+    this._items = items
+    this._selected = new BehaviorSubject<string>(items[0]);
+  }
+  
   constructor() { }
 
   ngOnInit() {
@@ -26,7 +30,7 @@ export class KySelectDropdownComponent implements OnInit {
   }
 
   select(selected:string) {
-    this.selected = selected;
+    this._selected.next(selected);
 
     this.toggle()
   }

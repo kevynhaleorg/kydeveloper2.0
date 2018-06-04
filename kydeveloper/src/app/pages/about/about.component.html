@@ -16,22 +16,34 @@
   <ul>
     <li class="gutter"></li>
     <li class="button">
-      <a routerLink="/about/biography" routerLinkActive="selected"><span>Biography</span></a>
+      <a (click)="navigate('biography')" [routerLink]="'/about/biography'" routerLinkActive="selected">
+        <span>Biography</span>
+      </a>
     </li>
     <li class="gutter"></li>
     <li class="button">
-      <a routerLink="/about/readinglist" routerLinkActive="selected"><span>Reading List</span></a>
+      <a (click)="navigate('reading list')" [routerLink]="'/about/readinglist'" routerLinkActive="selected">
+        <span>Reading List</span>
+      </a>
     </li>
     <li class="gutter"></li>
     <li class="button">
-      <a routerLink="/about/resume" routerLinkActive="selected"><span>Resume</span></a>
+      <a (click)="navigate('resume')" [routerLink]="'/about/resume'" routerLinkActive="selected">
+        <span>Resume</span>
+      </a>
     </li>
     <li class="gutter"></li>
     <li class="button">
-      <a routerLink="/about/contact" routerLinkActive="selected"><span>Contact</span></a>
+      <a (click)="navigate('contact')" [routerLink]="'/about/contact'" routerLinkActive="selected">
+        <span>Contact</span>
+      </a>
     </li>
     <li class="gutter"></li>
   </ul>
+</div>
+
+<div class="dropdown">
+  <app-ky-select-dropdown [items]="dropDownItems"></app-ky-select-dropdown>
 </div>
 
 <div class="content">
