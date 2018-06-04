@@ -17,6 +17,7 @@ import { BlogRootComponent } from './pages/blog/blog-root/blog-root.component';
 import { LearnMoreComponent } from './pages/home/learn-more/learn-more.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { ContactSentComponent } from './pages/contact/contact-sent/contact-sent.component';
+import { SubscribeComponent } from './pages/subscribe/subscribe.component';
 
 const routes: Routes = [
 
@@ -46,6 +47,7 @@ const routes: Routes = [
                 { path: "", component: ContactFormComponent},
                 { path: "sent", component: ContactSentComponent}
             ]},
+            { path: "subscribe", component: SubscribeComponent}
         ]
     }
 ]

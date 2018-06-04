@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-ky-select-dropdown',
@@ -9,6 +9,7 @@ export class KySelectDropdownComponent implements OnInit {
 
   title:string = "Filter By"
   closed:boolean = true
+  wasInside: boolean;
 
   items: string[] = [
     "All", "Development", "Design", "Devops"
@@ -28,6 +29,19 @@ export class KySelectDropdownComponent implements OnInit {
     this.selected = selected;
 
     this.toggle()
+  }
+
+  @HostListener('click')
+  onClickInside(){
+    this.wasInside = true;
+  }
+
+  @HostListener('document:click', ['$event.target'])
+  onClick(targetElement) {
+    if (!this.wasInside && !this.closed) {
+      this.toggle()
+    }
+    this.wasInside = false;
   }
 
 }

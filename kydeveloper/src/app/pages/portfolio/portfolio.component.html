@@ -1,14 +1,23 @@
 <app-sidebar-socialmedia></app-sidebar-socialmedia>
+
+<div class="title">
+    Portfolio
+  </div>
 <div class="container">
-  <div class="row">
-    <div class="group">
-      <app-search-box (value)="searchBoxInput($event)"></app-search-box>
-    </div>
-    <div class="gutter"></div>
-    <div class="group"></div>
+
+  <div class="dropdown">
+      <app-ky-select-dropdown></app-ky-select-dropdown>
   </div>
 
   <div class="row">
+    <div class="group search">
+      <app-search-box (value)="searchBoxInput($event)"></app-search-box>
+    </div>
+    <div class="gutter empty"></div>
+    <div class="group empty"></div>
+  </div>
+
+  <div class="row buttons-row">
       <div class="group">
         <div class="button" (click)="filter('all')" [ngClass]="{'selected': (filterBy$ | async) == 'all'}">All</div>
         <div class="gutter"></div>

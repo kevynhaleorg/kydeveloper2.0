@@ -2,6 +2,16 @@
 
 $margin-bottom: 35px;
 
+.title {
+    letter-spacing: .03cm;
+    font-family: $body-font;
+    font-size: 48px;
+    font-weight: bold;
+    color: $dark;
+    margin-bottom:20px;
+    text-align:center;
+    display:none;
+}
 
 .profile-image {
     padding-top:40px;
@@ -42,9 +52,11 @@ $margin-bottom: 35px;
         margin:0px;
         padding:0px;
         list-style:none;
+        flex-shrink: 0;
 
         li {
             text-align:center;
+            margin-right:10px;
 
             &.gutter {
                 flex-grow:1;
@@ -91,4 +103,62 @@ $margin-bottom: 35px;
     height: auto;
     padding:25px;
     margin:0px auto $margin-bottom;
+}
+
+@media only screen and (max-width: 805px) {
+    .button-row {
+
+        position:relative;
+        left:-10px;
+        width: calc(100% + 20px);
+
+
+        ul {
+
+            li {
+
+                &.button {
+                    span {
+                        padding: 5px 20px;
+                        font-size:20px;
+                    }
+                }
+                
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    .title {
+        display:block;
+    }
+
+    .intro {
+        margin-top:25px;
+        margin-bottom:25px;
+        width: 100%;
+        font-size:24px;
+        line-height:40px;
+    }
+
+    .profile-image {
+        padding-top: 10px;
+
+        img {
+            max-width:300px;
+        }
+    }
+
+    .content {
+        position:relative;
+        left:-25px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    // Add dropdown here
 }

@@ -21,6 +21,7 @@ import { PortfolioModule } from './modules/portfolio.module';
 import { BiographyComponent } from './pages/about/biography/biography.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { SharedModule } from './shared.module';
+import { SubscribeModule } from './modules/subscribe.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SharedModule } from './shared.module';
     BlogModule,
     ContactModule,
     HomeModule,
-    PortfolioModule
+    PortfolioModule,
+    SubscribeModule
   ],
   providers: [
     ACTION_PROVIDERS,
