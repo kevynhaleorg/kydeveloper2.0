@@ -1,12 +1,16 @@
 <app-sidebar-socialmedia></app-sidebar-socialmedia>
+<div class="title">
+  Blog
+</div>
 <div class="container">
   <div class="intro">
       Kevyn’s musings on all things devops, development and design.
   </div>
   <div class="utilities">
+    <div class="subscribe top">Subscribe</div>
     <app-ky-select-dropdown></app-ky-select-dropdown>
     <app-search-box (value)="searchBoxInput($event)"></app-search-box>
-    <div class="subscribe">Subscribe</div>
+    <div class="subscribe bottom">Subscribe</div>
 
   </div>
 
@@ -23,10 +27,16 @@
             [shares]="post.shares"
             [comments]="post.comments">
           </app-post-icons>
+          <app-post-icons
+            class="icons vertical center nohover"
+            [likes]="post.likes"
+            [shares]="post.shares"
+            [comments]="post.comments">
+          </app-post-icons>
       </div>
     </div>
     <div class="right">
-      <div class="title">{{post.title}}</div>
+      <div class="post-title">{{post.title}}</div>
       <div class="date">{{post.date}}</div>
       <div class="post-summary">{{post.summary}}</div>
       <div class="tags">
