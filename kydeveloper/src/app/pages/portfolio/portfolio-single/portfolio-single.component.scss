@@ -2,9 +2,32 @@
 
 $margin-bottom: 20px;
 
-.container {
+.body-container {
     margin-top:20px;
     height:auto;
+
+    .back {
+        border-radius: 5px;
+        border: 1px solid $light-border;
+        height:45px;
+        line-height:40px;
+        text-align:center;
+        letter-spacing: .05cm;
+        box-shadow:inset 0px 0px 0px 3px $white;
+        font-family: $title-font;
+        font-size: 24px;
+        color:$dark-light;
+
+        &:hover {
+            border-color:$focus;
+            color:$focus;
+        }
+        margin-bottom:$margin-bottom;
+
+        &.back-content {
+            display:none;
+        }
+    }
     
     .side {
         width:270px;
@@ -15,25 +38,6 @@ $margin-bottom: 20px;
         min-height:500px;
         max-height: 100%;
         overflow-y:scroll;
-
-        .back {
-            border-radius: 5px;
-            border: 1px solid $light-border;
-            height:45px;
-            line-height:40px;
-            text-align:center;
-            letter-spacing: .05cm;
-            box-shadow:inset 0px 0px 0px 3px $white;
-            font-family: $title-font;
-            font-size: 24px;
-            color:$dark-light;
-
-            &:hover {
-                border-color:$focus;
-                color:$focus;
-            }
-            margin-bottom:$margin-bottom;
-        }
 
         .header-image {
             width:100%;
@@ -217,4 +221,84 @@ $margin-bottom: 20px;
      img {
         max-width: 100%;
      }
+}
+
+@media only screen and (max-width: 1000px) {
+ .body-container {
+     position:relative;
+     left:-50px;
+     width: calc(100% + 100px);
+
+     .gutter {
+        left:325px;
+    }
+ }
+
+}
+
+@media only screen and (max-width: 900px) {
+    .body-container {
+
+        .side {
+            display:none;
+        }
+
+        .back {
+            &.back-content {
+                display:block;
+                max-width:300px;
+                margin:0px auto;
+                margin-bottom:$margin-bottom;
+            }
+        }
+
+        .content {
+            width: calc(100% - 60px);
+            max-width: calc(100% - 60px);
+            position:relative;
+            left:60px;
+        }
+
+        .gutter {
+            left:0px;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .body-container {
+        position:relative;
+        left:0px;
+        width: 100%;
+    }
+   
+}
+
+@media only screen and (max-width: 500px) {
+
+    .body-container {
+        .back {
+            &.back-content {
+                display:block;
+                margin-top:-25px;
+            }
+        }
+        .content {
+            width:100%;
+            max-width:100%;
+            left:0px;
+        }
+        .gutter {
+            display:none;
+        }
+    }
+
+    :host /deep/ .post-content {
+        img {
+           position:relative;
+           left:-25px;
+           max-width: calc(100% + 50px);
+        }
+   }
+
 }

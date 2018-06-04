@@ -1,4 +1,4 @@
-<div class="container">
+<div class="body-container">
   <div class="side">
       <a routerLink="/portfolio"><div class="back">Back</div></a>
       <div class="header-image" [ngStyle]="{'background-image': 'url(' + post.featuredimage + ')'}"></div>
@@ -16,6 +16,7 @@
     <app-post-icons class="center vertical" [likes]="post.likes" [shares]="post.shares" [comments]="post.comments"></app-post-icons>
   </div>
   <div class="content">
+    <a routerLink="/portfolio"><div class="back back-content">Back</div></a>
     <div class="title-row">
       <div class="title-icon">
         <img src="{{post.icon}}">

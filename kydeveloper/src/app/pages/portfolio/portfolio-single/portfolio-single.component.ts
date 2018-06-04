@@ -37,4 +37,8 @@ export class PortfolioSingleComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    window.scrollTo(0, 0);
+  }
+
 }
