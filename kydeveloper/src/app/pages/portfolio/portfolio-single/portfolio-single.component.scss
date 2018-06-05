@@ -129,6 +129,14 @@ $margin-bottom: 20px;
             }
         }
 
+        .featured-image {
+            display:none;
+        }
+
+        .icons-post {
+            display:none;
+        }
+
         .summary {
             color: $dark;
             font-family: $body-font;
@@ -161,7 +169,7 @@ $margin-bottom: 20px;
             height:80px;
             position:relative;
 
-            .container {
+            .container-comment {
                 display:flex;
                 flex-direction: row;
                 position:relative;
@@ -248,7 +256,7 @@ $margin-bottom: 20px;
                 display:block;
                 max-width:300px;
                 margin:0px auto;
-                margin-bottom:$margin-bottom;
+                margin-bottom:40px;
             }
         }
 
@@ -257,6 +265,36 @@ $margin-bottom: 20px;
             max-width: calc(100% - 60px);
             position:relative;
             left:60px;
+
+            .title-row {
+
+                .title-icon {
+                    display:block;
+                    margin:0px auto;
+                    margin-bottom:-10px;
+                    img {
+                        position:relative;
+                    }
+                }
+                .title-value {
+                    display:block;
+                    text-align:center;
+                    font-size:30px;
+                }
+            }
+
+            .featured-image {
+                display:block;
+                margin-bottom: $margin-bottom;
+
+                img {
+                    display:block;
+                    margin:0px auto;
+                    max-width:275px;
+                    border-radius:5px;
+                    border:1px solid $light-border;
+                }
+            }
         }
 
         .gutter {
@@ -270,6 +308,12 @@ $margin-bottom: 20px;
         position:relative;
         left:0px;
         width: 100%;
+
+        .back {
+            &.back-content {
+                margin-top:-25px;
+            }
+        }
     }
    
 }
@@ -277,16 +321,22 @@ $margin-bottom: 20px;
 @media only screen and (max-width: 500px) {
 
     .body-container {
-        .back {
-            &.back-content {
-                display:block;
-                margin-top:-25px;
-            }
-        }
         .content {
             width:100%;
             max-width:100%;
             left:0px;
+
+            .title-row {
+                margin-bottom:15px;
+            }
+
+            app-post-icons.icons-post {
+                display:initial;
+            }
+
+            .featured-image {
+                margin-top: 20px;
+            }
         }
         .gutter {
             display:none;

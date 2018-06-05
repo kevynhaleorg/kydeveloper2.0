@@ -16,7 +16,7 @@
     <app-post-icons class="center vertical" [likes]="post.likes" [shares]="post.shares" [comments]="post.comments"></app-post-icons>
   </div>
   <div class="content">
-    <a routerLink="/portfolio"><div class="back back-content">Back</div></a>
+    <a routerLink="/portfolio"><div class="back back-content">Back to Projects</div></a>
     <div class="title-row">
       <div class="title-icon">
         <img src="{{post.icon}}">
@@ -25,13 +25,17 @@
         {{post.title}}
       </div>
     </div>
+    <app-post-icons class="center horizontal icons-post" [likes]="post.likes" [shares]="post.shares" [comments]="post.comments"></app-post-icons>
+    <div class="featured-image">
+      <img src="{{post.featuredimage}}">
+    </div>
     <div class="summary">
       {{post.summary}}
     </div>
     <div [innerHtml]="post.content" class="post-content"></div>
     <div class="end-line-break"></div>
     <div class="comment new-comment">
-        <div class="container">
+        <div class="container-comment">
           <div class="circle"><mat-icon class="icon">chat_bubble_outline</mat-icon></div>
           <div class="text">Write New Comment</div>
         </div>
