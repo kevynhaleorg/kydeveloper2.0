@@ -137,6 +137,14 @@ $margin-bottom: 20px;
             display:none;
         }
 
+        .post-date {
+            font-size:18px;
+            color: $dark;
+            font-family: $body-font;
+            letter-spacing: .03cm;
+            display:none;
+        }
+
         .summary {
             color: $dark;
             font-family: $body-font;
@@ -295,6 +303,17 @@ $margin-bottom: 20px;
                     border:1px solid $light-border;
                 }
             }
+
+            .post-date {
+                display: block;
+                margin-bottom:8px;
+                font-size:24px;
+                text-align:center;
+            }
+
+            .summary {
+                text-align:center;
+            }
         }
 
         .gutter {
@@ -337,6 +356,15 @@ $margin-bottom: 20px;
 
             .featured-image {
                 margin-top: 20px;
+            }
+
+            .post-date {
+                font-size:18px;
+            }
+
+            .summary {
+                font-size:14px;
+                line-height:25px;
             }
         }
         .gutter {
