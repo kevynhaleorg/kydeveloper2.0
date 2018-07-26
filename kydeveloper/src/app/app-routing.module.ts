@@ -18,6 +18,10 @@ import { LearnMoreComponent } from './pages/home/learn-more/learn-more.component
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { ContactSentComponent } from './pages/contact/contact-sent/contact-sent.component';
 import { SubscribeComponent } from './pages/subscribe/subscribe.component';
+import { RegisterComponent } from './pages/subscribe/register/register.component';
+import { RegisterWaitingComponent } from './pages/subscribe/register-waiting/register-waiting.component';
+import { RegisterSuccessComponent } from './pages/subscribe/register-success/register-success.component';
+import { UnsubscribeComponent } from './pages/subscribe/unsubscribe/unsubscribe.component';
 
 const routes: Routes = [
 
@@ -47,7 +51,12 @@ const routes: Routes = [
                 { path: "", component: ContactFormComponent},
                 { path: "sent", component: ContactSentComponent}
             ]},
-            { path: "subscribe", component: SubscribeComponent}
+            { path: "subscribe", component: SubscribeComponent, children: [
+                { path: "", component: RegisterComponent},
+                { path: "pending", component: RegisterWaitingComponent},
+                { path: "success", component: RegisterSuccessComponent},
+                { path: "unsubscribe", component: UnsubscribeComponent}
+            ]}
         ]
     }
 ]
