@@ -47,7 +47,13 @@
         min-width:180px;
         height:48px;
         &:hover {
-            cursor:pointer;
+            cursor: pointer;
+        }
+        
+        span {
+            img {
+                height:50px;
+            }
         }
     }
     

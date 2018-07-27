@@ -7,10 +7,11 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { MatIconModule, MatCardModule } from '@angular/material'
 import { PostIconsComponent } from './components/post-icons/post-icons.component';
 import { InputComponent } from './components/input/input.component';
-import { InputVerificationService } from './services/input/input-verification.service';
-import { ContactService } from './services/contact/contact.service';
+import { InputVerificationService } from './services';
+import { ContactService } from './services';
 import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/navbar-dropdown.component';
 import { KySelectDropdownComponent } from './components/ky-select-dropdown/ky-select-dropdown.component';
+import { SubscribeService } from './services';
 
 @NgModule({
   imports: [
@@ -38,6 +39,6 @@ import { KySelectDropdownComponent } from './components/ky-select-dropdown/ky-se
     NavbarDropdownComponent,
     KySelectDropdownComponent
   ],
-  providers: [InputVerificationService, ContactService]
+  providers: [InputVerificationService, ContactService, SubscribeService]
 })
 export class SharedModule { }

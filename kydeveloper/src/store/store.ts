@@ -4,16 +4,19 @@ import { IPortfolioState, portfolioReducer } from "./portfolio/portfolio.reducer
 import { IBlogState, blogReducer } from './blog/blog.reducer';
 import { IContactState } from '.';
 import { contactReducer } from './contact/contact.reducer';
+import { ISubscribeState, subscribeReducer } from './subscribe/subscribe.reducer';
 
 
 export interface IAppState {
     'portfolio'?: IPortfolioState;
     'blog'?:IBlogState;
     'contact'?:IContactState;
+    'subscribe'?:ISubscribeState;
 }
 
 export const rootReducer = combineReducers<IAppState>({
     'portfolio': portfolioReducer,
     'blog': blogReducer,
-    'contact': contactReducer
+    'contact': contactReducer,
+    'subscribe': subscribeReducer
 });

@@ -15,7 +15,7 @@
       (value)="email = $event">
     </app-input>
   </div>
-  <div class="submit">
-    Submit
-  </div>
+  <div class="submit" (click)="submit()">
+      <span *ngIf="!(loading$ | async)">Submit</span>
+      <span *ngIf="(loading$ | async)" ><img src="assets/images/spinner.svg"></span>
 </div>
