@@ -1,3 +1,15 @@
-<p>
-  register-waiting works!
-</p>
+<div class="subscribe-title">
+  Subscription Pending
+</div>
+
+<div class="subscribe-info">
+  You have almost subscribed! We sent an email to <span class="highlight">{{ email$ | async }}</span> with a link to confirm your subscription. Remember to check your spam folder if you have not yet received the email.
+</div>
+
+<div class="subscribe-form">
+
+  <div class="submit" (click)="resend()" [ngClass]="{'unclickable':(resendSent$ | async)}" >
+      <span *ngIf="!(loading$ | async) && !(resendSent$ | async)">Resend Email</span>
+      <span *ngIf="(loading$ | async) && !(resendSent$ | async)" ><img src="assets/images/spinner.svg"></span>
+      <span *ngIf="(resendSent$ | async)">Retry Sent</span>
+</div>

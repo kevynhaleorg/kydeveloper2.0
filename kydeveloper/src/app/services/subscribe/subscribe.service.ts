@@ -8,8 +8,7 @@ export class SubscribeService {
   constructor() { }
 
   submit(email: string): Observable<any> {
-    console.log(email)
-    return IfObservable.of(email).delay(5000)
+    return IfObservable.of(email).delay(1000)
   }
 
 }

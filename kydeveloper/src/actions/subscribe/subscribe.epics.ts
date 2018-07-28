@@ -23,7 +23,8 @@ export class SubscribeEpics implements EpicCreator {
 
     createEpics(): EpicMiddleware<any, any, any, any>[] {
         return [
-            createEpicMiddleware(this.submit.bind(this))
+            createEpicMiddleware(this.submit.bind(this)),
+            createEpicMiddleware(this.resend.bind(this))
           ]
     }
 
@@ -38,6 +39,26 @@ export class SubscribeEpics implements EpicCreator {
                                 map( value => this._actions.submitResponse()),
                                 catchError(error => of(this._actions.submitError(error))),
                                 startWith(this._actions.submitStart())
+                        )
+                    }
+                )
+
+            )
+            
+    }
+
+    resend(action$: ActionsObservable<any>, store: any): Observable<any> {
+        return action$
+            .ofType( SubscribeActions.SUBSCRIBE_RESEND_REQUEST)
+            .pipe(
+                mergeMap(
+                    ({payload}) => {
+                        return this.subscribeService.submit(
+                            store.getState().subscribe.register.email)
+                            .pipe(
+                                map( value => this._actions.resendResponse()),
+                                catchError(error => of(this._actions.resendError(error))),
+                                startWith(this._actions.resendStart())
                         )
                     }
                 )

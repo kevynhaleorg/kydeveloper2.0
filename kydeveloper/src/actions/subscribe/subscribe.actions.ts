@@ -5,10 +5,18 @@ import { ICommandName } from "selenium-webdriver";
 
 @Injectable()
 export class SubscribeActions {
+    static SUBSCRIBE_RESEND_REGISTER_REQUEST(arg0: any): any {
+        throw new Error("Method not implemented.");
+    }
     static SUBSCRIBE_SUBMIT_REGISTER_REQUEST = "SUBSCRIBE_SUBMIT_REGISTER_REQUEST";
     static SUBSCRIBE_SUBMIT_REGISTER_REQUEST_START = "SUBSCRIBE_SUBMIT_REGISTER_REQUEST_START"
     static SUBSCRIBE_SUBMIT_REGISTER_RESPONSE = "SUBSCRIBE_SUBMIT_REGISTER_ESPONSE";
     static SUBSCRIBE_SUBMIT_REGISTER_ERROR = "SUBSCRIBE_SUBMIT_REGISTER_ERROR"
+
+    static SUBSCRIBE_RESEND_REQUEST = "SUBSCRIBE_RESEND_REQUEST"
+    static SUBSCRIBE_RESEND_REQUEST_START = "SUBSCRIBE_RESEND_REQUEST_START"
+    static SUBSCRIBE_RESEND_REQUEST_RESPONSE = "SUBSCRIBE_RESEND_REQUEST_RESPONSE"
+    static SUBSCRIBE_RESEND_REQUEST_ERROR = "SUBSCRIBE_RESEND_REQUEST_ERROR"
 
     @dispatch()
     submit(email: string): FluxStandardAction<{}, {}> {
@@ -37,7 +45,40 @@ export class SubscribeActions {
 
     submitError(error:Error): FluxStandardAction<{}, {}> {
         return {
-            type: SubscribeActions.SUBSCRIBE_SUBMIT_REGISTER_RESPONSE,
+            type: SubscribeActions.SUBSCRIBE_SUBMIT_REGISTER_ERROR,
+            meta: {},
+            payload: error
+        }
+    }
+
+    @dispatch()
+    resend(): FluxStandardAction<{}, {}> {
+        return {
+            type: SubscribeActions.SUBSCRIBE_RESEND_REQUEST,
+            meta: {},
+            payload: {}
+        }
+    }
+
+    resendStart(): FluxStandardAction<{}, {}> {
+        return {
+            type: SubscribeActions.SUBSCRIBE_RESEND_REQUEST_START,
+            meta: {},
+            payload: {}
+        }
+    }
+
+    resendResponse(): FluxStandardAction<{}, {}> {
+        return {
+            type: SubscribeActions.SUBSCRIBE_RESEND_REQUEST_RESPONSE,
+            meta: {},
+            payload: {}
+        }
+    }
+
+    resendError(error:Error): FluxStandardAction<{}, {}> {
+        return {
+            type: SubscribeActions.SUBSCRIBE_RESEND_REQUEST_ERROR,
             meta: {},
             payload: error
         }
