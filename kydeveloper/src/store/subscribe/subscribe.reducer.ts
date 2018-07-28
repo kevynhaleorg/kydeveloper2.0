@@ -124,6 +124,10 @@ export function subscribeReducer(
             }
         }
 
+        case SubscribeActions.SUBSCRIBE_RESET: {
+            return INITIAL_STATE
+        }
+
         default:
             return state
 

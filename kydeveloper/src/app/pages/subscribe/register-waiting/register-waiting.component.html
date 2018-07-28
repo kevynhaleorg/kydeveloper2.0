@@ -12,4 +12,7 @@
       <span *ngIf="!(loading$ | async) && !(resendSent$ | async)">Resend Email</span>
       <span *ngIf="(loading$ | async) && !(resendSent$ | async)" ><img src="assets/images/spinner.svg"></span>
       <span *ngIf="(resendSent$ | async)">Retry Sent</span>
+  </div>
+  <div class="or">OR</div>
+  <div class="submit reset" (click)="reset()">Use Different Email</div>
 </div>

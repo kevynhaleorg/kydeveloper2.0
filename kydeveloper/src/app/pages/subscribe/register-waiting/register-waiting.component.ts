@@ -43,4 +43,8 @@ export class RegisterWaitingComponent implements OnInit {
     this._subscribeActions.resend()
   }
 
+  reset() {
+    this._subscribeActions.reset()
+  }
+
 }

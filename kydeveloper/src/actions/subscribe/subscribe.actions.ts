@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { dispatch } from "@angular-redux/store";
 import { FluxStandardAction } from "flux-standard-action";
 import { ICommandName } from "selenium-webdriver";
+import { resetFakeAsyncZone } from "../../../node_modules/@angular/core/testing";
 
 @Injectable()
 export class SubscribeActions {
@@ -17,6 +18,7 @@ export class SubscribeActions {
     static SUBSCRIBE_RESEND_REQUEST_START = "SUBSCRIBE_RESEND_REQUEST_START"
     static SUBSCRIBE_RESEND_REQUEST_RESPONSE = "SUBSCRIBE_RESEND_REQUEST_RESPONSE"
     static SUBSCRIBE_RESEND_REQUEST_ERROR = "SUBSCRIBE_RESEND_REQUEST_ERROR"
+    static SUBSCRIBE_RESET = "SUBSCRIBE_RESET"
 
     @dispatch()
     submit(email: string): FluxStandardAction<{}, {}> {
@@ -81,6 +83,15 @@ export class SubscribeActions {
             type: SubscribeActions.SUBSCRIBE_RESEND_REQUEST_ERROR,
             meta: {},
             payload: error
+        }
+    }
+
+    @dispatch()
+    reset(): FluxStandardAction<{}, {}> {
+        return {
+            type: SubscribeActions.SUBSCRIBE_RESET,
+            meta: {},
+            payload: {}
         }
     }
 }
