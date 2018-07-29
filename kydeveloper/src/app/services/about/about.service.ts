@@ -19,12 +19,16 @@ export class AboutService {
     category: "development"
   }
 
-  getReadingList(page: number): Observable<IReadingListResponse> {
-    return IfObservable.of({page: page, results: [this.item1]}).delay(2000)
+  getReadingList(request: IReadingListRequest): Observable<IReadingListResponse> {
+    return IfObservable.of({page: request.page, pageSize: request.pageSize, category: request.category, results: [this.item1]}).delay(2000)
   }
 
   getReadingItem(id: string): Observable<IReadingItem> {
     return IfObservable.of(this.item1).delay(2000)
+  }
+
+  recommendBook(request: IBookRecommendationRequest): Observable<void> {
+    return IfObservable.of(null).delay(2000)
   }
 
   getBiography(): Observable<any> {
@@ -32,6 +36,14 @@ export class AboutService {
   }
 
   getResume(): Observable<IResumeResponse> {
+    return IfObservable.of(null).delay(2000)
+  }
+
+  getPresentations(): Observable<Array<IPresentation>> {
+    return IfObservable.of([]).delay(2000)
+  } 
+
+  requestPresentation(request: IPresentationRequest): Observable<void> {
     return IfObservable.of(null).delay(2000)
   }
 
@@ -52,8 +64,23 @@ export interface IResumeExperience {
   summary: string;
 }
 
+export interface IBookRecommendationRequest {
+  name: string;
+  bookUrl: string;
+  email: string;
+  why: string;
+}
+
+export interface IReadingListRequest {
+  category: string;
+  page: number;
+  pageSize: number;
+}
+
 export interface IReadingListResponse {
-  page: number,
+  page: number
+  pageSize: number
+  category: string
   results: Array<IReadingItem>
 }
 
@@ -67,4 +94,19 @@ export interface IReadingItem {
   dateAdded: string;
   rating: number;
   category: string;
+}
+
+export interface IPresentation {
+  url: string;
+  event: string;
+  date: string;
+  summary: string;
+}
+
+export interface IPresentationRequest {
+  name: string;
+  email: string;
+  event: string;
+  summary: string;
+  date: string;
 }
