@@ -1,3 +1,9 @@
-<p>
-  unsubscribe works!
-</p>
+<div class="subscribe-title">
+  Unsubscribe
+</div>
+<div class="subscribe-info">
+  <span *ngIf="(loading$ | async)"><img src="assets/images/30.svg"></span>
+  <span *ngIf="!(loading$ | async) && (unsubscribed$ | async)">
+    You have successfuly unsubscribed from our content with the email <span class="highlight">{{(email$ | async)}}</span>. We are sad to see you go!
+  </span>
+</div>

@@ -1,3 +1,9 @@
 <div class="subscribe-title">
   Subscription Confirmation
 </div>
+<div class="subscribe-info">
+  <span *ngIf="(loading$ | async)"><img src="assets/images/30.svg"></span>
+  <span *ngIf="!(loading$ | async) && (confirmed$ | async)">
+    You have successfuly subscribed to our content with the email <span class="highlight">{{(email$ | async)}}</span>. We look forward to providing you with the best development content on the block!
+  </span>
+</div>
