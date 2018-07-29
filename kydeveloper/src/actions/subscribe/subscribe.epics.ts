@@ -24,7 +24,9 @@ export class SubscribeEpics implements EpicCreator {
     createEpics(): EpicMiddleware<any, any, any, any>[] {
         return [
             createEpicMiddleware(this.submit.bind(this)),
-            createEpicMiddleware(this.resend.bind(this))
+            createEpicMiddleware(this.resend.bind(this)),
+            createEpicMiddleware(this.confirm.bind(this)),
+            createEpicMiddleware(this.unsubscribe.bind(this))
           ]
     }
 
@@ -38,13 +40,9 @@ export class SubscribeEpics implements EpicCreator {
                             .pipe(
                                 map( value => this._actions.submitResponse()),
                                 catchError(error => of(this._actions.submitError(error))),
-                                startWith(this._actions.submitStart())
-                        )
-                    }
-                )
-
-            )
-            
+                                startWith(this._actions.submitStart()))
+                    })
+            )       
     }
 
     resend(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -58,13 +56,39 @@ export class SubscribeEpics implements EpicCreator {
                             .pipe(
                                 map( value => this._actions.resendResponse()),
                                 catchError(error => of(this._actions.resendError(error))),
-                                startWith(this._actions.resendStart())
-                        )
-                    }
-                )
+                                startWith(this._actions.resendStart()))
+                    })
+            )   
+    }
 
-            )
-            
+    confirm(action$: ActionsObservable<any>, store: any): Observable<any> {
+        return action$
+            .ofType( SubscribeActions.SUBSCRIBE_CONFIRM)
+            .pipe(
+                mergeMap(
+                    ({payload}) => {
+                        return this.subscribeService.confirm(payload)
+                            .pipe(
+                                map( value => this._actions.confirmResponse(value)),
+                                catchError(error => of(this._actions.confirmError(error))),
+                                startWith(this._actions.confirmStart()))
+                    })
+            )       
+    }
+
+    unsubscribe(action$: ActionsObservable<any>, store: any): Observable<any> {
+        return action$
+            .ofType( SubscribeActions.SUBSCRIBE_UNSUBSCRIBE)
+            .pipe(
+                mergeMap(
+                    ({payload}) => {
+                        return this.subscribeService.unsubscribe(payload)
+                            .pipe(
+                                map( value => this._actions.unsubscribeResponse(value)),
+                                catchError(error => of(this._actions.unsubscribeError(error))),
+                                startWith(this._actions.unsubscribeStart()))
+                    })
+            )       
     }
 
 

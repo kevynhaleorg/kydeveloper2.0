@@ -18,12 +18,21 @@ export interface ISubscribeConfirmState {
     loading: boolean;
     error: boolean;
     confirmed: boolean;
+    email: string;
+}
+
+export interface ISubscribeUnsubscribeState {
+    loading: boolean;
+    error: boolean;
+    unsubscribed: boolean;
+    email: string;
 }
 
 export interface ISubscribeState {
     register: ISubscribeRegisterState,
     resend: ISubscribeResendState,
-    confirm: ISubscribeConfirmState
+    confirm: ISubscribeConfirmState,
+    unsubscribe: ISubscribeUnsubscribeState
 }
 
 const INITIAL_STATE: ISubscribeState = {
@@ -41,7 +50,14 @@ const INITIAL_STATE: ISubscribeState = {
     confirm: {
         loading: false,
         error: false,
-        confirmed: false
+        confirmed: false,
+        email: null
+    },
+    unsubscribe: {
+        loading: false,
+        error: false,
+        unsubscribed: false,
+        email: null
     }
 
 }
@@ -140,6 +156,82 @@ export function subscribeReducer(
         case SubscribeActions.SUBSCRIBE_RESET: {
             return INITIAL_STATE
         }
+
+        // CONFIRM
+
+        case SubscribeActions.SUBSCRIBE_CONFIRM_START: {
+            return {
+                ...state,
+                confirm: {
+                    ...state.confirm,
+                    error: false,
+                    loading: true
+                }     
+            }
+        }
+
+        case SubscribeActions.SUBSCRIBE_CONFIRM_RESPONSE: {
+            return {
+                ...state,
+                confirm: {
+                    ...state.confirm,
+                    error: false,
+                    loading: false,
+                    email: action.payload.email,
+                    confirmed: action.payload.confirmed
+                }     
+            }
+        }
+
+        case SubscribeActions.SUBSCRIBE_CONFIRM_ERROR: {
+            return {
+                ...state,
+                confirm: {
+                    ...state.confirm,
+                    error: true,
+                    loading: false
+                }     
+            }
+        }
+
+        // UNSUBSCRIBE
+
+        case SubscribeActions.SUBSCRIBE_UNSUBSCRIBE_START: {
+            return {
+                ...state,
+                unsubscribe: {
+                    ...state.unsubscribe,
+                    error: false,
+                    loading: true
+                }     
+            }
+        }
+
+        case SubscribeActions.SUBSCRIBE_UNSUBSCRIBE_RESPONSE: {
+            return {
+                ...state,
+                unsubscribe: {
+                    ...state.unsubscribe,
+                    error: false,
+                    loading: false,
+                    email: action.payload.email,
+                    unsubscribed: action.payload.unsubscribed
+                }     
+            }
+        }
+
+        case SubscribeActions.SUBSCRIBE_UNSUBSCRIBE_ERROR: {
+            return {
+                ...state,
+                unsubscribe: {
+                    ...state.unsubscribe,
+                    error: true,
+                    loading: false
+                }     
+            }
+        }
+
+
 
         default:
             return state
