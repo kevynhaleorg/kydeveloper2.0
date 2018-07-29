@@ -20,6 +20,8 @@ export class SubscribeActions {
     static SUBSCRIBE_RESEND_REQUEST_ERROR = "SUBSCRIBE_RESEND_REQUEST_ERROR"
     static SUBSCRIBE_RESET = "SUBSCRIBE_RESET"
 
+    static SUBSCRIBE_CONFIRM = "SUBSCRIBE_CONFIRM"
+
     @dispatch()
     submit(email: string): FluxStandardAction<{}, {}> {
         return {
@@ -92,6 +94,17 @@ export class SubscribeActions {
             type: SubscribeActions.SUBSCRIBE_RESET,
             meta: {},
             payload: {}
+        }
+    }
+
+    // SUCCESS
+
+    @dispatch()
+    confirm(code: string): FluxStandardAction<{}, {}> {
+        return {
+            type: SubscribeActions.SUBSCRIBE_CONFIRM,
+            meta: {},
+            payload: code
         }
     }
 }

@@ -3,6 +3,7 @@ import { InputVerificationService } from './../../services/input/input-verificat
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { Subject } from '../../../../node_modules/rxjs/Subject';
 
 @Component({
   selector: 'app-input',
@@ -37,6 +38,7 @@ export class InputComponent {
   public fieldValue: string = "";
 
   valueSubject: BehaviorSubject<string> = new BehaviorSubject("");
+  public readonly _enterChanged: Subject<void> = new Subject();
 
   constructor(
     private vs: InputVerificationService) {
@@ -141,6 +143,14 @@ export class InputComponent {
   public success() {
     this.error = false;
     this.successful = true;
+  }
+
+  public focus() {
+    this.field.nativeElement.focus()
+  }
+
+  enterKey() {
+    this._enterChanged.next()
   }
 }
 

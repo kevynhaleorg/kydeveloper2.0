@@ -1,6 +1,7 @@
 <div  *ngIf="lit.TEXT_AREA != type" class="input" [ngClass]="{'selected': selected, 'error': error}">
   <input
     #field
+    (keyup.enter)="enterKey()"
     type="{{fieldType}}"
     placeholder="{{placeholder}}"
     (focus)="inputFocus()"
@@ -17,6 +18,7 @@
 <textarea
   [ngClass]="{'selected': selected, 'error': error}"
   *ngIf="lit.TEXT_AREA === type"
+  (keyup.enter)="enterKey()"
   (focus)="inputFocus()"
   (focusout)="inputFocusOut()"
   placeholder="{{placeholder}}"

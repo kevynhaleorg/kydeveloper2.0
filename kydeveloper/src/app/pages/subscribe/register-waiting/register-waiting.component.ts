@@ -35,6 +35,10 @@ export class RegisterWaitingComponent implements OnInit {
       })
   }
 
+  ngAfterViewInit() {
+    window.scrollTo(0, 0);
+  }
+
   ngOnDestroy() {
     this.sentSubscription.unsubscribe()
   }

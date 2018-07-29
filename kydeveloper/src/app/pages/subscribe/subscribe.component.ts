@@ -12,4 +12,8 @@ export class SubscribeComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    window.scrollTo(0, 0);
+  }
+
 }

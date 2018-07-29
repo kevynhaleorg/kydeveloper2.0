@@ -14,9 +14,16 @@ export interface ISubscribeResendState {
     sent: boolean;
 }
 
+export interface ISubscribeConfirmState {
+    loading: boolean;
+    error: boolean;
+    confirmed: boolean;
+}
+
 export interface ISubscribeState {
     register: ISubscribeRegisterState,
-    resend: ISubscribeResendState
+    resend: ISubscribeResendState,
+    confirm: ISubscribeConfirmState
 }
 
 const INITIAL_STATE: ISubscribeState = {
@@ -30,7 +37,13 @@ const INITIAL_STATE: ISubscribeState = {
         loading: false,
         error: false,
         sent: false
+    },
+    confirm: {
+        loading: false,
+        error: false,
+        confirmed: false
     }
+
 }
 
 export function subscribeReducer(

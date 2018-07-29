@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { InputType, InputComponent } from '../../../components/input/input.component';
 import { InputVerificationService } from '../../../services/input/input-verification.service';
 import { select } from '../../../../../node_modules/@angular-redux/store';
@@ -16,7 +16,7 @@ import { SubscribeActions } from '../../../../actions';
 })
 export class RegisterComponent implements OnInit {
   
-  @ViewChildren(InputComponent) fields: Array<InputComponent>;
+  @ViewChildren(InputComponent) fields: QueryList<InputComponent>;
   inputType = InputType
   email: string
 
@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   @select(['subscribe', 'register', 'sent']) readonly sent$: Observable<boolean>
 
   sentSubscription: Subscription
+  enterSubscription: Subscription
 
   constructor(
     private vs: InputVerificationService,
@@ -42,10 +43,18 @@ export class RegisterComponent implements OnInit {
 
   ngOnDestroy() {
     this.sentSubscription.unsubscribe()
+    this.enterSubscription.unsubscribe()  
+  }
+
+  ngAfterViewInit() {
+    setTimeout( () => { this.fields.first.focus() }, 500)
+    this.enterSubscription = this.fields.first._enterChanged.subscribe(
+      () => this.submit()
+    )
   }
 
   submit() {
-    this.vs.runAllTestsAndVerify(this.fields)
+    this.vs.runAllTestsAndVerify(this.fields.toArray())
       .then( result => {
         if (!result.includes(false)) {
           this._subscribeActions.submit(this.email)
