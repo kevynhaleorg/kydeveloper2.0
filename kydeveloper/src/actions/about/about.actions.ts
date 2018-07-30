@@ -1,13 +1,15 @@
 import { Injectable } from "../../../node_modules/@angular/core";
 import { dispatch } from "../../../node_modules/@angular-redux/store";
 import { FluxStandardAction } from "../../../node_modules/flux-standard-action";
-import { IReadingListRequest, IReadingListResponse, IReadingItem, IResumeResponse, IPresentation, IPresentationRequest } from "../../app/services/about/about.service";
+import { IReadingListRequest, IReadingListResponse, IReadingItem, IResumeResponse, IPresentation, IPresentationRequest, IBookRecommendationRequest } from "../../app/services/about/about.service";
 
 @Injectable()
 export class AboutActions {
 
     // GET READING ITEM
+    static ABOUT_GET_READING_LIST_RESET = "ABOUT_GET_READING_LIST_RESET"
     static ABOUT_GET_READING_LIST = "ABOUT_GET_READING_LIST"
+    static ABOUT_SET_READING_LIST_CATEGORY = "ABOUT_SET_READING_LIST_CATEGORY"
     static ABOUT_GET_READING_LIST_START = "ABOUT_GET_READING_LIST_START"
     static ABOUT_GET_READING_LIST_RESPONSE = "ABOUT_GET_READING_LIST_RESPONSE"
     static ABOUT_GET_READING_LIST_ERROR = "ABOUT_GET_READING_LIST_ERROR"
@@ -53,11 +55,29 @@ export class AboutActions {
     // GET READING ITEM ACTIONS
 
     @dispatch()
-    getReadingList(request: IReadingListRequest): FluxStandardAction<{}, {}> {
+    getReadingList(): FluxStandardAction<{}, {}> {
         return {
             type: AboutActions.ABOUT_GET_READING_LIST,
             meta: {},
-            payload: request
+            payload: {}
+        }
+    }
+
+    @dispatch()
+    getReadingListReset(): FluxStandardAction<{}, {}> {
+        return {
+            type: AboutActions.ABOUT_GET_READING_LIST_RESET,
+            meta: {},
+            payload: {}
+        }
+    }
+
+    @dispatch()
+    setReadingListCategory(category: string): FluxStandardAction<{}, {}> {
+        return {
+            type: AboutActions.ABOUT_SET_READING_LIST_CATEGORY,
+            meta: {},
+            payload: category
         }
     }
 
@@ -123,11 +143,11 @@ export class AboutActions {
     // RECOMMEND BOOK ACTIONS
 
     @dispatch()
-    recommendBook(id: string): FluxStandardAction<{}, {}> {
+    recommendBook(request: IBookRecommendationRequest): FluxStandardAction<{}, {}> {
         return {
             type: AboutActions.ABOUT_RECOMMEND_BOOK,
             meta: {},
-            payload: id
+            payload: request
         }
     }
 

@@ -1,6 +1,6 @@
-import { Injectable } from "../../../../node_modules/@angular/core";
-import { Observable } from "../../../../node_modules/rxjs/Observable";
-import { IfObservable } from "../../../../node_modules/rxjs/observable/IfObservable";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { IfObservable } from 'rxjs/observable/IfObservable';
 
 @Injectable()
 export class AboutService {
@@ -31,7 +31,7 @@ export class AboutService {
     return IfObservable.of(null).delay(2000)
   }
 
-  getBiography(): Observable<any> {
+  getBiography(): Observable<string> {
     return IfObservable.of("string").delay(2000)
   }
 

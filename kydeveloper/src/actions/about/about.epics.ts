@@ -1,7 +1,7 @@
 import { Injectable } from "../../../node_modules/@angular/core";
 import { AboutService } from "../../app/services";
 import { EpicCreator } from "../../store/root.model";
-import { EpicMiddleware, ActionsObservable } from "../../../node_modules/redux-observable";
+import { EpicMiddleware, ActionsObservable, createEpicMiddleware } from "../../../node_modules/redux-observable";
 import { Observable } from "../../../node_modules/rxjs/Observable";
 import { mergeMap, map, catchError, startWith } from "../../../node_modules/rxjs/operators";
 import { of } from "../../../node_modules/rxjs/observable/of";
@@ -15,7 +15,15 @@ export class AboutEpics implements EpicCreator {
         private _aboutService: AboutService) {}
 
     createEpics(): EpicMiddleware<any, any, any, any>[] {
-        return []
+        return [
+            createEpicMiddleware(this.getReadingList.bind(this)),
+            createEpicMiddleware(this.getReadingItem.bind(this)),
+            createEpicMiddleware(this.recommendBook.bind(this)),
+            createEpicMiddleware(this.getBiography.bind(this)),
+            createEpicMiddleware(this.getResume.bind(this)),
+            createEpicMiddleware(this.getPresentations.bind(this)),
+            createEpicMiddleware(this.requestPresentation.bind(this))
+        ]
     }
 
     getReadingList(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -26,9 +34,9 @@ export class AboutEpics implements EpicCreator {
                     ({payload}) => {
                         return this._aboutService.getReadingList(
                             {
-                                category: store.getStore().about.readinglist.category,
-                                pageSize: store.getStore().about.readinglist.pageSize,
-                                page: store.getStore().about.readinglist.page,
+                                category: store.getState().about.readingList.category,
+                                pageSize: store.getState().about.readingList.pageSize,
+                                page: store.getState().about.readingList.page,
                             }).pipe(
                                 map( value => this._actions.getReadingListResponse(value)),
                                 catchError(error => of(this._actions.getReadingListError(error))),
@@ -78,6 +86,51 @@ export class AboutEpics implements EpicCreator {
                                 map( value => this._actions.getBiographyResponse(value)),
                                 catchError(error => of(this._actions.getBiographyError(error))),
                                 startWith(this._actions.getBiographyStart()))
+                    })
+            )       
+    }
+
+    getResume(action$: ActionsObservable<any>, store: any): Observable<any> {
+        return action$
+            .ofType( AboutActions.ABOUT_GET_RESUME)
+            .pipe(
+                mergeMap(
+                    ({payload}) => {
+                        return this._aboutService.getResume()
+                        .pipe(
+                                map( value => this._actions.getResumeResponse(value)),
+                                catchError(error => of(this._actions.getResumeError(error))),
+                                startWith(this._actions.getResumeStart()))
+                    })
+            )       
+    }
+
+    getPresentations(action$: ActionsObservable<any>, store: any): Observable<any> {
+        return action$
+            .ofType( AboutActions.ABOUT_GET_PRESENTATIONS)
+            .pipe(
+                mergeMap(
+                    ({payload}) => {
+                        return this._aboutService.getPresentations()
+                        .pipe(
+                                map( value => this._actions.getPresentationsResponse(value)),
+                                catchError(error => of(this._actions.getPresentationsError(error))),
+                                startWith(this._actions.getPresentationsStart()))
+                    })
+            )       
+    }
+
+    requestPresentation(action$: ActionsObservable<any>, store: any): Observable<any> {
+        return action$
+            .ofType( AboutActions.ABOUT_REQUEST_PRESENTATION)
+            .pipe(
+                mergeMap(
+                    ({payload}) => {
+                        return this._aboutService.requestPresentation(payload)
+                        .pipe(
+                                map( value => this._actions.requestPresentationResponse()),
+                                catchError(error => of(this._actions.requestPresentationError(error))),
+                                startWith(this._actions.requestPresentationStart()))
                     })
             )       
     }

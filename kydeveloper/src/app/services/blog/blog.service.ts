@@ -1,7 +1,7 @@
-import { Injectable } from "../../../../node_modules/@angular/core";
+import { Injectable } from "@angular/core";
 import { Post } from "../../models/post.model";
-import { Observable } from "../../../../node_modules/rxjs/Observable";
-import { IfObservable } from "../../../../node_modules/rxjs/observable/IfObservable";
+import { Observable } from "rxjs/Observable";
+import { IfObservable } from "rxjs/observable/IfObservable";
 
 @Injectable()
 export class BlogService {
@@ -14,6 +14,14 @@ export class BlogService {
 
   getPost(postId: string): Observable<Post> {
     return IfObservable.of(null).delay(2000)
+  }
+
+  likePost(postId: string): Observable<void> {
+      return IfObservable.of(null).delay(2000)
+  }
+
+  viewPost(postId: string): Observable<void> {
+      return IfObservable.of(null).delay(2000)
   }
 
 }
