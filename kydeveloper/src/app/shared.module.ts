@@ -7,7 +7,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { MatIconModule, MatCardModule } from '@angular/material'
 import { PostIconsComponent } from './components/post-icons/post-icons.component';
 import { InputComponent } from './components/input/input.component';
-import { InputVerificationService } from './services';
+import { InputVerificationService, AboutService, BlogService } from './services';
 import { ContactService } from './services';
 import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/navbar-dropdown.component';
 import { KySelectDropdownComponent } from './components/ky-select-dropdown/ky-select-dropdown.component';
@@ -39,6 +39,12 @@ import { SubscribeService } from './services';
     NavbarDropdownComponent,
     KySelectDropdownComponent
   ],
-  providers: [InputVerificationService, ContactService, SubscribeService]
+  providers: [
+    InputVerificationService,
+    ContactService,
+    SubscribeService,
+    AboutService,
+    BlogService
+  ]
 })
 export class SharedModule { }
