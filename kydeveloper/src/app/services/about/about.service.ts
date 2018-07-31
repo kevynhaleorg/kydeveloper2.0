@@ -1,50 +1,39 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { IfObservable } from 'rxjs/observable/IfObservable';
+import { item1, item2, item3 } from './about-mock'
 
 @Injectable()
 export class AboutService {
 
   constructor() { }
 
-  item1: IReadingItem = {
-    id: "id1",
-    coverImage: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj6g6bX1MTcAhWry4MKHXxICdoQjRx6BAgBEAU&url=https%3A%2F%2Fwww.amazon.ca%2FDesign-Patterns-Elements-Reusable-Object-Oriented%2Fdp%2F0201633612&psig=AOvVaw0pKSHS0eUJcgUD7oqRi2hA&ust=1532965777706536",
-    title: "Design Patterns",
-    author: "Gamma",
-    promoUrl: "https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_3?ie=UTF8&qid=1532879329&sr=8-3&keywords=design+patterns&dpID=51szD9HC9pL&preST=_SX218_BO1,204,203,200_QL40_&dpSrc=srch",
-    summary: "This book is great",
-    dateAdded: "10/22/2012",
-    rating: 8,
-    category: "development"
-  }
-
   getReadingList(request: IReadingListRequest): Observable<IReadingListResponse> {
-    return IfObservable.of({page: request.page, pageSize: request.pageSize, category: request.category, results: [this.item1]}).delay(2000)
+    return IfObservable.of({page: request.page, pageSize: request.pageSize, category: request.category, results: [item1, item2, item3]}).delay(1000)
   }
 
   getReadingItem(id: string): Observable<IReadingItem> {
-    return IfObservable.of(this.item1).delay(2000)
+    return IfObservable.of(item1).delay(1000)
   }
 
   recommendBook(request: IBookRecommendationRequest): Observable<void> {
-    return IfObservable.of(null).delay(2000)
+    return IfObservable.of(null).delay(1000)
   }
 
   getBiography(): Observable<string> {
-    return IfObservable.of("string").delay(2000)
+    return IfObservable.of("string").delay(1000)
   }
 
   getResume(): Observable<IResumeResponse> {
-    return IfObservable.of(null).delay(2000)
+    return IfObservable.of(null).delay(1000)
   }
 
   getPresentations(): Observable<Array<IPresentation>> {
-    return IfObservable.of([]).delay(2000)
+    return IfObservable.of([]).delay(1000)
   } 
 
   requestPresentation(request: IPresentationRequest): Observable<void> {
-    return IfObservable.of(null).delay(2000)
+    return IfObservable.of(null).delay(1000)
   }
 
 }

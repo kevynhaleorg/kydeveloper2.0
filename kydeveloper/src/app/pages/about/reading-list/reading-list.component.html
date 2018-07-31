@@ -1,3 +1,33 @@
-<p *ngFor="let list of (readingList$ | async)">
-  {{list.title}}
-</p>
+<div class="intro">
+    Here is a catalog of the books that I am reading. Click to see my synopsis of the book and what I learned. I’d love any recommendations!
+</div>
+
+<div class="underline"></div>
+
+<div class="loading" *ngIf="(loading$ | async)">
+  <img src="assets/images/30.svg">
+</div>
+
+<div class="box" *ngFor="let item of (readingList$ | async)">
+  <div class="cover-image">
+    <img width="150" src="{{item.coverImage}}">
+  </div>
+  <div class="info-column">
+    <div class="container title">{{item.title}}</div>
+    <div class="container book-info">
+      {{item.dateAdded}}
+      <div class="circle"></div>
+      {{item.author}}
+    </div>
+    <div class="container objects">
+      <div class="review">
+        SEE MY REVIEW
+      </div>
+      <div class="rating">
+        <div class="filled-star" *ngFor="let star of array(item.rating)">☆</div>
+        <div class="empty-star" *ngFor="let star of array(5 - item.rating)">☆</div>
+      </div>
+    </div>
+  </div>
+  
+</div>

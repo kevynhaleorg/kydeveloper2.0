@@ -9,7 +9,6 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { BiographyComponent } from './pages/about/biography/biography.component';
 import { ReadingListComponent } from './pages/about/reading-list/reading-list.component';
 import { ResumeComponent } from './pages/about/resume/resume.component';
-import { AboutContactComponent } from './pages/about/contact/contact.component';
 import { PortfolioRootComponent } from './pages/portfolio/portfolio-root/portfolio-root.component';
 import { PortfolioSingleComponent } from './pages/portfolio/portfolio-single/portfolio-single.component';
 import { BlogSingleComponent } from './pages/blog/blog-single/blog-single.component';
@@ -22,6 +21,7 @@ import { RegisterComponent } from './pages/subscribe/register/register.component
 import { RegisterWaitingComponent } from './pages/subscribe/register-waiting/register-waiting.component';
 import { RegisterSuccessComponent } from './pages/subscribe/register-success/register-success.component';
 import { UnsubscribeComponent } from './pages/subscribe/unsubscribe/unsubscribe.component';
+import { AboutPresentationsComponent } from './pages/about/presentations/presentations.component';
 
 const routes: Routes = [
 
@@ -37,7 +37,7 @@ const routes: Routes = [
                 { path: "biography", component: BiographyComponent},
                 { path: "readinglist", component: ReadingListComponent},
                 { path: "resume", component: ResumeComponent},
-                { path: "contact", component: AboutContactComponent}
+                { path: "presentations", component: AboutPresentationsComponent}
             ] },
             { path: "portfolio", component: PortfolioRootComponent, children: [
                 {path: "", component: PortfolioComponent},
