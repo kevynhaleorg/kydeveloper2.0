@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AboutActions } from '../../../../actions';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 import { IReadingItem } from '../../../services/about/about.service';
 import { Subscription } from 'rxjs/Subscription';
+import { KySelectDropdownComponent } from '../../../components/ky-select-dropdown/ky-select-dropdown.component';
 
 @Component({
   selector: 'app-reading-list',
@@ -31,6 +32,10 @@ export class ReadingListComponent implements OnInit {
   hasMore: boolean = true
   single: boolean = false
 
+  dropDownItems: string[] = [ "all", "development", "design", "self-help" ]
+  @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
+  _dropDownSub: Subscription
+
   constructor(
     private _aboutActions: AboutActions,
   ) { }
@@ -45,6 +50,12 @@ export class ReadingListComponent implements OnInit {
     )
     this._loadingSingleSub = this.loadingSingle$.subscribe(
       (loading) => { if (loading) this.single = true }
+    )
+  }
+
+  ngAfterViewInit() {
+    this._dropDownSub = this.dropdown._selected.skip(1).subscribe(
+      (selected) => this._aboutActions.setReadingListCategory(selected)
     )
   }
 
@@ -77,6 +88,10 @@ export class ReadingListComponent implements OnInit {
 
   hideSingle() {
     this.single = false
+  }
+
+  recommend() {
+    
   }
 
 }

@@ -22,7 +22,41 @@ $review: #5A91DD;
     height: 2px;
     background-color: $underline;
     width:100%;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+}
+
+div.loading {
+    padding-top: 20px;
+    height: 200px;
+    background-color: $box-background;
+}
+
+.top-buttons {
+    display: flex;
+    height: 50px;
+    flex-direction: row;
+    margin-bottom: 30px;
+    align-content: center;
+
+    .recommend-book {
+        margin-left: auto;
+        font-weight: bold;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        padding: 0px 15px;
+        background-color: $box-background;
+        border: 1px solid $review;
+        color: $review;
+        font-family: $body-font;
+        font-size: 24px;
+        border-radius: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
 }
 
 .box {
@@ -95,6 +129,11 @@ $review: #5A91DD;
                 width: auto;
                 display:inline-block;
                 margin-right: 30px;
+
+                &:hover {
+                    cursor: pointer;
+                    border-color: $review;
+                }
             }
         }
 

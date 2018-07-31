@@ -4,6 +4,15 @@
 
 <div class="underline"></div>
 
+<div class="top-buttons">
+  <div class="dropdown">
+    <app-ky-select-dropdown [items]="dropDownItems"></app-ky-select-dropdown>
+  </div>
+  <div class="recommend-book">
+    Recommend Book
+  </div>
+</div>
+
 <div class="loading" *ngIf="(loading$ | async)">
   <img src="assets/images/30.svg">
 </div>
@@ -20,7 +29,7 @@
       {{item.author}}
     </div>
     <div class="container objects">
-      <div class="review">
+      <div class="review" (click)="showSingle(item.id)">
         SEE MY REVIEW
       </div>
       <div class="rating">

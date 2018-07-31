@@ -103,10 +103,10 @@ $margin-bottom: 35px;
     background-color:$light-background;
     width:calc(100% - 50px);
     max-width:1200px;
-    min-height:400px;
+    min-height:800px;
     height: auto;
     padding:25px;
-    margin:0px auto $margin-bottom;
+    margin:0px auto 200px;
 }
 
 @media only screen and (max-width: 805px) {
