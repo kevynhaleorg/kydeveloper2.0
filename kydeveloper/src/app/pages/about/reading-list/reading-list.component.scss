@@ -1,12 +1,5 @@
 @import '../../../../styles.scss';
 
-$underline: #668BBE;
-$box-background: #EAEEF4;
-$title-color: #4E5967;
-$middle-color: #8898AE;
-$light-color: #F1F3F6;
-$review: #5A91DD;
-
 .intro {
     font-family: $body-font;
     font-size: 28px;
@@ -20,7 +13,7 @@ $review: #5A91DD;
 
 .underline {
     height: 2px;
-    background-color: $underline;
+    background-color: $rl-underline;
     width:100%;
     margin-bottom: 30px;
 }
@@ -28,7 +21,7 @@ $review: #5A91DD;
 div.loading {
     padding-top: 20px;
     height: 200px;
-    background-color: $box-background;
+    background-color: $rl-box-background;
 }
 
 .top-buttons {
@@ -45,9 +38,10 @@ div.loading {
         display: inline-flex;
         align-items: center;
         padding: 0px 15px;
-        background-color: $box-background;
-        border: 1px solid $review;
-        color: $review;
+        background-color: $rl-box-background;
+        box-shadow:inset 0px 0px 0px 3px white;
+        border: 1px solid $rl-review;
+        color: $rl-review;
         font-family: $body-font;
         font-size: 24px;
         border-radius: 5px;
@@ -60,7 +54,7 @@ div.loading {
 }
 
 .box {
-    background-color: $box-background;
+    background-color: $rl-box-background;
     width: calc(100% - 20px);
     padding:10px;
     display: flex;
@@ -85,7 +79,7 @@ div.loading {
 
         .title {
             font-family: $body-font;
-            color: $title-color;
+            color: $rl-title-color;
             font-size:30px;
             width:100%;
             font-weight: bold;
@@ -95,7 +89,7 @@ div.loading {
 
         .book-info{
             font-family: $body-font;
-            color:$middle-color;
+            color:$rl-middle-color;
             font-size: 22px;
             align-items: center;
             display: inline-flex;
@@ -106,7 +100,7 @@ div.loading {
                 width: 15px;
                 min-width: 15px;
                 border-radius: 50%;
-                background-color: $middle-color;
+                background-color: $rl-middle-color;
                 margin: 0px 15px;
             }
 
@@ -118,9 +112,9 @@ div.loading {
             flex-direction: row;
 
             .review {
-                background-color: $light-color;
-                border: 1px solid $middle-color;
-                color: $review;
+                background-color: $rl-light-color;
+                border: 1px solid $rl-middle-color;
+                color: $rl-review;
                 font-family: $body-font;
                 font-size: 18px;
                 font-weight: bold;
@@ -132,7 +126,7 @@ div.loading {
 
                 &:hover {
                     cursor: pointer;
-                    border-color: $review;
+                    border-color: $rl-review;
                 }
             }
         }
@@ -144,7 +138,7 @@ div.loading {
             top: -4px;
 
             .filled-star {
-                color:$underline;
+                color:$rl-underline;
                 font-size:30px;
 
                 &:before {
@@ -153,7 +147,7 @@ div.loading {
                 }
             }
             .empty-star {
-                color:$underline;
+                color:$rl-underline;
                 font-size:30px;
             }
         }

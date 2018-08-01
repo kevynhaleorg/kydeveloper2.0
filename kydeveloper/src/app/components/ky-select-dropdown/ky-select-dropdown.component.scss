@@ -61,6 +61,31 @@ $tran-time: 0.1s;
 
 }
 
+:host.reading-list {
+    .filter {
+        background-color: $rl-box-background;
+        border: 1px solid $rl-review;
+        color: $rl-review;
+        font-family: $body-font;
+        font-size: 24px;
+
+        .title {
+            color: $rl-review;
+        }
+
+        .arrow {
+            &.down {
+                border-top: $arrow-size solid $rl-review;
+            }
+
+            &.up {
+                border-bottom: $arrow-size solid $rl-review;
+            }
+
+        }
+    }
+}
+
 .dropdown {
     height:auto;
     max-height:175px;
