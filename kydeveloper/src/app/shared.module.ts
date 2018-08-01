@@ -14,12 +14,14 @@ import { KySelectDropdownComponent } from './components/ky-select-dropdown/ky-se
 import { SubscribeService } from './services';
 import { SideModalComponent } from './components/side-modal/side-modal.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   imports: [
     CommonModule,
     KyDeveloperRoutingModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   exports: [
     SidebarSocialmediaComponent,
