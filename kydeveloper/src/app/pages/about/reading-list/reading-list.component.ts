@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { IReadingItem } from '../../../services/about/about.service';
 import { Subscription } from 'rxjs/Subscription';
 import { KySelectDropdownComponent } from '../../../components/ky-select-dropdown/ky-select-dropdown.component';
+import { SideModalComponent } from '../../../components/side-modal/side-modal.component';
 
 @Component({
   selector: 'app-reading-list',
@@ -36,6 +37,15 @@ export class ReadingListComponent implements OnInit {
   @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
   _dropDownSub: Subscription
 
+  @ViewChild(SideModalComponent) set sm(sideModal: SideModalComponent) {
+    if (sideModal !=  null) {
+      this._singleCloseSub = sideModal._close.skip(1).subscribe(
+        () => this.hideSingle()
+      )
+    }
+  }
+  _singleCloseSub: Subscription
+
   constructor(
     private _aboutActions: AboutActions,
   ) { }
@@ -48,8 +58,10 @@ export class ReadingListComponent implements OnInit {
     this._hasMoreSubscription = this.hasMore$.subscribe(
       (hasMore) => this.hasMore = hasMore
     )
-    this._loadingSingleSub = this.loadingSingle$.subscribe(
-      (loading) => { if (loading) this.single = true }
+    this._loadingSingleSub = this.loadingSingle$.skip(1).subscribe(
+      (loading) => {
+        if (loading) this.single = true
+      }
     )
   }
 
@@ -66,6 +78,7 @@ export class ReadingListComponent implements OnInit {
     this._categorySubscription.unsubscribe()
     this._hasMoreSubscription.unsubscribe()
     this._loadingSingleSub.unsubscribe()
+    this._singleCloseSub.unsubscribe()
   }
 
   array(num: number): number[] {
@@ -87,6 +100,7 @@ export class ReadingListComponent implements OnInit {
   }
 
   hideSingle() {
+    this._singleCloseSub.unsubscribe()
     this.single = false
   }
 

@@ -12,6 +12,8 @@ import { ContactService } from './services';
 import { NavbarDropdownComponent } from './components/navbar/navbar-dropdown/navbar-dropdown.component';
 import { KySelectDropdownComponent } from './components/ky-select-dropdown/ky-select-dropdown.component';
 import { SubscribeService } from './services';
+import { SideModalComponent } from './components/side-modal/side-modal.component';
+import { OverlayComponent } from './components/overlay/overlay.component';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import { SubscribeService } from './services';
     PostIconsComponent,
     InputComponent,
     NavbarDropdownComponent,
-    KySelectDropdownComponent
+    KySelectDropdownComponent,
+    SideModalComponent,
+    OverlayComponent
   ],
   declarations: [
     SidebarSocialmediaComponent,
@@ -37,7 +41,9 @@ import { SubscribeService } from './services';
     PostIconsComponent,
     InputComponent,
     NavbarDropdownComponent,
-    KySelectDropdownComponent
+    KySelectDropdownComponent,
+    SideModalComponent,
+    OverlayComponent
   ],
   providers: [
     InputVerificationService,
