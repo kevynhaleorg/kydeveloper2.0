@@ -1,10 +1,19 @@
+@import '../../../../styles.scss';
 
+.biography {
+            
+    color: $dark;
+    font-family: $body-font;
+    letter-spacing: .03cm;
+    //word-spacing: .04cm;
+    font-size:20px;
+    line-height:40px;
+    //font-weight:bold;
+    margin-bottom:80px;
+}
 
-div.loading {
-    width: 100%;
-    position: relative;
+:host /deep/ .biography {
     img {
-        margin: 50px auto;
-        display: block;
+       max-width: 100%;
     }
 }

@@ -1,6 +1,4 @@
 <div class="loading" *ngIf="(loading$ | async)">
   <img src="assets/images/30.svg">
 </div>
-<div class="biography" *ngIf="!(loading$ | async)">
-  {{(biography$ | async)}}
-</div>
+<div [innerHtml]="(biography$ | async)" class="biography" *ngIf="!(loading$ | async)"></div>

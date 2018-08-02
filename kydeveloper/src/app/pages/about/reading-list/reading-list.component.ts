@@ -78,7 +78,7 @@ export class ReadingListComponent implements OnInit {
     this._categorySubscription.unsubscribe()
     this._hasMoreSubscription.unsubscribe()
     this._loadingSingleSub.unsubscribe()
-    this._singleCloseSub.unsubscribe()
+    if (this._singleCloseSub != null) this._singleCloseSub.unsubscribe()
   }
 
   array(num: number): number[] {
