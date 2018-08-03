@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
-  dropDownItems: string[] = [ "biography", "reading list", "resume", "contact" ]
+  dropDownItems: string[] = [ "biography", "reading list", "resume", "presentations" ]
   @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
 
   constructor(private _router: Router) {
