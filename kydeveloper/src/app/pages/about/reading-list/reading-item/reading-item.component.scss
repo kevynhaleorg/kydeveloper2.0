@@ -1,0 +1,21 @@
+@import '../../../../../styles.scss';
+
+.loading {
+  img {
+    margin: 50px auto;
+    display: block;
+  }
+}
+
+.item-container {
+
+  .title {
+    font-family: $body-font;
+    color: $ri-title-color;
+    font-size:36px;
+    width:100%;
+    font-weight: bold;
+    align-items: center;
+    display:inline-flex;
+  }
+}

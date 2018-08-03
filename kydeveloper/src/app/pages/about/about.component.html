@@ -15,30 +15,14 @@
 <div class="button-row">
   <ul>
     <li class="gutter"></li>
-    <li class="button">
-      <a (click)="navigate('biography')" [routerLink]="'/about/biography'" routerLinkActive="selected">
-        <span>Biography</span>
-      </a>
-    </li>
-    <li class="gutter"></li>
-    <li class="button">
-      <a (click)="navigate('reading list')" [routerLink]="'/about/readinglist'" routerLinkActive="selected">
-        <span>Reading List</span>
-      </a>
-    </li>
-    <li class="gutter"></li>
-    <li class="button">
-      <a (click)="navigate('resume')" [routerLink]="'/about/resume'" routerLinkActive="selected">
-        <span>Resume</span>
-      </a>
-    </li>
-    <li class="gutter"></li>
-    <li class="button">
-      <a (click)="navigate('presentations')" [routerLink]="'/about/presentations'" routerLinkActive="selected">
-        <span>Presentations</span>
-      </a>
-    </li>
-    <li class="gutter"></li>
+    <ng-container *ngFor="let item of dropDownItems">
+      <li class="button">
+        <a (click)="navigate(item)" [routerLink]="'/about/' + cleanRoute(item)" routerLinkActive="selected">
+          <span>{{item}}</span>
+        </a>
+      </li>
+      <li class="gutter"></li>
+    </ng-container>
   </ul>
 </div>
 

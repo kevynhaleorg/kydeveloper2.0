@@ -75,6 +75,7 @@ $margin-bottom: 35px;
                     color: $dark-light;
                     height:50px;
                     line-height:50px;
+                    text-transform: capitalize;
 
                     &:hover {
                         background-color:$focus;

@@ -22,14 +22,8 @@ export class ReadingListComponent implements OnInit {
   @select(['about', 'readingList', 'category']) readonly category$: Observable<boolean>
   @select(['about', 'readingList', 'hasMore']) readonly hasMore$: Observable<boolean>
 
-  // SINGLE ITEM
-  @select(['about', 'readingItem', 'loading']) readonly loadingSingle$: Observable<boolean>
-  @select(['about', 'readingItem', 'error']) readonly errorSingle$: Observable<boolean>
-  @select(['about', 'readingItem', 'item']) readonly singleItem$: Observable<IReadingItem>
-
   _categorySubscription: Subscription
   _hasMoreSubscription: Subscription
-
 
   hasMore: boolean = true
   _showSideModal: boolean = false

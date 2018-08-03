@@ -1,3 +1,9 @@
-<p>
-  reading-item works!
-</p>
+<div class="loading" *ngIf="(loading$ | async)">
+  <img src="assets/images/30.svg">
+</div>
+
+<div class="item-container" *ngIf="( item$ | async ) != null && !(loading$ | async)">
+  <div class="title">
+    {{( item$ | async ).title}}
+  </div>
+</div>

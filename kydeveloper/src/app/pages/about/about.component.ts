@@ -31,11 +31,12 @@ export class AboutComponent implements OnInit {
   }
 
   routeTo(route:string) {
-    const cleanRoute: string = route.replace(/\s/g, "")
+    const cleanRoute: string = this.cleanRoute(route)
     this._router.navigate([`/about/${cleanRoute}`])
   }
 
-
-
+  cleanRoute(route:string) {
+    return route.replace(/\s/g, "")
+  }
 
 }

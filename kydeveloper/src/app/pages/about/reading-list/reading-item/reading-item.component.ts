@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
+import { IReadingItem } from '../../../../services/about/about.service';
+import { AboutActions } from '../../../../../actions';
+import { Router, ActivatedRoute } from '../../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-reading-item',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadingItemComponent implements OnInit {
 
-  constructor() { }
+  // SINGLE ITEM
+  @select(['about', 'readingItem', 'loading']) readonly loading$: Observable<boolean>
+  @select(['about', 'readingItem', 'error']) readonly error$: Observable<boolean>
+  @select(['about', 'readingItem', 'item']) readonly item$: Observable<IReadingItem>
+
+  constructor(
+    private _aboutActions: AboutActions,
+    private _router: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this._aboutActions.getReadingItem(this._router.snapshot.params['readingItemId'])
   }
 
 }
