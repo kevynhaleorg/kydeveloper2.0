@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener, EventEmitter, transition, style, animate, trigger, state, keyframes } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, EventEmitter, transition, style, animate, trigger, state, keyframes, Input } from '@angular/core';
 import { Subject } from '../../../../node_modules/rxjs/Subject';
 
 @Component({
@@ -23,6 +23,9 @@ export class SideModalComponent implements OnInit {
 
   readonly _close: Subject<void> = new EventEmitter<void>()
 
+  // List of class names that when clicked on don't close the modal
+  @Input() whiteList: Array<string>
+
   state: string = 'in'
   setup: boolean = true
 
@@ -34,14 +37,21 @@ export class SideModalComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
-    if(!this.el.nativeElement.contains(event.target)) {
-      if (this.setup) {
-        this.setup = false
-      } else {
-        this.state = 'out'
-      }
+    if(!this.el.nativeElement.contains(event.target) && !this.isInWhiteList(event.target.className)) {
+      this.state = 'out'
       setTimeout(() => this._close.next(), 500)
     }
+  }
+
+  isInWhiteList(className: string): boolean {
+    let result: boolean = false
+
+    if (this.whiteList != null) {
+      this.whiteList.forEach(
+        (item) => { if (item === className) result = true }
+      )
+    }
+    return result
   }
 
 }

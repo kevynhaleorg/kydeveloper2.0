@@ -6,6 +6,7 @@ import { IReadingItem } from '../../../services/about/about.service';
 import { Subscription } from 'rxjs/Subscription';
 import { KySelectDropdownComponent } from '../../../components/ky-select-dropdown/ky-select-dropdown.component';
 import { SideModalComponent } from '../../../components/side-modal/side-modal.component';
+import { Router, NavigationEnd, ActivatedRoute } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-reading-list',
@@ -28,10 +29,10 @@ export class ReadingListComponent implements OnInit {
 
   _categorySubscription: Subscription
   _hasMoreSubscription: Subscription
-  _loadingSingleSub: Subscription
+
 
   hasMore: boolean = true
-  single: boolean = false
+  _showSideModal: boolean = false
 
   dropDownItems: string[] = [ "all", "development", "design", "self-help" ]
   @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
@@ -39,30 +40,34 @@ export class ReadingListComponent implements OnInit {
 
   @ViewChild(SideModalComponent) set sm(sideModal: SideModalComponent) {
     if (sideModal !=  null) {
-      this._singleCloseSub = sideModal._close.skip(1).subscribe(
-        () => this.hideSingle()
+      this._sideModalCloseSub = sideModal._close.subscribe(
+        () => this.hideSideModal()
       )
     }
   }
-  _singleCloseSub: Subscription
+  _sideModalCloseSub: Subscription
+  _routerSub: Subscription
 
   constructor(
     private _aboutActions: AboutActions,
+    private _router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.paginate()
+    this.matchSubRoute(this._router.routerState.snapshot.url)
     this._categorySubscription = this.category$.skip(1).subscribe(
       (category) => this._aboutActions.getReadingList()
     )
     this._hasMoreSubscription = this.hasMore$.subscribe(
       (hasMore) => this.hasMore = hasMore
     )
-    this._loadingSingleSub = this.loadingSingle$.skip(1).subscribe(
-      (loading) => {
-        if (loading) this.single = true
-      }
-    )
+    this._routerSub = this._router.events.subscribe((_event) => {
+        if(_event instanceof NavigationEnd) {
+          this.matchSubRoute(_event.url)
+        }
+      })
   }
 
   ngAfterViewInit() {
@@ -77,8 +82,8 @@ export class ReadingListComponent implements OnInit {
     //unsubscribe
     this._categorySubscription.unsubscribe()
     this._hasMoreSubscription.unsubscribe()
-    this._loadingSingleSub.unsubscribe()
-    if (this._singleCloseSub != null) this._singleCloseSub.unsubscribe()
+    this._routerSub.unsubscribe()
+    if (this._sideModalCloseSub != null) this._sideModalCloseSub.unsubscribe()
   }
 
   array(num: number): number[] {
@@ -95,17 +100,31 @@ export class ReadingListComponent implements OnInit {
     this._aboutActions.setReadingListCategory(category)
   }
 
-  showSingle(id: string) {
-    this._aboutActions.getReadingItem(id)
+  getSingle(id: string) {
+    this.routeTo(id)
   }
 
-  hideSingle() {
-    this._singleCloseSub.unsubscribe()
-    this.single = false
+  hideSideModal() {
+    this._sideModalCloseSub.unsubscribe()
+    this._showSideModal = false
+    this.routeTo("")
   }
 
-  recommend() {
-    
+  showSideModal() {
+    this._showSideModal = true
+  }
+
+  showRecommend() {
+    this.routeTo("recommend")
+  }
+
+  routeTo(route:string) {
+    const cleanRoute: string = route.replace(/\s/g, "")
+    this._router.navigate([`/about/readinglist/${cleanRoute}`])
+  }
+
+  matchSubRoute(url: string): void {
+    this._showSideModal = url.match(/\/about\/readinglist\/([a-zA-Z0-9]+)$/i) != null
   }
 
 }

@@ -7,6 +7,8 @@ import { AboutPresentationsComponent } from '../pages/about/presentations/presen
 import { BiographyComponent } from '../pages/about/biography/biography.component';
 import { KyDeveloperRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared.module';
+import { ReadingItemComponent } from '../pages/about/reading-list/reading-item/reading-item.component';
+import { RecommendComponent } from '../pages/about/reading-list/recommend/recommend.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,10 @@ import { SharedModule } from '../shared.module';
     BiographyComponent,
     ReadingListComponent,
     ResumeComponent,
-    AboutPresentationsComponent
-  ]
+    AboutPresentationsComponent,
+    ReadingItemComponent,
+    RecommendComponent
+  ],
+  exports: [ReadingItemComponent, RecommendComponent]
 })
 export class AboutModule { }

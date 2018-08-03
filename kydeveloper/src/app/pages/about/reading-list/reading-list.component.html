@@ -8,7 +8,7 @@
   <div class="dropdown">
     <app-ky-select-dropdown class="reading-list" [items]="dropDownItems"></app-ky-select-dropdown>
   </div>
-  <div class="recommend-book">
+  <div class="recommend-book" (click)="showRecommend()">
     Recommend Book
   </div>
 </div>
@@ -19,31 +19,34 @@
 
 <div class="box" *ngFor="let item of (readingList$ | async)">
   <div class="cover-image">
-    <img width="150" src="{{item.coverImage}}">
+    <img src="{{item.coverImage}}">
   </div>
   <div class="info-column">
     <div class="container title">{{item.title}}</div>
     <div class="container book-info">
-      {{item.dateAdded}}
+      <span>{{item.dateAdded}}</span>
       <div class="circle"></div>
-      {{item.author}}
+      <span>{{item.author}}</span>
     </div>
     <div class="container objects">
-      <div class="review" (click)="showSingle(item.id)">
+      <div class="review" (click)="getSingle(item.id)">
         SEE MY REVIEW
       </div>
       <div class="rating">
         <div class="filled-star" *ngFor="let star of array(item.rating)">☆</div>
         <div class="empty-star" *ngFor="let star of array(5 - item.rating)">☆</div>
       </div>
+      <div class="category">
+        {{item.category}}
+      </div>
     </div>
   </div>
   
 </div>
 
-<app-overlay *ngIf="single">
-    <app-side-modal>
-      test
+<app-overlay *ngIf="_showSideModal">
+    <app-side-modal [whiteList]="['review', 'recommend-book']">
+      <router-outlet></router-outlet>
     </app-side-modal>
 </app-overlay>
 

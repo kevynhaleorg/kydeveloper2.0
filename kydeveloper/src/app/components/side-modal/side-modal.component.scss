@@ -6,6 +6,7 @@
     width: 50%;
     height: 100vh;
     background-color: #eaf1fb;
+    background-image: linear-gradient(-179deg, #ECF1F8 1%, #FFFFFF 98%);
     min-width: 700px;
     //animation: slide .75s forwards;
 
@@ -16,6 +17,7 @@
     }
     
 }
+
 
 @keyframes slide {
     100% { right: 0px; }

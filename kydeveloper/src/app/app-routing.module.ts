@@ -22,6 +22,8 @@ import { RegisterWaitingComponent } from './pages/subscribe/register-waiting/reg
 import { RegisterSuccessComponent } from './pages/subscribe/register-success/register-success.component';
 import { UnsubscribeComponent } from './pages/subscribe/unsubscribe/unsubscribe.component';
 import { AboutPresentationsComponent } from './pages/about/presentations/presentations.component';
+import { RecommendComponent } from './pages/about/reading-list/recommend/recommend.component';
+import { ReadingItemComponent } from './pages/about/reading-list/reading-item/reading-item.component';
 
 const routes: Routes = [
 
@@ -35,7 +37,10 @@ const routes: Routes = [
             { path: "about", component: AboutComponent, children: [
                 { path: "", redirectTo: 'biography', pathMatch: 'full'},
                 { path: "biography", component: BiographyComponent},
-                { path: "readinglist", component: ReadingListComponent},
+                { path: "readinglist", component: ReadingListComponent, children: [
+                    { path: "recommend", component: RecommendComponent },
+                    { path: ":readingItemId", component: ReadingItemComponent }
+                ]},
                 { path: "resume", component: ResumeComponent},
                 { path: "presentations", component: AboutPresentationsComponent}
             ] },
