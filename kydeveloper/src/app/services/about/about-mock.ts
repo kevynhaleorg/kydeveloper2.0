@@ -6,7 +6,11 @@ var item1: IReadingItem = {
     title: "Design Patterns: Elements of Reusable Object-Oriented Software",
     author: "Erich Gamma, Richard Helm, Ralph Johnson, John Vissides",
     promoUrl: "https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_3?ie=UTF8&qid=1532879329&sr=8-3&keywords=design+patterns&dpID=51szD9HC9pL&preST=_SX218_BO1,204,203,200_QL40_&dpSrc=srch",
-    summary: "This book is great",
+    summary: `I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless of billable hours so you can spend your time on what really matters.
+
+    I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless of billable hours so you can spend your time on what really matters. I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless of billable hours so you can spend your time on what really matters. 
+    
+    I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless of billable hours so you can spend your time on what really matters. T`,
     dateAdded: "10/22/2012",
     rating: 4,
     category: "development"

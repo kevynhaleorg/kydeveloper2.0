@@ -6,4 +6,26 @@
   <div class="title">
     {{( item$ | async ).title}}
   </div>
+
+  <div class="tag-row">
+    <div class="category">
+      {{(item$ | async).category}}
+    </div>
+    <div class="clicks">
+        <app-post-icons
+          class="center horizontal reading-item"
+          [likes]="0"
+          [shares]="0"
+          [comments]="0">
+        </app-post-icons>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image">
+      <img src="{{( item$ | async ).coverImage}}">
+    </div>
+  </div>
+
+  <div [innerHtml]="(item$ | async).summary" class="summary"></div>
 </div>

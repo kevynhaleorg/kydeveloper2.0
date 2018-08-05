@@ -92,3 +92,25 @@
         }
     }
 }
+
+:host-context(.reading-item) {
+    .container {
+        .object {
+            .text {
+                color: $ri-tag-row;
+            }
+            .circle {
+                border: 1px solid $ri-tag-row;
+                background-color: transparent;
+
+                .icon {
+                    color: $ri-tag-row;
+                }
+
+                &:hover {
+                    border: 1px solid $focus;
+                }
+            }
+        }
+    }
+}
