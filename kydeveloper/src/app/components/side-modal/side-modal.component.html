@@ -1,5 +1,8 @@
 <div [@flyInOut]='state' class="side-modal">
   <div class="inner-modal">
+    <div class="close" (click)="close()">
+      X
+    </div>
     <ng-content></ng-content>
   </div>
 </div>

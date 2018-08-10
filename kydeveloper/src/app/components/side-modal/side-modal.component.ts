@@ -38,8 +38,7 @@ export class SideModalComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   clickout(event) {
     if(!this.el.nativeElement.contains(event.target) && !this.isInWhiteList(event.target.className)) {
-      this.state = 'out'
-      setTimeout(() => this._close.next(), 500)
+      this.close()
     }
   }
 
@@ -52,6 +51,11 @@ export class SideModalComponent implements OnInit {
       )
     }
     return result
+  }
+
+  close(): void {
+    this.state = 'out'
+    setTimeout(() => this._close.next(), 500)
   }
 
 }

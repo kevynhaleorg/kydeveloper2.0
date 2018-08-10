@@ -19,11 +19,12 @@ export class ReadingItemComponent implements OnInit {
 
   constructor(
     private _aboutActions: AboutActions,
-    private _router: ActivatedRoute
+    private _router: Router,
+    private _route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this._aboutActions.getReadingItem(this._router.snapshot.params['readingItemId'])
+    this._aboutActions.getReadingItem(this._route.snapshot.params['readingItemId'])
   }
 
   array(num: number): number[] {
