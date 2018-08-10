@@ -26,4 +26,8 @@ export class ReadingItemComponent implements OnInit {
     this._aboutActions.getReadingItem(this._router.snapshot.params['readingItemId'])
   }
 
+  array(num: number): number[] {
+    return Array(num).fill(0);
+  }
+
 }
