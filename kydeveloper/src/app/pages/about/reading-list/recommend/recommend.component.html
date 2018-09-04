@@ -1,3 +1,42 @@
-<p>
-  recommend works!
-</p>
+<div class="title">Recommend a Book!</div>
+<div class="summary">
+  If you recommend a book I read, I'll make sure to give you credit! Please include how I might do that in your message.
+</div>
+
+<div class="row">
+  <app-input
+    [type]="inputType.TEXT"
+    [placeholder]="'Name'"
+    [required]="true"
+    (value)="name = $event">
+  </app-input>
+</div>
+<div class="row">
+  <app-input
+    [type]="inputType.EMAIL"
+    [placeholder]="'Email'"
+    [required]="true"
+    (value)="email = $event">
+  </app-input>
+</div>
+<div class="row">
+  <app-input
+    [type]="inputType.TEXT"
+    [placeholder]="'Book Name or URL'"
+    [required]="true"
+    (value)="email = $event">
+  </app-input>
+</div>
+<div class="row text-area">
+  <app-input
+      [type]="inputType.TEXT_AREA"
+      [placeholder]="'Message'"
+      [required]="true"
+      (value)="message = $event">
+  </app-input>
+</div>
+<div  class="submit" (click)="submit()" [ngClass]="{'loading': (loading$ | async)}">
+  <span *ngIf="!(loading$ | async)">Submit</span>
+  <span *ngIf="(loading$ | async)" ><img src="assets/images/spinner.svg"></span>
+</div>
+

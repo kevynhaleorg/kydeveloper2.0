@@ -55,9 +55,9 @@ export interface IResumeExperience {
 
 export interface IBookRecommendationRequest {
   name: string;
-  bookUrl: string;
+  book: string;
   email: string;
-  why: string;
+  message: string;
 }
 
 export interface IReadingListRequest {

@@ -21,6 +21,7 @@ export interface IAboutReadingItemState {
 export interface IAboutRecommendBookState {
   loading: boolean;
   error: boolean;
+  recommended: boolean;
 }
 
 export interface IAboutBiographyState {
@@ -75,7 +76,8 @@ const INITIAL_STATE: IAboutState = {
     },
     recommendBook: {
       loading: false,
-      error: false
+      error: false,
+      recommended:false
     },
     biography: {
       loading: false,

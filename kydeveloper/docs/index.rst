@@ -11,10 +11,17 @@ Welcome to KyDeveloper2.0's documentation!
    :caption: Contents:
 
 
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Test
+===================
+.. toctree::
+  :glob:
+  :maxdepth: 2
+  
+  test/index

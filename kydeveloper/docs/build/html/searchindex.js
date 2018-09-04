@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index","test/index"],envversion:53,filenames:["index.rst","test/index.rst"],objects:{},objnames:{},objtypes:{},terms:{index:0,modul:0,page:0,search:0},titles:["Welcome to KyDeveloper2.0\u2019s documentation!","Test:"],titleterms:{document:0,indic:0,kydeveloper2:0,tabl:0,test:[0,1],welcom:0}})
