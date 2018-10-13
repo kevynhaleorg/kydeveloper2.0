@@ -1,3 +1,22 @@
-<p>
-  resume works!
-</p>
+<div class="top-buttons">
+  <a href="http://linkedin.com" target="_blank">
+    <div class="top-button">
+      Linked In
+    </div>
+  </a>
+  <div class="top-button" (click)="showRecommend()">
+    Ask me to Speak
+  </div>
+</div>
+
+<div class="intro">
+  A list of my past jobs, education, presentations, and accomplishments!
+</div>
+
+<div class="underline"></div>
+
+<app-overlay *ngIf="_showSideModal">
+    <app-side-modal [whiteList]="['top-button']">
+      <router-outlet></router-outlet>
+    </app-side-modal>
+</app-overlay>

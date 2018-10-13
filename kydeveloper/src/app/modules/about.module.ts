@@ -9,6 +9,7 @@ import { KyDeveloperRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared.module';
 import { ReadingItemComponent } from '../pages/about/reading-list/reading-item/reading-item.component';
 import { RecommendComponent } from '../pages/about/reading-list/recommend/recommend.component';
+import { SpeakingComponent } from '../pages/about/resume/speaking/speaking.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RecommendComponent } from '../pages/about/reading-list/recommend/recomm
     ResumeComponent,
     AboutPresentationsComponent,
     ReadingItemComponent,
-    RecommendComponent
+    RecommendComponent,
+    SpeakingComponent
   ],
   exports: [ReadingItemComponent, RecommendComponent]
 })

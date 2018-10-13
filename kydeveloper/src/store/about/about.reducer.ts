@@ -215,7 +215,8 @@ export function aboutReducer(
         ...state,
         recommendBook: {
           ...state.recommendBook,
-          loading: false
+          loading: false,
+          recommended: true
         }      
       }
     }

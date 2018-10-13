@@ -1,0 +1,25 @@
+@import '../../../../styles.scss';
+
+.top-buttons {
+  display: flex;
+  flex-direction:row;
+  height: 50px;
+
+  .top-button {
+    font-weight: bold;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: $rl-box-background;
+    border: 1px solid $rl-review;
+    color: $rl-review;
+    font-family: $body-font;
+    font-size: 24px;
+
+    margin-right: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+  }
+}

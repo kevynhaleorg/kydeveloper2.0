@@ -24,6 +24,7 @@ import { UnsubscribeComponent } from './pages/subscribe/unsubscribe/unsubscribe.
 import { AboutPresentationsComponent } from './pages/about/presentations/presentations.component';
 import { RecommendComponent } from './pages/about/reading-list/recommend/recommend.component';
 import { ReadingItemComponent } from './pages/about/reading-list/reading-item/reading-item.component';
+import { SpeakingComponent } from './pages/about/resume/speaking/speaking.component';
 
 const routes: Routes = [
 
@@ -41,7 +42,9 @@ const routes: Routes = [
                     { path: "recommend", component: RecommendComponent },
                     { path: ":readingItemId", component: ReadingItemComponent }
                 ]},
-                { path: "resume", component: ResumeComponent},
+                { path: "resume", component: ResumeComponent, children: [
+                    {path: "speak", component: SpeakingComponent }
+                ]},
                 { path: "presentations", component: AboutPresentationsComponent}
             ] },
             { path: "portfolio", component: PortfolioRootComponent, children: [
