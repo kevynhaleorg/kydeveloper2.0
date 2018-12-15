@@ -3,12 +3,14 @@
 
 .container {
 
+  font-family: $body-font;
+
   display:flex;
   flex-direction: row;
   flex-wrap: wrap; 
 
   .milestone-cont {
-    padding: 15px;
+    padding: 10px;
     flex: auto;
     display: flex;
     align-items: center;
@@ -17,9 +19,22 @@
 
     .milestone {
       height: 110px;
-      width: 220px;
-      background-color: white;
+      width: 200px;
+      background-image: linear-gradient(0deg, #ECF1F8 1%, #FFFFFF 98%);
       box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.30);
+      padding: 10px;
+      box-sizing:border-box;
+
+      .date {
+        color: #5A91DD;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .summary {
+        color: #565656;
+        font-size: 14px;
+      }
 
       &.filler {
         opacity: 0;
@@ -30,13 +45,13 @@
   
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 500px) {
 
   .container {
     .milestone-cont {
       width: 100%;
       padding: 0px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       .milestone {
         width: 100%;
       }

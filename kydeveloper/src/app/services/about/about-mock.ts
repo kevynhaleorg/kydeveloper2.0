@@ -1,4 +1,4 @@
-import {IReadingItem, IResumeResponse} from './about.service'
+import {IReadingItem, IResumeResponse, IMilestonesResponse} from './about.service'
 
 var item1: IReadingItem = {
     id: "id1",
@@ -106,10 +106,36 @@ var resume: IResumeResponse = {
   ]
 }
 
+var milestones: IMilestonesResponse = {
+  milestones: [
+    {
+      date: '3/26/2015',
+      content: 'Abigial was born weighing 13oz. She is a survivor.'
+    },
+    {
+      date: '3/26/2015',
+      content: 'Abigial was born weighing 13oz.'
+    },
+    {
+      date: '3/26/2015',
+      content: 'Abigial was born weighing 13oz.'
+    },
+    {
+      date: '3/26/2015',
+      content: 'Abigial was born weighing 13oz.'
+    },
+    {
+      date: '3/26/2015',
+      content: 'Abigial was born weighing 13oz.'
+    },
+  ]
+}
+
 export {
     item1,
     item2,
     item3,
     biography,
-    resume
+    resume,
+    milestones
 }

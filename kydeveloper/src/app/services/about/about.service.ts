@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { IfObservable } from 'rxjs/observable/IfObservable';
-import { item1, item2, item3, biography, resume } from './about-mock'
+import { item1, item2, item3, biography, resume, milestones } from './about-mock'
 
 @Injectable()
 export class AboutService {
@@ -37,7 +37,7 @@ export class AboutService {
   }
 
   requestMilestones(): Observable<IMilestonesResponse> {
-    return IfObservable.of({milestones: [{}, {}, {}, {}, {}]}).delay(1000)
+    return IfObservable.of(milestones).delay(1000)
   }
 
 }
