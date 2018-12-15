@@ -22,28 +22,36 @@
   </div>
 
   <div class="box">
-    <div class="image">
-      <img src="{{( item$ | async ).coverImage}}">
-    </div>
-    <div class="right-column">
-      <div class="date">
-        {{( item$ | async ).dateAdded}}
+    <div class="row">
+      <div class="image">
+        <img src="{{( item$ | async ).coverImage}}">
       </div>
-      <div class="author">
-        {{( item$ | async ).author}}
-      </div>
-      <div class="options">
-        <a href="{{( item$ | async ).promoUrl}}" target="_blank">
-          <div class="buy-button">
-            Buy Now
+      <div class="right-column">
+        <div class="date">
+          {{( item$ | async ).dateAdded}}
+        </div>
+        <div class="author">
+          {{( item$ | async ).author}}
+        </div>
+        <div class="options">
+          <a href="{{( item$ | async ).promoUrl}}" target="_blank">
+            <div class="buy-button">
+              Buy Now
+            </div>
+          </a>
+          <div class="rating">
+            <div class="filled-star star" *ngFor="let star of array(( item$ | async).rating)">☆</div>
+            <div class="empty-star star" *ngFor="let star of array(5 - ( item$ | async).rating)">☆</div>
           </div>
-        </a>
-        <div class="rating">
-          <div class="filled-star star" *ngFor="let star of array(( item$ | async).rating)">☆</div>
-          <div class="empty-star star" *ngFor="let star of array(5 - ( item$ | async).rating)">☆</div>
         </div>
       </div>
     </div>
+    <div class="row bottom-row">
+      <div class="author">
+        {{( item$ | async ).author}}
+      </div>
+    </div>
+    
   </div>
 
   <div [innerHtml]="(item$ | async).summary" class="summary"></div>

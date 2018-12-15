@@ -49,7 +49,7 @@ $buy-button: #EDF1F8;
 
   .box {
     display: flex;
-    flex-direction:row;
+    flex-direction: column;
     min-height:200px;
     width: calc(100% - 20px);
     background-color: white;
@@ -58,71 +58,81 @@ $buy-button: #EDF1F8;
     margin-bottom: 20px;
     padding:10px;
 
-    .image {
-      img {
-        width: 150px; 
-      }
-      margin-right: 20px;
-    }
-
-    .right-column {
+    .row {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
 
-      div {
-        font-family: $body-font;
-        font-size: 24px;
-        margin-bottom: 15px;
-        color: #668BBE;
+      &.bottom-row {
+        display:none;
       }
 
-      .date {
-
-      }
-
-      .author {
-
-      }
-
-      .options {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 0px;
-        align-items: center;
-
-        a {
-          .buy-button {
-            border-radius: 5px;
-            padding: 10px 30px;
-            margin-right: 20px;
-            background-color:$buy-button;
-            color: #3B8FFF;
-          }
+      .image {
+        img {
+          width: 150px; 
         }
+        margin-right: 20px;
+      }
 
-
-        .rating {
-          display:flex;
-          flex-direction:row;
-          position:relative;
-          top: 5px;
-          margin-right: 30px;
-
-          .star {
-            margin-right: 8px;
-            font-size:28px;
-            color:$star;
+      .right-column {
+        display: flex;
+        flex-direction: column;
+  
+        div {
+          font-family: $body-font;
+          font-size: 24px;
+          margin-bottom: 15px;
+          color: #668BBE;
+        }
+  
+        .date {
+  
+        }
+  
+        .author {
+  
+        }
+  
+        .options {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 0px;
+          align-items: center;
+  
+          a {
+            .buy-button {
+              border-radius: 5px;
+              padding: 10px 30px;
+              margin-right: 20px;
+              background-color:$buy-button;
+              color: #3B8FFF;
+            }
           }
-          .filled-star {
-
-            &:before {
-              content: "\2605";
-              position:absolute;
+  
+  
+          .rating {
+            display:flex;
+            flex-direction:row;
+            position:relative;
+            top: 5px;
+            margin-right: 30px;
+  
+            .star {
+              margin-right: 8px;
+              font-size:28px;
+              color:$star;
+            }
+            .filled-star {
+  
+              &:before {
+                content: "\2605";
+                position:absolute;
+              }
             }
           }
         }
       }
     }
+
   }
 
   .summary {
@@ -140,6 +150,77 @@ $buy-button: #EDF1F8;
   :host /deep/ .summary {
     img {
        max-width: 100%;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .item-container {
+
+    .tag-row {
+      .category {
+        margin-right: 10px;
+        padding: 0px 20px;
+      }
+    }
+
+    .box {
+
+      .row {
+
+        &.bottom-row {
+          display: flex;
+          flex-direction:column;
+
+          margin-top: 10px;
+
+          font-family: $body-font;
+          font-size: 24px;
+          margin-bottom: 15px;
+          color: #668BBE;
+        }
+
+
+        .image {
+          margin-right: 10px;
+        }
+        .right-column {
+          justify-content: center;
+          width: 100%;
+          .date {
+            text-align: center;
+            font-size: 18px;
+          }
+          .author {
+            display: none;
+          }
+          .options {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+  
+            a {
+              .buy-button {
+                margin-right:0px;
+                text-align: center;
+                padding: 10px 15px;
+              }
+            }
+  
+            .rating {
+              margin-right: 0px;
+              .star {
+                font-size: 18px;
+                margin-right: 3px;
+              }
+            }
+          }
+        }
+
+      }
+      
     }
   }
 
