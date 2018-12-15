@@ -1,4 +1,4 @@
-import {IReadingItem} from './about.service'
+import {IReadingItem, IResumeResponse} from './about.service'
 
 var item1: IReadingItem = {
     id: "id1",
@@ -53,9 +53,32 @@ Cum quod delicatissimi id, id eum justo concludaturque, vim dolore tibique sense
 Per animal deserunt et, vim omnis harum simul eu, noster conceptam ut pri. Ea est tempor deleniti, per ad debitis consetetur posidonium. Cu blandit fastidii qui, ex aperiam reprimique quo. Dicta semper pro ea.
 </p>`
 
+var resume: IResumeResponse = {
+  jobExperience: [
+    {
+      business: 'LogMeIn',
+      position: 'Software Developer',
+      image: "https://pbs.twimg.com/profile_images/696718591685570564/ousEiWMV_400x400.png",
+      startDate: 'April 2018',
+      endDate: 'present',
+      summary: 'Per animal deserunt et, vim omnis harum simul eu, noster conceptam ut pri. Ea est tempor deleniti, per ad debitis consetetur posidonium. Cu blandit fastidii qui, ex aperiam reprimique quo. Dicta semper pro ea.',
+    },
+    {
+      business: 'Jive Communications',
+      position: 'Software Developer',
+      image: "https://www.business.com/images/rev/prod/ce/55229-jive-communications-box.jpg",
+      startDate: 'November 2013',
+      endDate: 'April 2018',
+      summary: 'Per animal deserunt et, vim omnis harum simul eu, noster conceptam ut pri. Ea est tempor deleniti, per ad debitis consetetur posidonium. Cu blandit fastidii qui, ex aperiam reprimique quo. Dicta semper pro ea.',
+    }
+  ],
+  education: [ {}, {} ],
+  presentation: [ {}, {} ]}
+
 export {
     item1,
     item2,
     item3,
-    biography
+    biography,
+    resume
 }

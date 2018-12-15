@@ -19,27 +19,41 @@
   <img src="assets/images/30.svg">
 </div>
 
-<section *ngIf="!(loading$ | async)">
+<section *ngIf="!(loading$ | async) && (resume$ | async)?.jobExperience.length > 0">
   <div class="section-title">
     Jobs
   </div>
   <div class="section-item" *ngFor="let item of (resume$ | async)?.jobExperience || []">
-
+    <div class="section-image">
+      <img [src]="item.image">
+    </div>
+    <div class="section-content">
+      <div class="title-row">
+        <div>{{item.business}}: {{item.position}}</div>
+        <div class="detail-button">Job Detail</div>
+      </div>
+      <div class="date-row">
+        {{item.startDate}} to {{item.endDate}}
+      </div>
+      <div class="summary-row">
+        {{item.summary}}
+      </div>
+    </div>
   </div>
 </section>
-<section *ngIf="!(loading$ | async)">
+<section *ngIf="!(loading$ | async) && (resume$ | async)?.education.length > 0">
   <div class="section-title">
     Education
   </div>
-  <div class="section-item" *ngFor="let item of (resume$ | async)?.jobExperience || []">
+  <div class="section-item" *ngFor="let item of (resume$ | async)?.education || []">
 
   </div>
 </section>
-<section *ngIf="!(loading$ | async)">
+<section *ngIf="!(loading$ | async) && (resume$ | async)?.presentation.length > 0">
   <div class="section-title">
     Presentations
   </div>
-  <div class="section-item" *ngFor="let item of (resume$ | async)?.jobExperience || []">
+  <div class="section-item" *ngFor="let item of (resume$ | async)?.presentation || []">
 
   </div>
 </section>

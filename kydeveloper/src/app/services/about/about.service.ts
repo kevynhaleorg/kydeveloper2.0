@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { IfObservable } from 'rxjs/observable/IfObservable';
-import { item1, item2, item3, biography } from './about-mock'
+import { item1, item2, item3, biography, resume } from './about-mock'
 
 @Injectable()
 export class AboutService {
@@ -25,7 +25,7 @@ export class AboutService {
   }
 
   getResume(): Observable<IResumeResponse> {
-    return IfObservable.of({ jobExperience: [ {}, {} ], education: [ {}, {} ], presentation: [ {}, {} ]}).delay(1000)
+    return IfObservable.of(resume).delay(1000)
   }
 
   getPresentations(): Observable<Array<IPresentation>> {
@@ -48,6 +48,7 @@ export interface IResumeResponse {
 
 export interface IResumeExperience {
   business?: string;
+  position?: string;
   image?: string;
   startDate?: string;
   endDate?: string;
