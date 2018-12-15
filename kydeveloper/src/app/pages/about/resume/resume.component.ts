@@ -2,6 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SideModalComponent } from '../../../components/side-modal/side-modal.component';
 import { Subscription } from 'rxjs/Subscription';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
+import { IResumeResponse } from '../../../services/about/about.service';
+import { AboutActions } from '../../../../actions/about/about.actions';
 
 @Component({
   selector: 'app-resume',
@@ -10,11 +14,12 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ResumeComponent implements OnInit {
 
-  constructor(private _router: Router,) { }
+  constructor(private _actions: AboutActions, private _router: Router,) { }
+
+  @select(['about', 'resume', 'resume']) readonly resume$: Observable<IResumeResponse>
+  @select(['about', 'resume', 'loading']) readonly loading$: Observable<boolean>
 
   _showSideModal: boolean = false
-
-  dropDownItems: string[] = [ "all", "development", "design", "self-help" ]
 
   @ViewChild(SideModalComponent) set sm(sideModal: SideModalComponent) {
     if (sideModal !=  null) {
@@ -33,6 +38,8 @@ export class ResumeComponent implements OnInit {
           this.matchSubRoute(_event.url)
         }
       })
+    
+    this._actions.getResume()
   }
 
   ngOnDestroy() {

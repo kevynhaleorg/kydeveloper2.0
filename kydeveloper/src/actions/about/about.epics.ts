@@ -42,7 +42,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.getReadingListError(error))),
                                 startWith(this._actions.getReadingListStart()))
                     })
-            )       
+            )
     }
 
     getReadingItem(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -57,7 +57,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.getReadingItemError(error))),
                                 startWith(this._actions.getReadingItemStart()))
                     })
-            )       
+            )
     }
 
     recommendBook(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -72,7 +72,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.recommendBookError(error))),
                                 startWith(this._actions.recommendBookStart()))
                     })
-            )       
+            )
     }
 
     getBiography(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -87,7 +87,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.getBiographyError(error))),
                                 startWith(this._actions.getBiographyStart()))
                     })
-            )       
+            )
     }
 
     getResume(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -102,7 +102,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.getResumeError(error))),
                                 startWith(this._actions.getResumeStart()))
                     })
-            )       
+            )
     }
 
     getPresentations(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -117,7 +117,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.getPresentationsError(error))),
                                 startWith(this._actions.getPresentationsStart()))
                     })
-            )       
+            )
     }
 
     requestPresentation(action$: ActionsObservable<any>, store: any): Observable<any> {
@@ -132,7 +132,7 @@ export class AboutEpics implements EpicCreator {
                                 catchError(error => of(this._actions.requestPresentationError(error))),
                                 startWith(this._actions.requestPresentationStart()))
                     })
-            )       
+            )
     }
 
 

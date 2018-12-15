@@ -25,7 +25,7 @@ export class AboutService {
   }
 
   getResume(): Observable<IResumeResponse> {
-    return IfObservable.of(null).delay(1000)
+    return IfObservable.of({ jobExperience: [ {}, {} ], education: [ {}, {} ], presentation: [ {}, {} ]}).delay(1000)
   }
 
   getPresentations(): Observable<Array<IPresentation>> {
@@ -39,18 +39,19 @@ export class AboutService {
 }
 
 export interface IResumeResponse {
-  summary: string;
-  jobExperience: Array<IResumeExperience>;
-  education: Array<IResumeExperience>;
-  skills: Array<string>
+  summary?: string;
+  jobExperience?: IResumeExperience[];
+  education?: IResumeExperience[];
+  presentation?: IPresentation[]
+  skills?: string[]
 }
 
 export interface IResumeExperience {
-  business: string;
-  image: string;
-  startDate: string;
-  endDate: string;
-  summary: string;
+  business?: string;
+  image?: string;
+  startDate?: string;
+  endDate?: string;
+  summary?: string;
 }
 
 export interface IBookRecommendationRequest {
@@ -86,10 +87,10 @@ export interface IReadingItem {
 }
 
 export interface IPresentation {
-  url: string;
-  event: string;
-  date: string;
-  summary: string;
+  url?: string;
+  event?: string;
+  date?: string;
+  summary?: string;
 }
 
 export interface IPresentationRequest {

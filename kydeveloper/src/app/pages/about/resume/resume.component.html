@@ -1,5 +1,5 @@
 <div class="top-buttons">
-  <a href="http://linkedin.com" target="_blank">
+  <a href="https://www.linkedin.com/in/kevyn-hale-4285698a/" target="_blank">
     <div class="top-button">
       Linked In
     </div>
@@ -14,6 +14,35 @@
 </div>
 
 <div class="underline"></div>
+
+<div class="loading" *ngIf="(loading$ | async)">
+  <img src="assets/images/30.svg">
+</div>
+
+<section *ngIf="!(loading$ | async)">
+  <div class="section-title">
+    Jobs
+  </div>
+  <div class="section-item" *ngFor="let item of (resume$ | async)?.jobExperience || []">
+
+  </div>
+</section>
+<section *ngIf="!(loading$ | async)">
+  <div class="section-title">
+    Education
+  </div>
+  <div class="section-item" *ngFor="let item of (resume$ | async)?.jobExperience || []">
+
+  </div>
+</section>
+<section *ngIf="!(loading$ | async)">
+  <div class="section-title">
+    Presentations
+  </div>
+  <div class="section-item" *ngFor="let item of (resume$ | async)?.jobExperience || []">
+
+  </div>
+</section>
 
 <app-overlay *ngIf="_showSideModal">
     <app-side-modal [whiteList]="['top-button']">
