@@ -11,7 +11,7 @@ import { AboutActions } from '../../../../actions';
 })
 export class AboutMilestonesComponent implements OnInit {
 
-  @select(['about', 'milestones', 'milestones']) readonly resume$: Observable<IMilestone[]>
+  @select(['about', 'milestones', 'milestones']) readonly milestones$: Observable<IMilestone[]>
   @select(['about', 'milestones', 'loading']) readonly loading$: Observable<boolean>
 
   constructor(private _actions: AboutActions) { }

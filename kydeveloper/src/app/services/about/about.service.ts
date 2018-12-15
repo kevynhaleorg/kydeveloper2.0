@@ -37,7 +37,7 @@ export class AboutService {
   }
 
   requestMilestones(): Observable<IMilestonesResponse> {
-    return IfObservable.of({milestones: []}).delay(1000)
+    return IfObservable.of({milestones: [{}, {}, {}, {}, {}]}).delay(1000)
   }
 
 }

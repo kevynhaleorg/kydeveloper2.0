@@ -7,4 +7,16 @@
   <div class="loading" *ngIf="(loading$ | async)">
     <img src="assets/images/30.svg">
   </div>
+
+  <div class="container">
+    <div class="milestone-cont" *ngFor="let milestone of (milestones$ | async)">
+      <div class="milestone">
+        test
+      </div>
+    </div>
+    <div class="milestone-cont"><div class="milestone filler"></div></div>
+    <div class="milestone-cont"><div class="milestone filler"></div></div>
+    <div class="milestone-cont"><div class="milestone filler"></div></div>
+      
+  </div>
     

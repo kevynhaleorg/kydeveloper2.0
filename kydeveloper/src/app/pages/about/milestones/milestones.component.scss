@@ -1,1 +1,45 @@
 @import '../../../../styles.scss';
+
+
+.container {
+
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+
+  .milestone-cont {
+    padding: 15px;
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .milestone {
+      height: 110px;
+      width: 220px;
+      background-color: white;
+      box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.30);
+
+      &.filler {
+        opacity: 0;
+      }
+    }
+  }
+
+  
+}
+
+@media only screen and (max-width: 550px) {
+
+  .container {
+    .milestone-cont {
+      width: 100%;
+      padding: 0px;
+      margin-bottom: 30px;
+      .milestone {
+        width: 100%;
+      }
+    }
+  }
+}
