@@ -53,6 +53,7 @@ export interface IResumeExperience {
   startDate?: string;
   endDate?: string;
   summary?: string;
+  id?: string;
 }
 
 export interface IEducation {
@@ -62,6 +63,7 @@ export interface IEducation {
   startDate?: string;
   endDate?: string;
   summary?: string;
+  id?: string;
 }
 
 export interface IBookRecommendationRequest {
@@ -102,6 +104,7 @@ export interface IPresentationSummary {
   title?: string;
   date?: string;
   summary?: string;
+  id?:string
 }
 
 export interface IPresentationRequest {

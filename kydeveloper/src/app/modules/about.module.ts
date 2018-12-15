@@ -10,6 +10,9 @@ import { SharedModule } from '../shared.module';
 import { ReadingItemComponent } from '../pages/about/reading-list/reading-item/reading-item.component';
 import { RecommendComponent } from '../pages/about/reading-list/recommend/recommend.component';
 import { SpeakingComponent } from '../pages/about/resume/speaking/speaking.component';
+import { ResumeJobComponent } from '../pages/about/resume/resume-job/resume-job.component';
+import { ResumePresentationComponent } from '../pages/about/resume/resume-presentation/resume-presentation.component';
+import { ResumeEducationComponent } from '../pages/about/resume/resume-education/resume-education.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,10 @@ import { SpeakingComponent } from '../pages/about/resume/speaking/speaking.compo
     AboutPresentationsComponent,
     ReadingItemComponent,
     RecommendComponent,
-    SpeakingComponent
+    SpeakingComponent,
+    ResumeJobComponent,
+    ResumePresentationComponent,
+    ResumeEducationComponent
   ],
   exports: [ReadingItemComponent, RecommendComponent]
 })

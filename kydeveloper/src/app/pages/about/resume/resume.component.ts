@@ -61,13 +61,25 @@ export class ResumeComponent implements OnInit {
     this.routeTo("speak")
   }
 
+  showJobDetail(id: string) {
+    this.routeTo("job/" + id)
+  }
+
+  showEducationDetail(id: string) {
+    this.routeTo("education/" + id)
+  }
+
+  showPresentationDetail(id: string) {
+    this.routeTo("presentation/" + id)
+  }
+
   routeTo(route:string) {
     const cleanRoute: string = route.replace(/\s/g, "")
     this._router.navigate([`/about/resume/${cleanRoute}`])
   }
 
   matchSubRoute(url: string): void {
-    this._showSideModal = url.match(/\/about\/resume\/([a-zA-Z0-9]+)$/i) != null
+    this._showSideModal = url.match(/\/about\/resume\/([a-zA-Z0-9]+)$/i) != null || url.match(/\/about\/resume\/([a-zA-Z0-9]+)\/([a-zA-Z0-9]+)$/i) != null
   }
 
 }

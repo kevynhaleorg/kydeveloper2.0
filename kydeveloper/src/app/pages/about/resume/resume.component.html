@@ -30,7 +30,7 @@
     <div class="section-content">
       <div class="title-row">
         <div>{{item.business}}: {{item.position}}</div>
-        <div class="detail-button">Job Detail</div>
+        <div class="detail-button" (click)="showJobDetail(item.id)">Job Detail</div>
       </div>
       <div class="date-row">
         {{item.startDate}} to {{item.endDate}}
@@ -52,7 +52,7 @@
     <div class="section-content">
       <div class="title-row">
         <div>{{item.school}}: {{item.degree}}</div>
-        <div class="detail-button">Detail</div>
+        <div class="detail-button" (click)="showEducationDetail(item.id)">Detail</div>
       </div>
       <div class="date-row">
         {{item.startDate}} to {{item.endDate}}
@@ -74,7 +74,7 @@
     <div class="section-content">
       <div class="title-row">
         <div>{{item.event}}: {{item.title}}</div>
-        <div class="detail-button">Watch</div>
+        <div class="detail-button" (click)="showPresentationDetail(item.id)">Watch</div>
       </div>
       <div class="date-row">
         {{item.date}}
@@ -87,7 +87,7 @@
 </section>
 
 <app-overlay *ngIf="_showSideModal">
-    <app-side-modal [whiteList]="['top-button']">
+    <app-side-modal [whiteList]="['top-button', 'detail-button']">
       <router-outlet></router-outlet>
     </app-side-modal>
 </app-overlay>

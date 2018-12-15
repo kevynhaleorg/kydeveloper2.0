@@ -25,6 +25,9 @@ import { AboutPresentationsComponent } from './pages/about/presentations/present
 import { RecommendComponent } from './pages/about/reading-list/recommend/recommend.component';
 import { ReadingItemComponent } from './pages/about/reading-list/reading-item/reading-item.component';
 import { SpeakingComponent } from './pages/about/resume/speaking/speaking.component';
+import { ResumeJobComponent } from './pages/about/resume/resume-job/resume-job.component';
+import { ResumeEducationComponent } from './pages/about/resume/resume-education/resume-education.component';
+import { ResumePresentationComponent } from './pages/about/resume/resume-presentation/resume-presentation.component';
 
 const routes: Routes = [
 
@@ -43,7 +46,10 @@ const routes: Routes = [
                     { path: ":readingItemId", component: ReadingItemComponent }
                 ]},
                 { path: "resume", component: ResumeComponent, children: [
-                    {path: "speak", component: SpeakingComponent }
+                    {path: "speak", component: SpeakingComponent },
+                    {path: "job/:jobId", component: ResumeJobComponent },
+                    {path: "education/:educationId", component: ResumeEducationComponent },
+                    {path: "presentation/:presentationId", component: ResumePresentationComponent }
                 ]},
                 { path: "presentations", component: AboutPresentationsComponent}
             ] },
