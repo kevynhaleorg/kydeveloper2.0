@@ -32,4 +32,8 @@ export class BlogComponent implements OnInit {
       })
   }
 
+  searchBoxInput($event: any) {
+    
+  }
+
 }
