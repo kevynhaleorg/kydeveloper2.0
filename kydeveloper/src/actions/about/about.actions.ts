@@ -1,7 +1,7 @@
 import { Injectable } from "../../../node_modules/@angular/core";
 import { dispatch } from "../../../node_modules/@angular-redux/store";
 import { FluxStandardAction } from "../../../node_modules/flux-standard-action";
-import { IReadingListRequest, IReadingListResponse, IReadingItem, IResumeResponse, IPresentationSummary, IPresentationRequest, IBookRecommendationRequest } from "../../app/services/about/about.service";
+import { IReadingListRequest, IReadingListResponse, IReadingItem, IResumeResponse, IPresentationSummary, IPresentationRequest, IBookRecommendationRequest, IMilestonesResponse } from "../../app/services/about/about.service";
 
 @Injectable()
 export class AboutActions {
@@ -49,6 +49,12 @@ export class AboutActions {
     static ABOUT_REQUEST_PRESENTATION_START = "ABOUT_REQUEST_PRESENTATION_START"
     static ABOUT_REQUEST_PRESENTATION_RESPONSE = "ABOUT_REQUEST_PRESENTATION_RESPONSE"
     static ABOUT_REQUEST_PRESENTATION_ERROR = "ABOUT_REQUEST_PRESENTATION_ERROR"
+
+    // MILESTONES
+    static ABOUT_REQUEST_MILESTONES = "ABOUT_REQUEST_MILESTONES"
+    static ABOUT_REQUEST_MILESTONES_START = "ABOUT_REQUEST_MILESTONES_START"
+    static ABOUT_REQUEST_MILESTONES_RESPONSE = "ABOUT_REQUEST_MILESTONES_RESPONSE"
+    static ABOUT_REQUEST_MILESTONES_ERROR = "ABOUT_REQUEST_MILESTONES_ERROR"
 
     // ACTIONS:
 
@@ -310,6 +316,42 @@ export class AboutActions {
     requestPresentationError(error: Error): FluxStandardAction<{}, {}> {
         return {
             type: AboutActions.ABOUT_REQUEST_PRESENTATION_ERROR,
+            meta: {},
+            payload: error
+        }
+    }
+
+    // Milestones
+
+    
+    @dispatch()
+    requestMilestones(): FluxStandardAction<{}, {}> {
+        return {
+            type: AboutActions.ABOUT_REQUEST_MILESTONES,
+            meta: {},
+            payload: {}
+        }
+    }
+
+    requestMilestonesStart(): FluxStandardAction<{}, {}> {
+        return {
+            type: AboutActions.ABOUT_REQUEST_MILESTONES_START,
+            meta: {},
+            payload: {}
+        }
+    }
+
+    requestMilestonesResponse(response: IMilestonesResponse): FluxStandardAction<{}, {}> {
+        return {
+            type: AboutActions.ABOUT_REQUEST_MILESTONES_RESPONSE,
+            meta: {},
+            payload: {response: response}
+        }
+    }
+
+    requestMilestonesError(error: Error): FluxStandardAction<{}, {}> {
+        return {
+            type: AboutActions.ABOUT_REQUEST_MILESTONES_ERROR,
             meta: {},
             payload: error
         }

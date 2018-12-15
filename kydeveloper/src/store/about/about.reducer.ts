@@ -1,4 +1,4 @@
-import { IReadingListResponse, IReadingItem, IResumeResponse, IPresentationSummary } from "../../app/services/about/about.service";
+import { IReadingListResponse, IReadingItem, IResumeResponse, IPresentationSummary, IMilestone } from "../../app/services/about/about.service";
 import { AboutActions } from "../../actions";
 
 
@@ -47,6 +47,12 @@ export interface IAboutRequestPresentationState {
   error: boolean;
 }
 
+export interface IAboutMilestonesState {
+  milestones: IMilestone[]
+  loading: boolean;
+  error: boolean
+}
+
 export interface IAboutState {
   readingList: IAboutReadingListState;
   readingItem: IAboutReadingItemState;
@@ -55,6 +61,7 @@ export interface IAboutState {
   resume: IAboutResumeState;
   presentations: IAboutPresentationsState;
   requestPresentation: IAboutRequestPresentationState;
+  milestones: IAboutMilestonesState;
 }
 
 
@@ -96,6 +103,11 @@ const INITIAL_STATE: IAboutState = {
       presentations: []
     },
     requestPresentation: {
+      loading: false,
+      error: false
+    },
+    milestones: {
+      milestones: [],
       loading: false,
       error: false
     }
@@ -366,6 +378,42 @@ export function aboutReducer(
         ...state,
         requestPresentation: {
           ...state.requestPresentation,
+          loading: false,
+          error: true
+        }      
+      }
+    }
+
+
+    // Milestones
+
+    case AboutActions.ABOUT_REQUEST_MILESTONES_START: {
+      return {
+        ...state,
+        milestones: {
+          ...state.milestones,
+          loading: true,
+          error: false
+        }      
+      }
+    }
+
+    case AboutActions.ABOUT_REQUEST_MILESTONES_RESPONSE: {
+      return {
+        ...state,
+        milestones: {
+          ...state.milestones,
+          loading: false,
+          milestones: action.payload.response.milestones
+        }      
+      }
+    }
+
+    case AboutActions.ABOUT_REQUEST_MILESTONES_ERROR: {
+      return {
+        ...state,
+        milestones: {
+          ...state.milestones,
           loading: false,
           error: true
         }      

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from '../pages/about/about.component';
 import { ReadingListComponent } from '../pages/about/reading-list/reading-list.component';
 import { ResumeComponent } from '../pages/about/resume/resume.component';
-import { AboutPresentationsComponent } from '../pages/about/presentations/presentations.component';
+import { AboutMilestonesComponent } from '../pages/about/milestones/milestones.component';
 import { BiographyComponent } from '../pages/about/biography/biography.component';
 import { KyDeveloperRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared.module';
@@ -24,7 +24,7 @@ import { ResumeEducationComponent } from '../pages/about/resume/resume-education
     BiographyComponent,
     ReadingListComponent,
     ResumeComponent,
-    AboutPresentationsComponent,
+    AboutMilestonesComponent,
     ReadingItemComponent,
     RecommendComponent,
     SpeakingComponent,

@@ -21,7 +21,7 @@ import { RegisterComponent } from './pages/subscribe/register/register.component
 import { RegisterWaitingComponent } from './pages/subscribe/register-waiting/register-waiting.component';
 import { RegisterSuccessComponent } from './pages/subscribe/register-success/register-success.component';
 import { UnsubscribeComponent } from './pages/subscribe/unsubscribe/unsubscribe.component';
-import { AboutPresentationsComponent } from './pages/about/presentations/presentations.component';
+import { AboutMilestonesComponent } from './pages/about/milestones/milestones.component';
 import { RecommendComponent } from './pages/about/reading-list/recommend/recommend.component';
 import { ReadingItemComponent } from './pages/about/reading-list/reading-item/reading-item.component';
 import { SpeakingComponent } from './pages/about/resume/speaking/speaking.component';
@@ -51,7 +51,7 @@ const routes: Routes = [
                     {path: "education/:educationId", component: ResumeEducationComponent },
                     {path: "presentation/:presentationId", component: ResumePresentationComponent }
                 ]},
-                { path: "presentations", component: AboutPresentationsComponent}
+                { path: "milestones", component: AboutMilestonesComponent}
             ] },
             { path: "portfolio", component: PortfolioRootComponent, children: [
                 {path: "", component: PortfolioComponent},

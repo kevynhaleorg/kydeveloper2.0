@@ -36,6 +36,20 @@ export class AboutService {
     return IfObservable.of(null).delay(1000)
   }
 
+  requestMilestones(): Observable<IMilestonesResponse> {
+    return IfObservable.of({milestones: []}).delay(1000)
+  }
+
+}
+
+export interface IMilestonesResponse {
+  milestones?: IMilestone[]
+}
+
+export interface IMilestone {
+  date?: string;
+  id?: string;
+  content?: string
 }
 
 export interface IResumeResponse {

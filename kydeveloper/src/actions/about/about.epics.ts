@@ -22,7 +22,8 @@ export class AboutEpics implements EpicCreator {
             createEpicMiddleware(this.getBiography.bind(this)),
             createEpicMiddleware(this.getResume.bind(this)),
             createEpicMiddleware(this.getPresentations.bind(this)),
-            createEpicMiddleware(this.requestPresentation.bind(this))
+            createEpicMiddleware(this.requestPresentation.bind(this)),
+            createEpicMiddleware(this.getMilestones.bind(this))
         ]
     }
 
@@ -134,6 +135,21 @@ export class AboutEpics implements EpicCreator {
                     })
             )
     }
+
+    getMilestones(action$: ActionsObservable<any>, store: any): Observable<any> {
+      return action$
+          .ofType( AboutActions.ABOUT_REQUEST_MILESTONES)
+          .pipe(
+              mergeMap(
+                  ({payload}) => {
+                      return this._aboutService.requestMilestones()
+                      .pipe(
+                        map( value => this._actions.requestMilestonesResponse(value)),
+                        catchError(error => of(this._actions.requestMilestonesError(error))),
+                        startWith(this._actions.requestMilestonesStart()))
+                  })
+          )
+  }
 
 
 }
