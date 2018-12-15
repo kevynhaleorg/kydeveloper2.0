@@ -1,7 +1,7 @@
 import { Injectable } from "../../../node_modules/@angular/core";
 import { dispatch } from "../../../node_modules/@angular-redux/store";
 import { FluxStandardAction } from "../../../node_modules/flux-standard-action";
-import { IReadingListRequest, IReadingListResponse, IReadingItem, IResumeResponse, IPresentation, IPresentationRequest, IBookRecommendationRequest } from "../../app/services/about/about.service";
+import { IReadingListRequest, IReadingListResponse, IReadingItem, IResumeResponse, IPresentationSummary, IPresentationRequest, IBookRecommendationRequest } from "../../app/services/about/about.service";
 
 @Injectable()
 export class AboutActions {
@@ -264,7 +264,7 @@ export class AboutActions {
         }
     }
 
-    getPresentationsResponse(response: Array<IPresentation>): FluxStandardAction<{}, {}> {
+    getPresentationsResponse(response: Array<IPresentationSummary>): FluxStandardAction<{}, {}> {
         return {
             type: AboutActions.ABOUT_GET_PRESENTATIONS_RESPONSE,
             meta: {},

@@ -46,7 +46,21 @@
     Education
   </div>
   <div class="section-item" *ngFor="let item of (resume$ | async)?.education || []">
-
+    <div class="section-image">
+      <img [src]="item.image">
+    </div>
+    <div class="section-content">
+      <div class="title-row">
+        <div>{{item.school}}: {{item.degree}}</div>
+        <div class="detail-button">Detail</div>
+      </div>
+      <div class="date-row">
+        {{item.startDate}} to {{item.endDate}}
+      </div>
+      <div class="summary-row">
+        {{item.summary}}
+      </div>
+    </div>
   </div>
 </section>
 <section *ngIf="!(loading$ | async) && (resume$ | async)?.presentation.length > 0">
@@ -54,7 +68,21 @@
     Presentations
   </div>
   <div class="section-item" *ngFor="let item of (resume$ | async)?.presentation || []">
-
+    <div class="section-image">
+      <img [src]="item.image">
+    </div>
+    <div class="section-content">
+      <div class="title-row">
+        <div>{{item.event}}: {{item.title}}</div>
+        <div class="detail-button">Watch</div>
+      </div>
+      <div class="date-row">
+        {{item.date}}
+      </div>
+      <div class="summary-row">
+        {{item.summary}}
+      </div>
+    </div>
   </div>
 </section>
 

@@ -1,4 +1,4 @@
-import { IReadingListResponse, IReadingItem, IResumeResponse, IPresentation } from "../../app/services/about/about.service";
+import { IReadingListResponse, IReadingItem, IResumeResponse, IPresentationSummary } from "../../app/services/about/about.service";
 import { AboutActions } from "../../actions";
 
 
@@ -39,7 +39,7 @@ export interface IAboutResumeState {
 export interface IAboutPresentationsState {
   loading: boolean;
   error: boolean;
-  presentations: Array<IPresentation>;
+  presentations: Array<IPresentationSummary>;
 }
 
 export interface IAboutRequestPresentationState {
@@ -56,6 +56,7 @@ export interface IAboutState {
   presentations: IAboutPresentationsState;
   requestPresentation: IAboutRequestPresentationState;
 }
+
 
 const READING_LIST_INITIAL_STATE: IAboutReadingListState = {
   loading: false,

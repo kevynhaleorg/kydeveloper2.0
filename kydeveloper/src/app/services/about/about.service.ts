@@ -28,7 +28,7 @@ export class AboutService {
     return IfObservable.of(resume).delay(1000)
   }
 
-  getPresentations(): Observable<Array<IPresentation>> {
+  getPresentations(): Observable<Array<IPresentationSummary>> {
     return IfObservable.of([]).delay(1000)
   } 
 
@@ -41,14 +41,23 @@ export class AboutService {
 export interface IResumeResponse {
   summary?: string;
   jobExperience?: IResumeExperience[];
-  education?: IResumeExperience[];
-  presentation?: IPresentation[]
+  education?: IEducation[];
+  presentation?: IPresentationSummary[]
   skills?: string[]
 }
 
 export interface IResumeExperience {
   business?: string;
   position?: string;
+  image?: string;
+  startDate?: string;
+  endDate?: string;
+  summary?: string;
+}
+
+export interface IEducation {
+  school?: string;
+  degree?: string;
   image?: string;
   startDate?: string;
   endDate?: string;
@@ -87,9 +96,10 @@ export interface IReadingItem {
   category: string;
 }
 
-export interface IPresentation {
-  url?: string;
+export interface IPresentationSummary {
+  image?: string;
   event?: string;
+  title?: string;
   date?: string;
   summary?: string;
 }
