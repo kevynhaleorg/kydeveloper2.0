@@ -4,6 +4,8 @@ import { select, dispatch } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 import { PortfolioActions } from '../../../actions/portfolio/portfolio.actions';
 import { KySelectDropdownComponent } from '../../components/ky-select-dropdown/ky-select-dropdown.component';
+import { filter } from 'rxjs/operators';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-portfolio',
@@ -21,7 +23,10 @@ export class PortfolioComponent implements OnInit {
   @select(['portfolio', 'projects', 'category']) readonly category$: Observable<string>
 
   dropDownItems: string[] = [ "all", "web apps", "design", "devops" ]
+
   @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
+
+  dropdownSub: Subscription
 
   constructor(private _portfolioActions: PortfolioActions) { }
 
@@ -29,8 +34,17 @@ export class PortfolioComponent implements OnInit {
     this._portfolioActions.getProjects()
   }
 
+  ngAfterViewInit() {
+    this.dropdownSub = this.dropdown._selected.skip(1).subscribe(
+      (value) => this.filter( value )
+    )
+  }
+
+  ngOnDestroy() {
+    if (this.dropdownSub !== undefined) this.dropdownSub.unsubscribe()
+  }
+
   filter(key: string) {
-    this.dropdown._selected.next(key)
     this._portfolioActions.setProjectsCategory(key)
   }
 
