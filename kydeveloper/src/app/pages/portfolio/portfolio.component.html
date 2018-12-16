@@ -19,15 +19,15 @@
 
   <div class="row buttons-row">
       <div class="group">
-        <div class="button" (click)="filter('all')" [ngClass]="{'selected': (filterBy$ | async) == 'all'}">All</div>
+        <div class="button" (click)="filter('all')" [ngClass]="{'selected': (category$ | async) == 'all'}">All</div>
         <div class="gutter"></div>
-        <div class="button" (click)="filter('devops')" [ngClass]="{'selected': (filterBy$ | async) == 'devops'}">Devops</div>
+        <div class="button" (click)="filter('devops')" [ngClass]="{'selected': (category$ | async) == 'devops'}">Devops</div>
       </div>
       <div class="gutter"></div>
       <div class="group">
-          <div class="button" (click)="filter('web apps')" [ngClass]="{'selected': (filterBy$ | async) == 'web apps'}">Web Apps</div>
+          <div class="button" (click)="filter('web apps')" [ngClass]="{'selected': (category$ | async) == 'web apps'}">Web Apps</div>
           <div class="gutter"></div>
-          <div class="button" (click)="filter('design')" [ngClass]="{'selected': (filterBy$ | async) == 'design'}">Design</div>
+          <div class="button" (click)="filter('design')" [ngClass]="{'selected': (category$ | async) == 'design'}">Design</div>
       </div>
   </div>
 

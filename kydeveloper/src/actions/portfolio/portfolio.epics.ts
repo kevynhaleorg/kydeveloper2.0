@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { EpicCreator } from "../../store/root.model";
-import { EpicMiddleware } from "redux-observable";
+import { EpicMiddleware, ActionsObservable } from "redux-observable";
 
 import { createEpicMiddleware } from 'redux-observable'
 import { PortfolioActions } from "./portfolio.actions";
@@ -11,40 +11,55 @@ import { map } from 'rxjs/operators/map'
 import { mergeMap } from 'rxjs/operators/mergeMap'
 import { catchError } from 'rxjs/operators/catchError'
 import { startWith } from 'rxjs/operators'
+import { Observable } from "rxjs/Observable";
+import { PortfolioService } from "../../app/services/portfolio/portfolio.service";
 
 
 
 @Injectable()
 export class PortfolioEpics implements EpicCreator {
 
-    constructor(private _actions: PortfolioActions) {}
+    constructor(
+      private _actions: PortfolioActions,
+      private _service: PortfolioService) {}
 
     createEpics() {
         return [
-            createEpicMiddleware(this.fetchProjects.bind(this)),
-            //createEpicMiddleware(this.filter.bind(this))
+            createEpicMiddleware(this.getProjects.bind(this)),
+            createEpicMiddleware(this.setProjectsCategory.bind(this)),
+            createEpicMiddleware(this.setProjectsFilter.bind(this)),
           ]
     }
 
- /**   filter(action$, store) {
+    setProjectsFilter(action$: ActionsObservable<any>, store: any): Observable<any> {
+      return action$
+        .ofType(PortfolioActions.PROJECTS_SET_FILTER)
+        .debounceTime(500)
+        .map(
+          () => this._actions.getProjectsInternal()
+        )
+    }
+
+    setProjectsCategory(action$: ActionsObservable<any>, store: any): Observable<any> {
+      return action$
+        .ofType(PortfolioActions.PROJECTS_SET_CATEGORY)
+        .map(
+          () => this._actions.getProjectsInternal()
+        )
+    }
+
+    getProjects(action$: ActionsObservable<any>, store: any): Observable<any> {
         return action$
-          .ofType(PortfolioActions.FILTER)
+          .ofType( PortfolioActions.PROJECTS_GET)
           .pipe(
-            filter(
+            mergeMap(
               ({payload}) => {
-                const currentFilter = store.getState()['portfolio'].itemState.search.filterBy
-                return payload !== currentFilter
-              }
-            ),
-            map(({payload}) => {
-              //TODO: update the list of exports
-            })
-          )
-      }*/
-
-    fetchProjects(action$, store) {
-        return action$
-            .ofType( PortfolioActions.FETCH_RESPONSE);
-
+                return this._service.getProjects()
+                  .pipe(
+                    map( value => this._actions.getProjectsResponse(value)),
+                      catchError(error => of(this._actions.getProjectsError(error))),
+                      startWith(this._actions.getProjectsStart()))
+                })
+            )
     }
 }

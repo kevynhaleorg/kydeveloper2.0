@@ -15,6 +15,7 @@ import { SubscribeService } from './services';
 import { SideModalComponent } from './components/side-modal/side-modal.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { PortfolioService } from './services/portfolio/portfolio.service';
 
 @NgModule({
   imports: [
@@ -52,7 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ContactService,
     SubscribeService,
     AboutService,
-    BlogService
+    BlogService,
+    PortfolioService
   ]
 })
 export class SharedModule { }

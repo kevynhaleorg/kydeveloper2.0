@@ -12,9 +12,13 @@ import { KySelectDropdownComponent } from '../../components/ky-select-dropdown/k
 })
 export class PortfolioComponent implements OnInit {
 
-  @select(['portfolio', 'projects']) readonly projects$: Observable<Post[]>
+  @select(['portfolio', 'projects', 'projects']) readonly projects$: Observable<Post[]>
 
-  @select(['portfolio', 'itemState', 'search', 'filterBy']) readonly filterBy$: Observable<string>
+  @select(['portfolio', 'projects', 'filter']) readonly filter$: Observable<string>
+
+  @select(['portfolio', 'projects', 'loading']) readonly loading$: Observable<boolean>
+
+  @select(['portfolio', 'projects', 'category']) readonly category$: Observable<string>
 
   dropDownItems: string[] = [ "all", "web apps", "design", "devops" ]
   @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
@@ -22,23 +26,16 @@ export class PortfolioComponent implements OnInit {
   constructor(private _portfolioActions: PortfolioActions) { }
 
   ngOnInit() {
-    this.projects$.subscribe(projects => console.log(projects))
-  }
-
-  ngAfterViewInit() {
-    this.dropdown._selected.skip(1).subscribe(
-      (selected) => {
-        this._portfolioActions.filter(selected)
-      })
+    this._portfolioActions.getProjects()
   }
 
   filter(key: string) {
     this.dropdown._selected.next(key)
-    this._portfolioActions.filter(key)
+    this._portfolioActions.setProjectsCategory(key)
   }
 
   searchBoxInput(value: string) {
-    console.log(value)
+    this._portfolioActions.setProjectsFilter(value)
   }
 
 }

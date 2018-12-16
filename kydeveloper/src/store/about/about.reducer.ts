@@ -127,7 +127,8 @@ export function aboutReducer(
         readingList: {
           ...state.readingList,
           loading: true,
-          error: false
+          error: false,
+          readingList: []
         }      
       }
     }
