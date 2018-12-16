@@ -32,7 +32,10 @@
   </div>
 
   <div class="projects">
-    <div class="items">
+    <div class="loading" *ngIf="(loading$ | async)">
+      <img src="assets/images/30.svg">
+    </div>
+    <div class="items" *ngIf="!(loading$ | async)">
       <div class="item" *ngFor="let project of (projects$ | async)">
           <a routerLink="/portfolio/{{project.id}}">
             <app-project-item [post]="project"></app-project-item>
