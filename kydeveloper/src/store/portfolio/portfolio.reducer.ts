@@ -13,8 +13,17 @@ import { PortfolioActions } from "../../actions/portfolio/portfolio.actions";
     error: boolean
   }
 
+  export interface IProjectSingleState {
+    project: Post;
+    filter: string
+    category: string
+    loading: boolean
+    error: boolean
+  }
+
 export interface IPortfolioState {
     projects: IProjectsState
+    single: IProjectSingleState
 }
 
 const INITIAL_STATE: IPortfolioState = {
@@ -24,7 +33,14 @@ const INITIAL_STATE: IPortfolioState = {
         loading: false,
         error: false,
         category: 'all'
-    }   
+    },
+    single: {
+        project: null,
+        filter: '',
+        loading: false,
+        error: false,
+        category: 'all' 
+    }
 }
 
 export function portfolioReducer(
@@ -86,6 +102,42 @@ export function portfolioReducer(
                 category: action.payload.category
               }      
             }
+        }
+
+        // SINGLE 
+
+        case PortfolioActions.PROJECTS_GET_SINGLE_START: {
+            return {
+              ...state,
+              single: {
+                ...state.single,
+                project: null,
+                loading: true,
+                error: false
+              }      
+            }
+          }
+      
+        case PortfolioActions.PROJECTS_GET_SINGLE_RESPONSE: {
+          return {
+            ...state,
+            single: {
+              ...state.single,
+              loading: false,
+              project: action.payload.response.project
+            }      
+          }
+        }
+      
+        case PortfolioActions.PROJECTS_GET_SINGLE_ERROR: {
+          return {
+            ...state,
+            single: {
+              ...state.single,
+              loading: false,
+              error: true
+            }      
+          }
         }
 
         

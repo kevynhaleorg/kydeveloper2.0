@@ -2,6 +2,15 @@
 
 $margin-bottom: 20px;
 
+.loading {
+    width: 100%;
+    position: relative;
+    img {
+        margin: 50px auto;
+        display: block;
+    }
+}
+
 .body-container {
     margin-top:20px;
     height:auto;

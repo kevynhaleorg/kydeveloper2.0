@@ -1,11 +1,15 @@
-<div class="body-container">
+<div class="loading" *ngIf="(loading$ | async)">
+  <img src="assets/images/30.svg">
+</div>
+
+<div class="body-container" *ngIf="!(loading$ |async)">
   <div class="side">
       <a routerLink="/portfolio"><div class="back">Back</div></a>
-      <div class="header-image" [ngStyle]="{'background-image': 'url(' + post.featuredimage + ')'}"></div>
+      <div class="header-image" [ngStyle]="{'background-image': 'url(' + (project$ | async)?.featuredimage + ')'}"></div>
       <div class="info-box">
-        <span class="info info-title">{{post.title}}</span>
-        <span class="info info-date">{{post.date}}</span>
-        <span class="info info-summary">{{post.summary}}</span>
+        <span class="info info-title">{{(project$ | async)?.title}}</span>
+        <span class="info info-date">{{(project$ | async)?.date}}</span>
+        <span class="info info-summary">{{(project$ | async)?.summary}}</span>
       </div>
       <div class="line-break"></div>
       <div class="social">
@@ -13,29 +17,29 @@
       </div>
   </div>
   <div class="gutter">
-    <app-post-icons class="center vertical" [likes]="post.likes" [shares]="post.shares" [comments]="post.comments"></app-post-icons>
+    <app-post-icons class="center vertical" [likes]="(project$ | async)?.likes" [shares]="(project$ | async)?.shares" [comments]="(project$ | async)?.comments"></app-post-icons>
   </div>
   <div class="content">
     <a routerLink="/portfolio"><div class="back back-content">Back to Projects</div></a>
     <div class="title-row">
       <div class="title-icon">
-        <img src="{{post.icon}}">
+        <img src="{{(project$ | async)?.icon}}">
       </div>
       <div class="title-value">
-        {{post.title}}
+        {{(project$ | async)?.title}}
       </div>
     </div>
-    <app-post-icons class="center horizontal icons-post" [likes]="post.likes" [shares]="post.shares" [comments]="post.comments"></app-post-icons>
+    <app-post-icons class="center horizontal icons-post" [likes]="(project$ | async)?.likes" [shares]="(project$ | async)?.shares" [comments]="(project$ | async)?.comments"></app-post-icons>
     <div class="featured-image">
-      <img src="{{post.featuredimage}}">
+      <img src="{{(project$ | async)?.featuredimage}}">
     </div>
     <div class="post-date">
-        {{post.date}}
+        {{(project$ | async)?.date}}
       </div>
     <div class="summary">
-      {{post.summary}}
+      {{(project$ | async)?.summary}}
     </div>
-    <div [innerHtml]="post.content" class="post-content"></div>
+    <div [innerHtml]="(project$ | async)?.content" class="post-content"></div>
     <div class="end-line-break"></div>
     <div class="comment new-comment">
         <div class="container-comment">

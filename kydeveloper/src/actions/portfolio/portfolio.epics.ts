@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
 import { EpicCreator } from "../../store/root.model";
-import { EpicMiddleware, ActionsObservable } from "redux-observable";
+import { ActionsObservable } from "redux-observable";
 
 import { createEpicMiddleware } from 'redux-observable'
 import { PortfolioActions } from "./portfolio.actions";
 
 import { of } from 'rxjs/observable/of'
-import { filter } from 'rxjs/operators/filter'
 import { map } from 'rxjs/operators/map'
 import { mergeMap } from 'rxjs/operators/mergeMap'
 import { catchError } from 'rxjs/operators/catchError'
@@ -28,6 +27,7 @@ export class PortfolioEpics implements EpicCreator {
             createEpicMiddleware(this.getProjects.bind(this)),
             createEpicMiddleware(this.setProjectsCategory.bind(this)),
             createEpicMiddleware(this.setProjectsFilter.bind(this)),
+            createEpicMiddleware(this.getSingleProject.bind(this)),
           ]
     }
 
@@ -62,4 +62,19 @@ export class PortfolioEpics implements EpicCreator {
                 })
             )
     }
+
+  getSingleProject(action$: ActionsObservable<any>, store: any): Observable<any> {
+    return action$
+      .ofType( PortfolioActions.PROJECTS_GET_SINGLE)
+      .pipe(
+        mergeMap(
+          ({payload}) => {
+            return this._service.getSingleProject(payload.projectId)
+              .pipe(
+                map( value => this._actions.getSingleProjectResponse(value)),
+                  catchError(error => of(this._actions.getSingleProjectError(error))),
+                  startWith(this._actions.getSingleProjectStart()))
+            })
+        )
+  }
 }
