@@ -2,36 +2,37 @@ import { Injectable } from "@angular/core";
 import { Post } from "../../models/post.model";
 import { Observable } from "rxjs/Observable";
 import { IfObservable } from "rxjs/observable/IfObservable";
+import { posts } from "./blog-mock";
 
 @Injectable()
 export class BlogService {
 
   constructor() { }
 
-  getPosts(request: IBlogPostsRequest): Observable<IBlogPostsResponse> {
-    return IfObservable.of(null).delay(2000)
+  getPosts(request: any): Observable<IBlogPostsResponse> {
+    return IfObservable.of({posts: posts}).delay(1000)
   }
 
-  getPost(postId: string): Observable<Post> {
-    return IfObservable.of(null).delay(2000)
+  getPost(postId: string): Observable<IBlogPostResponse> {
+    return IfObservable.of(null).delay(1000)
   }
 
   likePost(postId: string): Observable<void> {
-      return IfObservable.of(null).delay(2000)
+      return IfObservable.of(null).delay(1000)
   }
 
   viewPost(postId: string): Observable<void> {
-      return IfObservable.of(null).delay(2000)
+      return IfObservable.of(null).delay(1000)
   }
 
 }
 
 export interface IBlogPostsResponse {
-    results: Array<Post>
-    page: number;
-    pageSize: number;
-    category: string;
-    filter: string;
+    posts: Post[]
+}
+
+export interface IBlogPostResponse {
+    post: Post
 }
 
 export interface IBlogPostsRequest {

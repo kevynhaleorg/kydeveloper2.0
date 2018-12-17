@@ -1,73 +1,43 @@
 import { Post } from "../../app/models/post.model";
-import { ItemState } from "../../app/models/item-state.model";
-import { Search } from "../../app/models/search.interface";
-import { ProjectFilter } from "../../app/models/project-filer.enum";
-import { FilterDirection } from "../../app/models/filter-direction.enum";
-import { PortfolioActions } from "../../actions/portfolio/portfolio.actions";
-import { Tag } from "../../app/models/tag.model";
+import { BlogActions } from "../../actions/blog/blog.actions";
 
-const tag: Tag = {
-    id: "1",
-    name: "Asterisk"
-}
-const tag2: Tag = {
-    id: "1",
-    name: "Python"
+
+export interface IBlogPostsState {
+    posts: Post[];
+    filter: string
+    category: string
+    loading: boolean
+    error: boolean
 }
 
-const post: Post = {
-    id: "123",
-    title: "Asterisk Deploy Automation",
-    authorId: "1",
-    date: "Jan. 17, 2018",
-    featuredimage: "assets/images/post1.png",
-    likes: 5,
-    views: 10,
-    comments: 1,
-    shares:0,
-    tags: [tag, tag2],
-    summary: "I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless. I am a fullstack web developer that specializes in automation and custom tooling within linux server environmnents. I can help save your business countless…"
-  }
-
-
-
-const posts: Post[] = [
-    post,
-    post,
-    post,
-    post,
-    post,
-    post,
-    post
-  ]
-
-
-const searchState: Search = {
-    input: null,
-    filterBy: ProjectFilter.ALL,
-    filterDirection: FilterDirection.DESC,
-    tags: []
-}
-
-const itemState: ItemState = {
-    loading: false,
-    loadingMore: false,
-    search: searchState,
-    hasMore: false,
-    hasError: false,
-    page: 0,
-    pageSize: 25,
-    error: null
+export interface IBlogSingleState {
+    post: Post;
+    filter: string
+    category: string
+    loading: boolean
+    error: boolean
 }
 
 export interface IBlogState {
-    posts: Post[];
-    itemState: ItemState;
+    blog: IBlogPostsState
+    single: IBlogSingleState
 }
 
 const INITIAL_STATE: IBlogState = {
-    posts,
-    itemState
+    blog: {
+        posts: [],
+        filter: '',
+        loading: false,
+        error: false,
+        category: 'all'
+    },
+    single: {
+        post: null,
+        filter: '',
+        loading: false,
+        error: false,
+        category: 'all' 
+    }
 }
 
 export function blogReducer(
@@ -75,11 +45,102 @@ export function blogReducer(
     action: any): any {
 
 
-    switch(action.type) {
+        switch(action.type) {
 
-        default:
-            return state
-
-    }
+            case BlogActions.BLOG_GET_START: {
+                return {
+                  ...state,
+                  blog: {
+                    ...state.blog,
+                    posts: [],
+                    loading: true,
+                    error: false
+                  }      
+                }
+              }
+          
+            case BlogActions.BLOG_GET_RESPONSE: {
+              return {
+                ...state,
+                blog: {
+                  ...state.blog,
+                  loading: false,
+                  posts: action.payload.response.posts
+                }      
+              }
+            }
+          
+            case BlogActions.BLOG_GET_ERROR: {
+              return {
+                ...state,
+                blog: {
+                  ...state.blog,
+                  loading: false,
+                  error: true
+                }      
+              }
+            }
+    
+            case BlogActions.BLOG_SET_FILTER: {
+                return {
+                  ...state,
+                  blog: {
+                    ...state.blog,
+                    filter: action.payload.filter
+                  }      
+                }
+            }
+    
+            case BlogActions.BLOG_SET_CATEGORY: {
+                return {
+                  ...state,
+                  blog: {
+                    ...state.blog,
+                    category: action.payload.category
+                  }      
+                }
+            }
+    
+            // SINGLE 
+    
+            case BlogActions.BLOG_GET_SINGLE_START: {
+                return {
+                  ...state,
+                  single: {
+                    ...state.single,
+                    post: null,
+                    loading: true,
+                    error: false
+                  }      
+                }
+              }
+          
+            case BlogActions.BLOG_GET_SINGLE_RESPONSE: {
+              return {
+                ...state,
+                single: {
+                  ...state.single,
+                  loading: false,
+                  post: action.payload.response.post
+                }      
+              }
+            }
+          
+            case BlogActions.BLOG_GET_SINGLE_ERROR: {
+              return {
+                ...state,
+                single: {
+                  ...state.single,
+                  loading: false,
+                  error: true
+                }      
+              }
+            }
+    
+            
+            default:
+                return state
+    
+        }
 
 }

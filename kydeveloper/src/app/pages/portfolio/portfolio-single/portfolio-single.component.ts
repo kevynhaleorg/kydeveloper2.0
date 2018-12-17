@@ -23,7 +23,6 @@ export class PortfolioSingleComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log(this._route.snapshot)
     this._actions.getSingleProject(this._route.snapshot.params['projectid'])
   }
 

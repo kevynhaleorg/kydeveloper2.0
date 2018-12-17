@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Post } from '../../models/post.model';
 import { KySelectDropdownComponent } from '../../components/ky-select-dropdown/ky-select-dropdown.component';
 import 'rxjs/add/operator/skip';
+import { BlogActions } from '../../../actions';
 
 @Component({
   selector: 'app-blog',
@@ -16,24 +17,28 @@ export class BlogComponent implements OnInit {
   dropDownItems: string[] = [ "all", "development", "design", "devops" ]
   @ViewChild(KySelectDropdownComponent) dropdown: KySelectDropdownComponent;
 
-  @select(['blog', 'posts']) readonly posts$: Observable<Post[]>
+  @select(['blog', 'blog', 'posts']) readonly posts$: Observable<Post[]>
 
-  constructor() {
+  @select(['blog', 'blog', 'loading']) readonly loading$: Observable<boolean>
+
+
+  constructor(private _actions: BlogActions) {
     
   }
 
   ngOnInit(): void {
+    this._actions.getPosts()
   }
 
   ngAfterViewInit() {
     this.dropdown._selected.skip(1).subscribe(
       (selected) => {
-        console.log(selected)
+        this._actions.setPostsCategory(selected)
       })
   }
 
-  searchBoxInput($event: any) {
-    
+  searchBoxInput(value: any) {
+    this._actions.setPostsFilter(value)
   }
 
 }

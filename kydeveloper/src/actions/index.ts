@@ -9,6 +9,7 @@ import { SubscribeEpics } from "./subscribe/subscribe.epics";
 import { AboutActions } from "./about/about.actions";
 import { AboutEpics } from "./about/about.epics";
 import { BlogActions } from "./blog/blog.actions";
+import { BlogEpics } from "./blog/blog.epics";
 
 
 export interface IPayloadAction extends Action {
@@ -28,6 +29,7 @@ export const EPIC_PROVIDERS = [
     { provide: KY_EPICS, useClass: ContactEpics, multi: true },
     { provide: KY_EPICS, useClass: SubscribeEpics, multi: true },
     { provide: KY_EPICS, useClass: AboutEpics, multi: true },
+    { provide: KY_EPICS, useClass: BlogEpics, multi: true },
 ]
 
 export {
